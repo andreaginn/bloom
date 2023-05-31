@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
+const impactSchema = require('./Impact')
 const userSchema = new Schema({
   username: {
     type: String,
@@ -22,8 +22,8 @@ const userSchema = new Schema({
   impactScore: {
     type: Number,
     default: 0,
-  }
- 
+  },
+  dailyImpact: [impactSchema]
 });
 
 userSchema.pre('save', async function (next) {
