@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../fjO3sek7ZT.json';
 import Signup from "./Signup";
 import Login from "./Login"
 
 const Navbar = () => {
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showLogIn,setShowLogIn] = useState(false);
+ 
+  const handleSignUpClick = () => {
+    setShowSignUp(true);
+    setShowLogIn(false);
+  };
+
+  const handleLogInClick = () => {
+    setShowLogIn(true);
+    setShowSignUp(false);
+  };
+  
+
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -16,7 +30,11 @@ const Navbar = () => {
 
   return (
   <div className="navbar">
-    <ul className="nav">
+    <ul className="nav-1">
+      <li><a href="./Profile" id="nav-font">Profile</a></li>
+      <li><a href="./Calculate" id="nav-font">Footprint</a></li>
+      <li><a href="./Learn" id="nav-font">Learn</a></li>
+      </ul>
       <div className="logo">
         <h1 className="logo-text">B<span>
         <div className="animation-container">
@@ -24,15 +42,10 @@ const Navbar = () => {
       </div>
           </span>oom</h1>
       </div>
-
-      <li><a href="./Profile" id="nav-font">Profile</a></li>
-      <li><a href="./Calculate" id="nav-font">Footprint</a></li>
-      <li><a href="./Learn" id="nav-font">Learn</a></li>
+      <ul className="nav-2">
       <li><a href="./Donate" id="nav-font">Get Involved</a></li>
-      <li><a href="./Signup" id="nav-font">Sign Up</a></li>
-      <li><a href="./Login" id="nav-font">Log In</a></li>
-      <Signup />
-      <Login />
+      {showSignUp && <Signup />}
+      {showLogIn && <Login />}
     </ul>
   </div>
   );
