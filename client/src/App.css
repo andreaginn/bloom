@@ -1,7 +1,51 @@
-.animation-container {
-    width: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300&display=swap');
+
+.home-body {
+    background-image: "forest-background.jpg";
 }
 
 .home-body {
-    background-image: ;
-}
+    background-image: url("forest-background.jpg");
+    background-size: cover;
+    height: 100vh;
+  }
+
+span { 
+display: flex;
+align-items: center
+ }
+
+ .logo {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    font-family: 'Tsukimi Rounded', sans-serif;
+    color: #4876526a;
+ 
+  }
+  
+  .logo-text {
+    display: flex;
+    align-items: center;
+    font-weight: 15;
+  }
+  
+  .logo-text > span {
+    position: relative;
+  }
+  
+  .animation-container {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+  }
+  
+  .logo-text > span:first-child {
+    margin-right: -25px;
+    z-index: 2;
+  }
+  
+  .logo-text > span:last-child {
+    margin-left: -26px; 
+    z-index: 2;
+  }

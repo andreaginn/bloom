@@ -18,12 +18,11 @@ const Navbar = () => {
   <div className="navbar">
     <ul className="nav">
       <div className="logo">
-        <h1>B<span>
+        <h1 className="logo-text">B<span>
         <div className="animation-container">
         <Lottie  options={defaultOptions} />
       </div>
           </span>oom</h1>
-    
       </div>
 
       <li><a href="./Profile" id="nav-font">Profile</a></li>
