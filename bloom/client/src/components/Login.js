@@ -6,9 +6,7 @@ function LogIn () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
-        // Send a request to your backend to authenticate the user
-        // Example code (replace with your actual API call):
+  
         fetch('/api/login', {
           method: 'POST',
           body: JSON.stringify({ email, password }),
@@ -18,11 +16,9 @@ function LogIn () {
         })
           .then((response) => response.json())
           .then((data) => {
-            // Handle the response from the server
             console.log(data);
           })
           .catch((error) => {
-            // Handle any error that occurred during the request
             console.error(error);
           });
       };

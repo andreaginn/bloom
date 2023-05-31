@@ -7,9 +7,6 @@ function SignUp () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
-        // Send a request to your backend to create a new user account
-        // Example code (replace with your actual API call):
         fetch('/api/signup', {
           method: 'POST',
           body: JSON.stringify({ name, email, password }),
@@ -19,11 +16,9 @@ function SignUp () {
         })
           .then((response) => response.json())
           .then((data) => {
-            // Handle the response from the server
             console.log(data);
           })
           .catch((error) => {
-            // Handle any error that occurred during the request
             console.error(error);
           });
       };
