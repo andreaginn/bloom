@@ -3,14 +3,11 @@ const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-    // Query: {
-    //   users: async () => {
-    //     return User.find().populate('thoughts');
-    //   },
-    //   user: async (parent, { username }) => {
-    //     return User.findOne({ username }).populate('thoughts');
-    //   },
-    // },
+    Query: {
+      user: async (parent, { username }) => {
+        return User.findOne({ username });
+      },
+    },
   
     Mutation: {
       addUser: async (parent, { username, email, password }) => {
