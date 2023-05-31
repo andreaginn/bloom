@@ -2,9 +2,16 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
+<<<<<<< HEAD:bloom/server/schemas/typeDefs.js
     _id: ID!
     username: String!
     email: String!
+=======
+    _id: ID
+    username: String
+    email: String
+    password: String
+>>>>>>> main:server/schemas/typeDefs.js
   }
 
   type Auth {
@@ -12,10 +19,9 @@ const typeDefs = gql`
     user: User
   }
 
-#   type Query {
-#     users: [User]
-#     user(username: String!): User
-#   }
+  type Query {
+    user(username: String!): User
+  }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth

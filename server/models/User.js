@@ -19,6 +19,11 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  impactScore: {
+    type: Number,
+    default: 0,
+  }
+ 
 });
 
 userSchema.pre('save', async function (next) {
