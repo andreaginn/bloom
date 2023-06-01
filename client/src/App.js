@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js';
+import Preloader from './components/Preloader.js';
+import './App.css';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
@@ -29,11 +31,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
+        <Preloader />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

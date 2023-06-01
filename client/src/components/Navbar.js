@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../fjO3sek7ZT.json';
 import Signup from "./Signup";
-import Login from "./Login"
+import Login from "./Login";
 
 const Navbar = () => {
 
