@@ -1,7 +1,86 @@
-.animation-container {
-    width: 50px;
+@import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300&display=swap');
+
+.home-body {
+    background-image: "forest-background.jpg";
 }
 
 .home-body {
-    background-image: ;
+    background-image: url("forest-background.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+span {
+    display: flex;
+    align-items: center
+}
+
+.logo {
+    display: flex;
+    align-items: flex-end;
+    font-size: 35px;
+    font-family: 'Tsukimi Rounded', sans-serif;
+    color: #48765295;
+}
+
+.logo-text {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 15;
+}
+
+.logo-text>span {
+    position: relative;
+}
+
+.animation-container {
+    position: relative;
+    z-index: 1;
+    width: 70px;
+    height: 200px;
+    margin-bottom: 8px;
+}
+
+.logo-text>span:first-child {
+    margin-right: -25px;
+    z-index: 2;
+}
+
+.logo-text>span:last-child {
+    margin-left: -32px;
+    z-index: 2;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.nav-1,
+.nav-2 {
+    display: flex;
+    list-style: none;
+    margin-top: 15vh;
+}
+
+.nav-1 li,
+.nav-2 li {
+    margin-right: 15px;
+}
+
+
+.nav-1 {
+    margin-left: 20vh;
+}
+
+
+.nav-2 {
+    margin-right: 20vh;
+}
+
+
+#nav-font {
+    text-decoration: none;
+    color: inherit;
 }

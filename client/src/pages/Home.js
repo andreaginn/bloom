@@ -4,6 +4,7 @@ import Button from '../components/Button.js';
 import ImpactModal from '../components/ImpactModal.js';
 
 
+
 const Home = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const handleClick = () => {
