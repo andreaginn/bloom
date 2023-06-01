@@ -5,19 +5,7 @@ import Signup from "./Signup";
 import Login from "./Login"
 
 const Navbar = () => {
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [showLogIn,setShowLogIn] = useState(false);
- 
-  const handleSignUpClick = () => {
-    setShowSignUp(true);
-    setShowLogIn(false);
-  };
 
-  const handleLogInClick = () => {
-    setShowLogIn(true);
-    setShowSignUp(false);
-  };
-  
 
   const defaultOptions = {
     loop: false,
@@ -44,8 +32,8 @@ const Navbar = () => {
       </div>
       <ul className="nav-2">
       <li><a href="./Donate" id="nav-font">Get Involved</a></li>
-      {showSignUp && <Signup />}
-      {showLogIn && <Login />}
+      <Signup />
+      {/* {showLogIn && <Login />} */}
     </ul>
   </div>
   );
