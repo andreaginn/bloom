@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import animationData from '../fjO3sek7ZT.json';
 import Signup from "./Signup";
 import Login from "./Login";
+import Auth from '../utils/auth';
 
 const Navbar = () => {
 
@@ -17,26 +19,34 @@ const Navbar = () => {
   };
 
   return (
-  <div className="navbar">
-    <ul className="nav-1">
-      <li><a href="./Profile" id="nav-font">Profile</a></li>
-      <li><a href="./Calculate" id="nav-font">Footprint</a></li>
-      <li><a href="./Learn" id="nav-font">Learn</a></li>
+    <div className="navbar">
+      <ul className="nav-1">
+        {Auth.loggedIn() ? (
+          <>
+            <li><a href="./Profile" id="nav-font">Profile</a></li>
+            <li><a href="./Calculate" id="nav-font">Footprint</a></li>
+            <li><a href="./Learn" id="nav-font">Learn</a></li>
+            <Link id="nav-font" onClick={Auth.logout}>Logout</Link>
+          </>
+        ) : (
+          <>
+            <Signup />
+            <Login />
+          </>
+        )}
       </ul>
-      <div className="logo">
+      <Link className="logo" as={Link} to='/' >
         <h1 className="logo-text">B<span>
-        <div className="animation-container">
-        <Lottie  options={defaultOptions} />
-      </div>
-          </span>oom</h1>
-      </div>
+          <div className="animation-container">
+            <Lottie options={defaultOptions} />
+          </div>
+        </span>oom</h1>
+      </Link>
       <ul className="nav-2">
-      <li><a href="./Donate" id="nav-font">Get Involved</a></li>
-      <Signup />
-      {/* {showLogIn && <Login />} */}
-    </ul>
-  </div>
+        <li><a href="./Donate" id="nav-font">Get Involved</a></li>
+      </ul>
+    </div>
   );
 }
 
-  export default Navbar
+export default Navbar
