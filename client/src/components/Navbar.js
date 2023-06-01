@@ -32,6 +32,7 @@ const Navbar = () => {
       <li><a href="./Donate" id="nav-font">Get Involved</a></li>
       <li><a href="./Signup" id="nav-font">Sign Up</a></li>
       <li><a href="./Login" id="nav-font">Log In</a></li>
+      {/* Lets make the Signup and Login modals for when you click on the navbar buttons? */}
       <Signup />
       <Login />
     </ul>
