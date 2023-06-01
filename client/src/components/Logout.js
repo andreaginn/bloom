@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 function Logout() {
     const handleLogout = () => {
 
@@ -18,6 +19,6 @@ function Logout() {
           console.error(error);
         });
     };
+  }
 
-
-export default Logout
+export default Logout;
