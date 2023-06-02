@@ -12,7 +12,7 @@ const typeDefs = gql`
     foodWasteContribution: Float
   }
 
-  type actionInput {
+  input ActionInput {
     date: Date!
     category: String!
     carbonContribution: Float!
@@ -48,7 +48,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    updateImpact(input: actionInput): User
+    updateImpact(input: ActionInput): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
   }

@@ -6,6 +6,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
       me: async (parent, args, context) => {
+        console.log(context)
         if (context.user) {
             return User.findOne({ _id: context.user._id });
         }
@@ -42,9 +43,9 @@ const resolvers = {
         return { token, user };
       },
       
-      updateImpact: async (_, {actionInput}, context) => {
-        const {date, category, carbonContribution} = actionInput;
-        const {me} = context;
+      updateImpact: async (_, {input}, context) => {
+        const {date, category, carbonContribution} = input;
+        const {me} = context.user;
 
         const impactIndex = me.dailyImpact.findIndex((impact) => impact.date === date);
         //If index exists add carbonContribution to existing dailyImpact, otherwise create a new one.
