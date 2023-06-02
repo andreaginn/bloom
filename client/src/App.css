@@ -10,11 +10,13 @@
     background-image: url("forest-background.jpg");
     background-size: cover;
     height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 span {
     display: flex;
-    align-items: center
+    align-items: center;
 }
 
 .logo {
@@ -39,8 +41,8 @@ span {
     position: relative;
     z-index: 1;
     width: 70px;
-    height: 200px;
-    margin-bottom: 8px;
+    height: 100px;
+    margin-bottom: 0px;
 }
 
 .logo-text>span:first-child {
