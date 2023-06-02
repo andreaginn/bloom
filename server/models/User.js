@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const impactSchema = require('./Impact')
+const impactSchema = require('./Impact');
+
 const userSchema = new Schema({
   username: {
     type: String,
