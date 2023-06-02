@@ -29,9 +29,9 @@ function LogIn() {
 
 
   return (
-    <div>
+    <div className="log-in">
       <h3>Log In</h3>
-      <form onSubmit={handleSubmit}>
+      <form className="form-group" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Email"

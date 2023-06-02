@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
 
 .home-body {
     background-image: "forest-background.jpg";
@@ -20,7 +21,7 @@ span {
     align-items: flex-end;
     font-size: 35px;
     font-family: 'Tsukimi Rounded', sans-serif;
-    color: #48765295;
+    color: #487652b3;
 }
 
 .logo-text {
@@ -55,32 +56,61 @@ span {
     display: flex;
     justify-content: space-around;
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: x-large
 }
 
 .nav-1,
 .nav-2 {
     display: flex;
     list-style: none;
-    margin-top: 15vh;
+    margin-top: 25vh;
 }
 
 .nav-1 li,
 .nav-2 li {
-    margin-right: 15px;
+    margin-right: 35px;
 }
 
 
 .nav-1 {
-    margin-left: 20vh;
+    margin-left: 30vh;
 }
 
 
 .nav-2 {
-    margin-right: 20vh;
+    margin-right: 30vh;
 }
 
 
 #nav-font {
     text-decoration: none;
     color: inherit;
+}
+
+.login-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    background-color: #4876522c;
+    margin-left: 70vh;
+    margin-right: 70vh;
+}
+
+.sign-up form,
+.log-in form {
+    display: flex;
+    flex-direction: column;
+}
+
+.log-in .form-group label,
+.sign-up .form-group label {
+    margin-bottom: 5px;
+}
+
+.log-in .form-group input,
+.sign-up .form-group input {
+    margin-bottom: 10px;
 }

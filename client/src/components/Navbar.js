@@ -29,11 +29,12 @@ const Navbar = () => {
   };
 
   return (
+    <div className="main-screen">
   <div className="navbar">
     <ul className="nav-1">
       <li><a href="./Profile" id="nav-font">Profile</a></li>
       <li><a href="./Calculate" id="nav-font">Footprint</a></li>
-      <li><a href="./Learn" id="nav-font">Learn</a></li>
+      
       </ul>
       <div className="logo">
         <h1 className="logo-text">B<span>
@@ -43,11 +44,15 @@ const Navbar = () => {
           </span>oom</h1>
       </div>
       <ul className="nav-2">
+      <li><a href="./Learn" id="nav-font">Learn</a></li>
       <li><a href="./Donate" id="nav-font">Get Involved</a></li>
-      {showSignUp && <Signup />}
-      {showLogIn && <Login />}
-    </ul>
-  </div>
+      </ul>
+      </div>
+<div className="login-signup">
+  <Signup />
+ <Login />
+    </div>
+    </div>
   );
 }
 
