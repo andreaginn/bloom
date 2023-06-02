@@ -1,4 +1,4 @@
-.modal .overlay{
+.impactModal .impactOverlay{
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -8,14 +8,12 @@
     position: fixed;
 }
 
-
-
-.overlay {
+.impactOverlay {
     background: rgba(73, 73, 73, 0);
     backdrop-filter: blur(10px);
 }
 
-.modal-content{ 
+.impactModalContent{ 
     position:fixed;
     top: 40%;
     left: 50%;
@@ -38,24 +36,29 @@
     align-items: center;
 }
 
-.modal-content form{
+.impactModalContent form{
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.modal-content option {
+.impactModalContent option {
     text-align: center;
 }
-.modal-content select{
+.impactModalContent select{
     display: block;
     box-sizing: border-box;
     padding: 0.5rem;
     margin: 5px;
     margin-bottom: 20px;
 }
-.modal-content button{
+.impactModalContent button{
 
-    padding: 0.5rem;
+    border: none;
+    border-radius: 20px; /* Makes the button round */
+    background-color: rgb(35, 78, 35); /* Sets the background color to sage green */
+    color: white; /* Sets the text color to white */
+    padding: 10px 20px; /* Optional: Adds some padding to the button */
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.2);
 }
 

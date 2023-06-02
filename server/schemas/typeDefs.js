@@ -38,8 +38,7 @@ const typeDefs = gql`
     # Queries
     # actionsByCategory
     # Get me (logged in user)
-    user(username: String!): User
-    
+    me: User
   }
 
   type Mutation {
