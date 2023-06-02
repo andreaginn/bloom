@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useQuery } from '@apollo/client';
 import '../styles/ImpactModal.css'
 
@@ -10,14 +10,17 @@ const ImpactModal = (props) => {
     const [actionList, setActionList] = useState('')
     
     const { loading, data } = useQuery(GET_ACTIONS,{
-        variables: {category: selectedCategory.toLowerCase}
+        variables: {category: selectedCategory}
     });
 
     const actions = data?.actions || [];
-    if(!loading){
-        console.log(actions)
-    }
-    
+
+    useEffect(() => {
+        if (!loading) {
+          setActionList(data?.actions || []);
+        }
+      }, [loading, data]);
+
     // Place holder category options for testing, eventually these will be pulled from DB
     const categories = {
         Travel: ["Driving", "Flying", "Train"],
@@ -56,18 +59,21 @@ const ImpactModal = (props) => {
                         <option value = "Food">Food Waste</option>
                     </select>
                     
-                    {selectedCategory && (
+                    {loading ? ( <p>Loading...</p>) :
+                    (
+
+                    selectedCategory && (
                         <div>
                         <label>Action</label>
                         <select value = {selectedAction} onChange = {handleActionChange}>
-                        {categories[selectedCategory].map((action) => (
-                            <option key = {action} value = {action}>
-                                {action}
+                        {actionList.map((action) => (
+                            <option key = {action.name} value = {action.name}>
+                                {action.name}
                             </option>
                         ))}
                         </select>
                      </div>
-                    )}
+                    ))}
                     <button type="submit">Submit</button>
                     </form>
                     
