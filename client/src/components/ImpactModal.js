@@ -13,7 +13,7 @@ const ImpactModal = (props) => {
         FoodWaste: ["Vegetables", "Milk","Eggs"]
     }
 
-
+    console.log('Impact Modal Activated')
     const handleCategoryChange = (event) => {
         const category = event.target.value;
         console.log(category)
@@ -32,9 +32,9 @@ const ImpactModal = (props) => {
     return (
     
         <div>
-            <div className = "modal">
-                <div className = "overlay" onClick = {handleClose}></div>
-                    <div className = {`modal-content`}>
+            <div className = "impactModal">
+                <div className = "impactOverlay" onClick = {handleClose}></div>
+                    <div className = "impactModalContent">
                     <h2>Log Todays Impact</h2>
                     <form>
                     <label>Pick a Category</label>
