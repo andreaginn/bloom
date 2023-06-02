@@ -5,4 +5,5 @@
     color: white; /* Sets the text color to white */
     padding: 10px 20px; /* Optional: Adds some padding to the button */
     box-shadow: 5px 10px 30px rgba(0, 0, 0, 1);
+    margin: 20px;
   }
