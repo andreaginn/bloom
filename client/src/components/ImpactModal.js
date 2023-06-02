@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { useQuery } from '@apollo/client';
 import '../styles/ImpactModal.css'
-
+import calcDailyImpact from '../utils/calcDailyImpact'
+import isNumeric from '../utils/isNumeric'
 import {GET_ACTIONS} from '../utils/queries'
+
 
 const ImpactModal = (props) => {
     const [selectedCategory, setSelectedCategory] = useState('')
@@ -58,16 +60,22 @@ const ImpactModal = (props) => {
             return
         }
 
+        if(!isNumeric(quantity)){
+            console.log('Please make sure the quantity is a valid number')
+            return
+        }
+
         const selectedActionObj = actionList.find((action) => action.name === selectedAction)
         if(!selectedActionObj){
             console.log('Selected action not found')
             return
         }
 
-        const actionName = selectedActionObj.name;
+       
         const carbonPerUnit = selectedActionObj.carbonPerUnit;
         const actionCategory = selectedActionObj.category;
 
+        calcDailyImpact(actionCategory,carbonPerUnit,quantity);
         //Call external function that takes these inputs, calculates total contribution, and updates user
     }
 
@@ -122,3 +130,4 @@ const ImpactModal = (props) => {
 }
 
 export default ImpactModal
+

@@ -41,6 +41,45 @@ const resolvers = {
   
         return { token, user };
       },
+      
+      updateImpact: async (_, {actionInput}, context) => {
+        const {date, category, carbonContribution} = actionInput;
+        const {me} = context;
+
+        const impactIndex = me.dailyImpact.findIndex((impact) => impact.date === date);
+        //If index exists add carbonContribution to existing dailyImpact, otherwise create a new one.
+
+        //Use switch instead of if statements for more streamlined code
+        if(impactIndex !== -1){
+          switch(category){
+            case 'Travel':
+              me.dailyImpact[impactIndex].travelContribution += carbonContribution;
+            case 'Energy':
+              me.dailyImpact[impactIndex].energyContribution += carbonContribution;
+            case 'Food':
+              me.dailyImpact[impactIndex].foodContribution += carbonContribution;
+            break;
+              default:
+              throw new Error('Invalid Category')
+          }
+        }
+        else{
+          //create new impact and set carbon to correct category
+          const newImpact = {
+            date: date,
+            travelContribution: category === 'Travel' ? carbonContribution : 0,
+            energyContribution: category === 'Energy' ? carbonContribution : 0,
+            foodContribution: category === 'Food' ? carbonContribution : 0,
+          };
+
+          //push new Impact to dailyImpact array
+          me.dailyImpact.push(newImpact);
+        }
+          //Update logged in user in database
+        await User.findByIdAndUpdate(me._id, {dailyImpact: me.dailyImpact});
+
+        return me;
+      }
     },
   };
   

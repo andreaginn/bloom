@@ -12,6 +12,12 @@ const typeDefs = gql`
     foodWasteContribution: Float
   }
 
+  type actionInput {
+    date: Date!
+    category: String!
+    carbonContribution: Float!
+  }
+
   type User {
     _id: ID
     username: String
@@ -42,7 +48,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    # updateImpact  If impact exists with todays date update otherwise create
+    updateImpact(input: actionInput): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
   }
