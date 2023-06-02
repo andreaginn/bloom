@@ -8,6 +8,7 @@ const ImpactModal = (props) => {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedAction, setSelectedAction] = useState('')
     const [actionList, setActionList] = useState('')
+    const [quantity, setQuantity] = useState('')
     
     const { loading, data } = useQuery(GET_ACTIONS,{
         variables: {category: selectedCategory}
@@ -38,8 +39,37 @@ const ImpactModal = (props) => {
 
     const handleActionChange = (event) => {
         const action = event.target.value;
+        console.log(actionList)
+        // action = actionList[action];
         setSelectedAction(action);
     };    
+
+    const handleQuantityInput = (event) => {
+        const quantity = event.target.value
+        setQuantity(quantity)
+    }
+
+    // This needs to take the name and quantity from the form, and the carbon from Action List
+    // Needs to query user to get daily impact and add to that
+    // If no daily impact exists for todays date then create one
+    const logImpactItem = () => {
+        if(!selectedAction || !quantity){
+            console.log('Please select an action or enter a quantity')
+            return
+        }
+
+        const selectedActionObj = actionList.find((action) => action.name === selectedAction)
+        if(!selectedActionObj){
+            console.log('Selected action not found')
+            return
+        }
+
+        const actionName = selectedActionObj.name;
+        const carbonPerUnit = selectedActionObj.carbonPerUnit;
+        const actionCategory = selectedActionObj.category;
+
+        //Call external function that takes these inputs, calculates total contribution, and updates user
+    }
 
     const handleClose = () => {
         props.onClose()
@@ -56,7 +86,7 @@ const ImpactModal = (props) => {
                     <select onChange = {handleCategoryChange}>
                         <option value = "Travel">Transportation</option>
                         <option value = "Energy">Energy</option>
-                        <option value = "Food">Food Waste</option>
+                        <option value = "Food">Food</option>
                     </select>
                     
                     {loading ? ( <p>Loading...</p>) :
@@ -68,13 +98,17 @@ const ImpactModal = (props) => {
                         <select value = {selectedAction} onChange = {handleActionChange}>
                         {actionList.map((action) => (
                             <option key = {action.name} value = {action.name}>
-                                {action.name}
+                                <p>{action.name} ({action.units})</p>
                             </option>
                         ))}
                         </select>
+                        <label>Quantity</label>
+                        <div className = "quantityInput">
+                        <input type = "text" value = {quantity} onChange = {handleQuantityInput}></input>
+                        </div>
                      </div>
                     ))}
-                    <button type="submit">Submit</button>
+                    <button onClick = {logImpactItem} >Log Item</button>
                     </form>
                     
                  
