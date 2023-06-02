@@ -36,13 +36,13 @@ const typeDefs = gql`
 
   type Query {
     # Queries
-    # actionsByCategory
-    # Get me (logged in user)
+    
     me: User
+    actions(category:String):[Action] 
   }
 
   type Mutation {
-    # updateImpact  If impact exists with todays dat update otherwise create
+    # updateImpact  If impact exists with todays date update otherwise create
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
   }

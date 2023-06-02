@@ -1,16 +1,28 @@
 import React, {useState} from 'react'
+import { useQuery } from '@apollo/client';
 import '../styles/ImpactModal.css'
 
+import {GET_ACTIONS} from '../utils/queries'
 
 const ImpactModal = (props) => {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedAction, setSelectedAction] = useState('')
+    const [actionList, setActionList] = useState('')
+    
+    const { loading, data } = useQuery(GET_ACTIONS,{
+        variables: {category: selectedCategory.toLowerCase}
+    });
 
+    const actions = data?.actions || [];
+    if(!loading){
+        console.log(actions)
+    }
+    
     // Place holder category options for testing, eventually these will be pulled from DB
     const categories = {
-        Transportation: ["Driving", "Flying", "Train"],
+        Travel: ["Driving", "Flying", "Train"],
         Energy: ["Heating", "TV", "Lighting"],
-        FoodWaste: ["Vegetables", "Milk","Eggs"]
+        Food: ["Vegetables", "Milk","Eggs"]
     }
 
     console.log('Impact Modal Activated')
@@ -39,9 +51,9 @@ const ImpactModal = (props) => {
                     <form>
                     <label>Pick a Category</label>
                     <select onChange = {handleCategoryChange}>
-                        <option value = "Transportation">Transportation</option>
+                        <option value = "Travel">Transportation</option>
                         <option value = "Energy">Energy</option>
-                        <option value = "FoodWaste">Food Waste</option>
+                        <option value = "Food">Food Waste</option>
                     </select>
                     
                     {selectedCategory && (
