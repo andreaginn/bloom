@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { useQuery } from '@apollo/client';
 import '../styles/ImpactModal.css'
-import calcDailyImpact from '../utils/calcDailyImpact'
+
 import isNumeric from '../utils/isNumeric'
 import {GET_ACTIONS} from '../utils/queries'
+import {useMutation} from '@apollo/client'
+import {UPDATE_IMPACT} from '../utils/mutations'
 
 
 const ImpactModal = (props) => {
@@ -12,11 +14,11 @@ const ImpactModal = (props) => {
     const [actionList, setActionList] = useState('')
     const [quantity, setQuantity] = useState('')
     
+    const [updateImpact, {error}] = useMutation(UPDATE_IMPACT)
+
     const { loading, data } = useQuery(GET_ACTIONS,{
         variables: {category: selectedCategory}
     });
-
-    const actions = data?.actions || [];
 
     useEffect(() => {
         if (!loading) {
@@ -25,23 +27,18 @@ const ImpactModal = (props) => {
       }, [loading, data]);
 
     // Place holder category options for testing, eventually these will be pulled from DB
-    const categories = {
-        Travel: ["Driving", "Flying", "Train"],
-        Energy: ["Heating", "TV", "Lighting"],
-        Food: ["Vegetables", "Milk","Eggs"]
-    }
 
-    console.log('Impact Modal Activated')
+    // console.log('Impact Modal Activated')
     const handleCategoryChange = (event) => {
         const category = event.target.value;
-        console.log(category)
+        // console.log(category)
         setSelectedCategory(category)   
         setSelectedAction('')
     };
 
     const handleActionChange = (event) => {
         const action = event.target.value;
-        console.log(actionList)
+        console.log(selectedAction)
         // action = actionList[action];
         setSelectedAction(action);
     };    
@@ -54,7 +51,8 @@ const ImpactModal = (props) => {
     // This needs to take the name and quantity from the form, and the carbon from Action List
     // Needs to query user to get daily impact and add to that
     // If no daily impact exists for todays date then create one
-    const logImpactItem = () => {
+    const logImpactItem = (event) => {
+        event.preventDefault(); 
         if(!selectedAction || !quantity){
             console.log('Please select an action or enter a quantity')
             return
@@ -71,13 +69,41 @@ const ImpactModal = (props) => {
             return
         }
 
-       
+       console.log('*****selectedActionObj**********')
+       console.log(selectedActionObj)
         const carbonPerUnit = selectedActionObj.carbonPerUnit;
         const actionCategory = selectedActionObj.category;
 
         calcDailyImpact(actionCategory,carbonPerUnit,quantity);
         //Call external function that takes these inputs, calculates total contribution, and updates user
     }
+
+    const calcDailyImpact = async (category, carbonPerUnit, quantity) => {
+        console.log('calcDailyImpact Called')
+        const date = new Date().toLocaleDateString();
+        const totalCarbon = carbonPerUnit * quantity;
+        const actionInput = {
+            date: date,
+            category: category,
+            carbonContribution: totalCarbon 
+            
+        }
+        console.log(actionInput)
+        try{
+            await updateImpact({
+                variables: {
+                    input: actionInput}
+            })
+            if (error) {
+                throw new Error('something went wrong!');
+              }
+              console.log('Impact Logged')
+        } catch(err){
+            console.log(err)
+        }
+    
+    
+    } 
 
     const handleClose = () => {
         props.onClose()
@@ -106,7 +132,8 @@ const ImpactModal = (props) => {
                         <select value = {selectedAction} onChange = {handleActionChange}>
                         {actionList.map((action) => (
                             <option key = {action.name} value = {action.name}>
-                                <p>{action.name} ({action.units})</p>
+                                {action.name} 
+                                {/* ({action.units}) */}
                             </option>
                         ))}
                         </select>

@@ -25,3 +25,13 @@ export const LOGIN_USER = gql`
             }
         }
     `;
+
+export const UPDATE_IMPACT = gql`
+    mutation updateImpact($input: ActionInput) {
+        updateImpact(input: $input){
+            username
+        }
+        
+}
+
+`

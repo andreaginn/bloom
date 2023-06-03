@@ -14,10 +14,14 @@ const impactSchema = new Schema({
         type: Number,
         default: 0,
     },
-    foodWasteContribution: {
+    foodContribution: {
         type: Number,
         default: 0,
     }
 })
+
+// impactSchema.virtual('formattedDate').get(function () {
+//     return this.date.toLocaleString();
+//   });
 
 module.exports = impactSchema
