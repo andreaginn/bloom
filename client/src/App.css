@@ -1,4 +1,6 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
 
 .home-body {
     background-image: "forest-background.jpg";
@@ -22,7 +24,7 @@ span {
     align-items: flex-end;
     font-size: 35px;
     font-family: 'Tsukimi Rounded', sans-serif;
-    color: #48765295;
+    color: #487652b3;
 }
 
 .logo-text {
@@ -57,32 +59,60 @@ span {
     display: flex;
     justify-content: space-around;
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: x-large
 }
 
 .nav-1,
 .nav-2 {
     display: flex;
     list-style: none;
-    margin-top: 15vh;
+    margin-top: 25vh;
 }
 
 .nav-1 li,
 .nav-2 li {
-    margin-right: 15px;
+    margin-right: 35px;
 }
 
 
 .nav-1 {
-    margin-left: 20vh;
+    margin-left: 30vh;
 }
 
 
 .nav-2 {
-    margin-right: 20vh;
+    margin-right: 30vh;
 }
 
 
 #nav-font {
     text-decoration: none;
     color: inherit;
+}
+
+.login-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    background-color: #4876522c;
+    margin-left: 70vh;
+    margin-right: 70vh;
+}
+
+
+#airiq-widget {
+    background-color: white;
+}
+
+.home-transition-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#chevron {
+    height: 8vh;
+
 }
