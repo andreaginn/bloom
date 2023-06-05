@@ -4,6 +4,7 @@ import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
 import Preloader from './components/Preloader.js';
 import Navbar from './components/Navbar.js';
+import Learn from './pages/Learn.js';
 import './App.css';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -44,6 +45,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/Learn" element={<Learn />} />
         </Routes>
         </>
       </Router>

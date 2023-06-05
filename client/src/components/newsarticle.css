@@ -1,0 +1,15 @@
+.news {
+    display: flex;
+    justify-content: center;
+}
+
+.newsArticle {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid;
+    margin-bottom: 20px;
+}
+
+.newsimage {
+    width: 400px;
+}
