@@ -7,9 +7,15 @@ const typeDefs = gql`
   type Impact {
     _id: ID
     date: Date
-    travelContribution: Int
-    energyContribution: Int
-    foodWasteContribution: Int
+    travelContribution: Float
+    energyContribution: Float
+    foodWasteContribution: Float
+  }
+
+  input ActionInput {
+    date: Date!
+    category: String!
+    carbonContribution: Float!
   }
 
   type User {
@@ -17,7 +23,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    impactScore: Int
+    impactScore: Float
     dailyImpact: [Impact]
   }
 
@@ -25,7 +31,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     units: String
-    carbonPerUnit: Int
+    carbonPerUnit: Float
     category: String
   }
 
@@ -36,13 +42,13 @@ const typeDefs = gql`
 
   type Query {
     # Queries
-    # actionsByCategory
-    # Get me (logged in user)
+    
     me: User
+    actions(category:String):[Action] 
   }
 
   type Mutation {
-    # updateImpact  If impact exists with todays dat update otherwise create
+    updateImpact(input: ActionInput): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
   }

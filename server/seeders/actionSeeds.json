@@ -1,0 +1,188 @@
+[
+    {
+    "name": "Bus",
+    "units": "miles",
+    "carbonPerUnit":"0.14",
+    "category": "Travel"
+    },
+    {
+    "name": "Flight",
+    "units": "miles",
+    "carbonPerUnit":"0.29",
+    "category": "Travel"
+    },
+    {
+    "name": "Train",
+    "units": "miles",
+    "carbonPerUnit":"0.08",
+    "category": "Travel"
+    },
+    {
+    "name": "Small/medium SUV",
+    "units": "miles",
+    "carbonPerUnit":"0.31",
+    "category": "Travel"
+    },
+    {
+    "name": "Sedan",
+    "units": "miles",
+    "carbonPerUnit":"0.28",
+    "category": "Travel"
+    },
+     {
+    "name": "Large SUV",
+    "units": "miles",
+    "carbonPerUnit":"0.41",
+    "category": "Travel"
+    },
+     {
+    "name": "Sports Car",
+    "units": "miles",
+    "carbonPerUnit":"0.41",
+    "category": "Travel"
+    },
+     {
+    "name": "Motorcycle",
+    "units": "miles",
+    "carbonPerUnit":"0.17",
+    "category": "Travel"
+    },
+     {
+    "name": "Beef",
+    "units": "kg",
+    "carbonPerUnit":"60",
+    "category": "Food"
+    },
+     {
+    "name": "Lamb",
+    "units": "kg",
+    "carbonPerUnit":"24",
+    "category": "Food"
+    },
+    {
+    "name": "Cheese",
+    "units": "kg",
+    "carbonPerUnit":"21",
+    "category": "Food"
+    },
+     {
+    "name": "Chocolate",
+    "units": "kg",
+    "carbonPerUnit":"19",
+    "category": "Food"
+    },
+     {
+    "name": "Coffee",
+    "units": "kg",
+    "carbonPerUnit":"17",
+    "category": "Food"
+    },
+     {
+    "name": "Shrimp",
+    "units": "kg",
+    "carbonPerUnit":"12",
+    "category": "Food"
+    },
+     {
+    "name": "Pork",
+    "units": "kg",
+    "carbonPerUnit":"7",
+    "category": "Food"
+    },
+     {
+    "name": "Chicken",
+    "units": "kg",
+    "carbonPerUnit":"6",
+    "category": "Food"
+    },
+     {
+    "name": "Olive Oil",
+    "units": "kg",
+    "carbonPerUnit":"6",
+    "category": "Food"
+    },
+     {
+    "name": "Fish",
+    "units": "kg",
+    "carbonPerUnit":"3.5",
+    "category": "Food"
+    },
+     {
+    "name": "Eggs",
+    "units": "kg",
+    "carbonPerUnit":"4.5",
+    "category": "Food"
+    },
+     {
+    "name": "Rice",
+    "units": "kg",
+    "carbonPerUnit":"4",
+    "category": "Food"
+    },
+     {
+    "name": "Milk",
+    "units": "kg",
+    "carbonPerUnit":"3",
+    "category": "Food"
+    },
+     {
+    "name": "Sugar",
+    "units": "kg",
+    "carbonPerUnit":"3",
+    "category": "Food"
+    },
+     {
+    "name": "Tomatoes",
+    "units": "kg",
+    "carbonPerUnit":"1.4",
+    "category": "Food"
+    },
+     {
+    "name": "Corn",
+    "units": "kg",
+    "carbonPerUnit":"1",
+    "category": "Food"
+    },
+     {
+    "name": "Soymilk",
+    "units": "kg",
+    "carbonPerUnit":"0.9",
+    "category": "Food"
+    },
+     {
+    "name": "Peas",
+    "units": "kg",
+    "carbonPerUnit":"0.9",
+    "category": "Food"
+    },
+     {
+    "name": "Bananas",
+    "units": "kg",
+    "carbonPerUnit":"0.7",
+    "category": "Food"
+    },
+     {
+    "name": "Root Vegetables",
+    "units": "kg",
+    "carbonPerUnit":"0.4",
+    "category": "Food"
+    },
+     {
+    "name": "Apples",
+    "units": "kg",
+    "carbonPerUnit":"0.4",
+    "category": "Food"
+    },
+     {
+    "name": "Citrus Fruits",
+    "units": "kg",
+    "carbonPerUnit":"0.3",
+    "category": "Food"
+    },
+     {
+    "name": "Nuts",
+    "units": "kg",
+    "carbonPerUnit":"0.3",
+    "category": "Food"
+    }
+]
