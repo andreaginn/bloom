@@ -24,7 +24,7 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
-  dailyImpact: [impactSchema]
+  dailyImpacts: [impactSchema]
 });
 
 userSchema.pre('save', async function (next) {
