@@ -14,10 +14,10 @@ const Profile = () => {
         return <h2>LOADING...</h2>;
     }
 
-    const [modalOpen, setModalOpen] = useState(false);
-    const handleClick = () => {
-        console.log('Impact Button Clicked')
-        setModalOpen(true);
+    // const [modalOpen, setModalOpen] = useState(false);
+    // const handleClick = () => {
+    //     console.log('Impact Button Clicked')
+    //     setModalOpen(true);
 
         return (
             <>
@@ -26,10 +26,10 @@ const Profile = () => {
                     {userData.impactScore}
                 </div>
 
-                <div className="home-body">
+                {/* <div className="home-body">
                     <Button content={"Log Your Impact"} onClick={() => handleClick()} />
                     {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
-                </div>
+                </div> */}
 
                 {/* <div>
                 {userData.dailyImpacts.map((impact) => {
@@ -55,6 +55,6 @@ const Profile = () => {
             </>
         )
     }
-}
+
 
 export default Profile

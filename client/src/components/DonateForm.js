@@ -6,6 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
 const publicKey = 'pk_test_716da2842e8f4e69f9c1bbea45243a0bedec745ee9e4326e778ff8290723afba';
 const secretKey = 'sk_test_c1e85dbb34c2bd384e238cefd30d5cbf69183e5a2f5c302832c367d9a6daaf07';
 const apiUrl = 'https://api.getchange.io/api/v1/payments/checkout_link';
@@ -14,7 +15,6 @@ export default function DonateForm() {
     const [amount, setAmount] = useState('');
     const [nonprofitId, setNonprofitId] = useState('');
     const [paymentStatus, setPaymentStatus] = useState('');
-
 
     const handleAmountChange = (event) => {
         setAmount(event.target.value);
@@ -28,8 +28,10 @@ export default function DonateForm() {
         event.preventDefault();
 
         const requestBody = JSON.stringify({
-            amount: parseInt(amount),
+            amount: parseInt(amount * 100),
+            cancel_url: 'https://your-domain.com/cancel',
             nonprofit_id: nonprofitId,
+            success_url: 'https://your-domain.com/success',
         });
         console.log(requestBody);
 
@@ -49,7 +51,7 @@ export default function DonateForm() {
                 const data = await response.json();
                 // Handle the response data
                 console.log(data);
-                setPaymentStatus('Payment successful!');
+                window.location.replace(data.checkout_url);
             } else {
                 // Handle the error response
                 console.error('Error:', response.status);
@@ -69,7 +71,7 @@ export default function DonateForm() {
                     <OutlinedInput
                         id="outlined-adornment-amount"
                         startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                        label="Amount" value={amount} onChange={handleAmountChange}
+                        label="Format amount 0.00" value={amount} onChange={handleAmountChange}
                     />
                 </FormControl >
                 <br />
