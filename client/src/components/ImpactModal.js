@@ -75,6 +75,7 @@ const ImpactModal = (props) => {
         const actionCategory = selectedActionObj.category;
 
         calcDailyImpact(actionCategory,carbonPerUnit,quantity);
+        
         //Call external function that takes these inputs, calculates total contribution, and updates user
     }
 
@@ -118,6 +119,7 @@ const ImpactModal = (props) => {
                     <form>
                     <label>Pick a Category</label>
                     <select onChange = {handleCategoryChange}>
+                        <option value = "">Select</option>
                         <option value = "Travel">Transportation</option>
                         <option value = "Energy">Energy</option>
                         <option value = "Food">Food</option>
@@ -130,6 +132,7 @@ const ImpactModal = (props) => {
                         <div>
                         <label>Action</label>
                         <select value = {selectedAction} onChange = {handleActionChange}>
+                        <option value = "">Select</option>
                         {actionList.map((action) => (
                             <option key = {action.name} value = {action.name}>
                                 {action.name} 

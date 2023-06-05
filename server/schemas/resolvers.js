@@ -52,9 +52,9 @@ const resolvers = {
         // const me = context.user;
         console.log(me)
         const parsedDate = new Date(date);
-        const formattedDate = parsedDate.toISOString(); 
-        console.log(`The date in ISO is ${formattedDate}`)
-        const impactIndex = me.dailyImpact.findIndex((impact) => impact.date === formattedDate);
+        // const formattedDate = parsedDate.toISOString(); 
+        //console.log(`The date in ISO is ${formattedDate}`)
+        const impactIndex = me.dailyImpact.findIndex((impact) => impact.date.toLocaleDateString() === parsedDate.toLocaleDateString());
         // const impactIndex = 0;
         //If index exists add carbonContribution to existing dailyImpact, otherwise create a new one.
 
@@ -86,11 +86,16 @@ const resolvers = {
 
           //push new Impact to dailyImpact array
           me.dailyImpact.push(newImpact);
+          
           console.log(newImpact)
           console.log(me)
         }
+        console.log(`Impact Score ${me.impactScore}`)
+        me.impactScore += Math.floor(carbonContribution);
           //Update logged in user in database
-        await User.findByIdAndUpdate(me._id, {dailyImpact: me.dailyImpact});
+        await User.findByIdAndUpdate(me._id, {
+          dailyImpact: me.dailyImpact,
+          impactScore: me.impactScore});
 
         return me;
       }
