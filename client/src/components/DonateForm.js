@@ -71,7 +71,7 @@ export default function DonateForm() {
                     <OutlinedInput
                         id="outlined-adornment-amount"
                         startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                        label="Format amount 0.00" value={amount} onChange={handleAmountChange}
+                        label="Amount" value={amount} onChange={handleAmountChange}
                     />
                 </FormControl >
                 <br />
