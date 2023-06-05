@@ -1,6 +1,7 @@
 import React from 'react';
 
 const NewsArticle = ({ title, description, url, urlToImage }) => {
+return(
     <div className="news">
     <div className='newsArticle'>
         <img className='newsimage' src={urlToImage} alt={urlToImage} />
@@ -8,6 +9,7 @@ const NewsArticle = ({ title, description, url, urlToImage }) => {
         <p>{description}</p>
     </div>
 </div>
+)
 }
 
 export default NewsArticle;
