@@ -17,7 +17,7 @@
         "concurrently": "^5.1.0"
     },
     "dependencies": {
-        "chart.js": "^4.3.0",
+
         "force": "^0.0.3",
         "react-lottie": "^1.2.3"
     }
