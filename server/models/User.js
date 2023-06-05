@@ -24,7 +24,10 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
-  dailyImpact: [impactSchema]
+  dailyImpact: {
+    type: [impactSchema],
+    default: [],
+  },
 });
 
 userSchema.pre('save', async function (next) {

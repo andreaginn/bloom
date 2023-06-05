@@ -15,19 +15,19 @@ const Home = () => {
         console.log('Impact Button Clicked')
         setModalOpen(true)
     }
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = 'https://widget.iqair.com/script/widget_v3.0.js';
-        script.async = true;
-        script.setAttribute('data-cfasync', 'false');
-        document.getElementById('airiq-widget').appendChild(script);
+    // useEffect(() => {
+    //     const script = document.createElement('script');
+    //     script.src = 'https://widget.iqair.com/script/widget_v3.0.js';
+    //     script.async = true;
+    //     script.setAttribute('data-cfasync', 'false');
+    //     document.getElementById('airiq-widget').appendChild(script);
         
 
-        return () => {
-            document.getElementById('airiq-widget').removeChild(script);
-        };
+    //     return () => {
+    //         document.getElementById('airiq-widget').removeChild(script);
+    //     };
 
-    }, []);
+    // }, []);
 
 return (
     <div className="homepage">
