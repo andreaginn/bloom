@@ -24,7 +24,6 @@ const Navbar = () => {
         {Auth.loggedIn() ? (
           <>
             <li><a href="./Profile" id="nav-font">Profile</a></li>
-            <li><a href="./Calculate" id="nav-font">Footprint</a></li>
             <li><a href="./Learn" id="nav-font">Learn</a></li>
             <Link id="nav-font" onClick={Auth.logout}>Logout</Link>
           </>
