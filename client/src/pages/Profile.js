@@ -7,6 +7,7 @@ import Chart from 'chart.js/auto'
 import {useQuery} from '@apollo/client'
 import {QUERY_ME} from '../utils/queries.js'
 import '../styles/Profile.css'
+import ChartDisplay from '../components/ChartDisplay.js';
 
 
 const Profile = () => {
@@ -17,8 +18,9 @@ const Profile = () => {
     }
     
     const {loading, data} = useQuery(QUERY_ME)
-    console.log(data)
+    
     const userData = data?.me || {};
+    console.log(userData)
 
     if (loading) {
         return <h2>LOADING...</h2>;
@@ -27,14 +29,12 @@ const Profile = () => {
         <div className="home-body">
             <div className = "impactScoreDisplay">
                 <h2>Your Total Impact:</h2>
-                me.impactScore Here
-                {userData.impactScore}
+                {userData.impactScore} Kg
             </div>
              <Button content={"Log Your Impact"} onClick={() => handleClick()} />
             {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
-            <div className = "chartDisplay">
-            Place Holder Chart Box
-            </div>
+
+            <ChartDisplay date = {userData.dailyImpact[0].date} travelContribution = {userData.dailyImpact[0].travelContribution} energyContribution = {userData.dailyImpact[0].energyContribution} foodContribution = {userData.dailyImpact[0].foodContribution}  />
             
         </div>
     )

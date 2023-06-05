@@ -7,7 +7,12 @@ export const QUERY_ME = gql`
             username
             email
             impactScore
-            dailyImpact
+            dailyImpact{
+              date
+              travelContribution
+              energyContribution
+              foodContribution
+            }
         }
     }
 `;

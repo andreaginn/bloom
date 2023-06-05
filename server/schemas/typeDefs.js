@@ -9,7 +9,7 @@ const typeDefs = gql`
     date: Date
     travelContribution: Float
     energyContribution: Float
-    foodWasteContribution: Float
+    foodContribution: Float
   }
 
   input ActionInput {
