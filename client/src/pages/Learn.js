@@ -1,2 +1,12 @@
 import React from 'react';
-import Navbar from './Navbar.js';
+import NewsList from '../components/NewsList';
+
+const Learn = () => {
+  return (
+    <div>
+        <NewsList />
+    </div>
+  )
+}
+
+export default Learn;
