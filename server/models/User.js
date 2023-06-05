@@ -24,7 +24,7 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
-  dailyImpact: {
+  dailyImpacts: {
     type: [impactSchema],
     default: [],
   },
