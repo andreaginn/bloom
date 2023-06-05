@@ -8,7 +8,6 @@ import Auth from '../utils/auth';
 
 const Navbar = () => {
 
-
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -23,8 +22,9 @@ const Navbar = () => {
       <ul className="nav-1">
         {Auth.loggedIn() ? (
           <>
-            <li><a href="./Profile" id="nav-font">Profile</a></li>
-            <li><a href="./Learn" id="nav-font">Learn</a></li>
+            <li><Link as={Link} to='/Profile' id="nav-font">Profile</Link></li>
+            {/* <li><Link as={Link} to='/Footprint' id="nav-font">Footprint</Link></li> */}
+            <li><Link as={Link} to='/Learn' id="nav-font">Learn</Link></li>
             <Link id="nav-font" onClick={Auth.logout}>Logout</Link>
           </>
         ) : (
@@ -41,9 +41,6 @@ const Navbar = () => {
           </div>
         </span>oom</h1>
       </Link>
-      <ul className="nav-2">
-        <li><a href="./Donate" id="nav-font">Get Involved</a></li>
-      </ul>
     </div>
   );
 }

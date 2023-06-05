@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import Navbar from '../components/Navbar.js';
+import DonateForm from '../components/DonateForm';
 import ImpactModal from '../components/ImpactModal.js'
 import Button from '../components/Button.js'
 import Chart from 'chart.js/auto'
@@ -11,31 +11,36 @@ import ChartDisplay from '../components/ChartDisplay.js';
 
 
 const Profile = () => {
-    const [modalOpen, setModalOpen] = useState(false)
+    const { data, loading } = useQuery(QUERY_ME);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    var userData = data?.me || {};
+    console.log(`User Data ${userData}`)
+      
     const handleClick = () => {
         console.log('Impact Button Clicked')
         setModalOpen(true)
     }
-    
-    const {loading, data} = useQuery(QUERY_ME)
-    
-    const userData = data?.me || {};
-    console.log(userData)
 
     if (loading) {
         return <h2>LOADING...</h2>;
-      }
+    }
+    
     return (
         <div className="home-body">
             <div className = "impactScoreDisplay">
                 <h2>Your Total Impact:</h2>
                 {userData.impactScore} Kg
             </div>
+            <div>
+                <DonateForm />
+            </div>
              <Button content={"Log Your Impact"} onClick={() => handleClick()} />
             {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
 
+            {userData.dailyImpact[0] &&
             <ChartDisplay date = {userData.dailyImpact[0].date} travelContribution = {userData.dailyImpact[0].travelContribution} energyContribution = {userData.dailyImpact[0].energyContribution} foodContribution = {userData.dailyImpact[0].foodContribution}  />
-            
+}
         </div>
     )
 }
