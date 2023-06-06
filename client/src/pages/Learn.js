@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NewsList from '../components/NewsList';
 
 const Learn = () => {
+
   return (
-    <div>
+    <>
+      <div>
         <NewsList />
-    </div>
+      </div>
+    </>
   )
 }
 
