@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -88,7 +89,20 @@ export default function DonateForm() {
                     <button type="submit">Offset</button>
                 </FormControl >
             </form>
-            {paymentStatus && <p>{paymentStatus}</p>}
+            <div>
+                {paymentStatus && <p>{paymentStatus}</p>}
+            </div>
+            <div>
+                Visit our suggested organizations:
+                <ul>
+                    <li><Link as={Link} to='https://onetreeplanted.org/'>One Tree Planted</Link></li>
+                    <li><Link as={Link} to='https://www.causeiq.com/organizations/carbon-endowment,822265172/'>Carbon Endowment</Link></li>
+                    <li><Link as={Link} to='https://carbon180.org/'>Carbon180</Link></li>
+                    <li><Link as={Link} to='https://www.catf.us/'>Clean Air Task Force</Link></li>
+                    <li><Link as={Link} to='https://rainforestfoundation.org/'>Rainforest Foundation</Link></li>
+                    <li><Link as={Link} to='https://www.climateride.org/'>Climate Ride</Link></li>
+                </ul>
+            </div>
         </div>
     );
 };
