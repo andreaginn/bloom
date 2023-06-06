@@ -38,7 +38,7 @@ return (
                     src="https://widget.iqair.com/script/widget_v3.0.js"
                 ></script>
             </Helmet>
-            <Navbar />
+    
             <div id="airiq-widget"
                 key="647958edf44db0493341d68b">
             </div>

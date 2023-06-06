@@ -1,60 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
 import DonateForm from '../components/DonateForm';
 import ImpactModal from '../components/ImpactModal.js'
 import Button from '../components/Button.js'
+import Chart from 'chart.js/auto'
+import {useQuery} from '@apollo/client'
+import {QUERY_ME} from '../utils/queries.js'
+import '../styles/Profile.css'
+import ChartDisplay from '../components/ChartDisplay.js';
+
 
 const Profile = () => {
     const { data, loading } = useQuery(QUERY_ME);
+    const [modalOpen, setModalOpen] = useState(false);
+
     var userData = data?.me || {};
+    console.log(`User Data ${userData}`)
+      
+    const handleClick = () => {
+        console.log('Impact Button Clicked')
+        setModalOpen(true)
+    }
 
     if (loading) {
         return <h2>LOADING...</h2>;
     }
+    
+    return (
+        <div className="home-body">
+            <div className = "impactScoreDisplay">
+                <h2>Your Total Impact:</h2>
+                {userData.impactScore} Kg
+            </div>
+            <div>
+                <DonateForm />
+            </div>
+             <Button content={"Log Your Impact"} onClick={() => handleClick()} />
+            {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
 
-    // const [modalOpen, setModalOpen] = useState(false);
-    // const handleClick = () => {
-    //     console.log('Impact Button Clicked')
-    //     setModalOpen(true);
-
-        return (
-            <>
-                <h3>Hello!</h3>
-                <div>
-                    {userData.impactScore}
-                </div>
-
-                {/* <div className="home-body">
-                    <Button content={"Log Your Impact"} onClick={() => handleClick()} />
-                    {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
-                </div> */}
-
-                {/* <div>
-                {userData.dailyImpacts.map((impact) => {
-                    return (
-                        <div key={impact.date}>
-                            <div>
-                                {impact.travelContribution ?  chartjs graph: null}
-                            </div>
-                            <div>
-                                {impact.travelContribution ?  chartjs graph: null}
-                            </div>
-                            <div>
-                                {impact.travelContribution ?  chartjs graph: null}
-                            </div>
-                        </div>
-                    )
-                })}
-            </div> */}
-                <div>
-                    <DonateForm />
-                </div>
-
-            </>
-        )
-    }
-
+            {userData.dailyImpact[0] &&
+            <ChartDisplay date = {userData.dailyImpact[0].date} travelContribution = {userData.dailyImpact[0].travelContribution} energyContribution = {userData.dailyImpact[0].energyContribution} foodContribution = {userData.dailyImpact[0].foodContribution}  />
+}
+        </div>
+    )
+}
 
 export default Profile

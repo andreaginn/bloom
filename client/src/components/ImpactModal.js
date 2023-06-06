@@ -135,8 +135,7 @@ const ImpactModal = (props) => {
                         <option value = "">Select</option>
                         {actionList.map((action) => (
                             <option key = {action.name} value = {action.name}>
-                                {action.name} 
-                                {/* ({action.units}) */}
+                                {action.name} ({action.units})
                             </option>
                         ))}
                         </select>

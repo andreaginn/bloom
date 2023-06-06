@@ -34,7 +34,7 @@ export default function DonateForm() {
             nonprofit_id: nonprofitId,
             success_url: 'https://your-domain.com/success',
         });
-        console.log(requestBody);
+        //console.log(requestBody);
 
         try {
             const response = await fetch(apiUrl, {
@@ -45,13 +45,13 @@ export default function DonateForm() {
                 },
                 body: requestBody,
             });
-            console.log(response);
+         //   console.log(response);
 
             // Check if the request was successful
             if (response.ok) {
                 const data = await response.json();
                 // Handle the response data
-                console.log(data);
+               // console.log(data);
                 window.location.replace(data.checkout_url);
             } else {
                 // Handle the error response
@@ -86,7 +86,8 @@ export default function DonateForm() {
                         <MenuItem value={'n_WRyDSf0PwSFreaEPpJy5Gchj'}>Rainforest Foundation</MenuItem>
                         <MenuItem value={'n_iDuzhP92BlkrKLJBUodnrqIs'}>Climate Ride</MenuItem>
                     </Select>
-                    <button type="submit">Offset</button>
+                    
+                    <button className = "impactButton" type="submit">Offset</button>
                 </FormControl >
             </form>
             <div>

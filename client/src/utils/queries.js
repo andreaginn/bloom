@@ -7,11 +7,11 @@ export const QUERY_ME = gql`
             username
             email
             impactScore
-            dailyImpacts {
-                date
-                travelContribution
-                energyContribution
-                foodWasteContribution
+            dailyImpact{
+              date
+              travelContribution
+              energyContribution
+              foodContribution
             }
         }
     }
