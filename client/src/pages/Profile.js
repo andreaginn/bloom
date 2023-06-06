@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import DonateForm from '../components/DonateForm';
 import ImpactModal from '../components/ImpactModal.js'
 import Button from '../components/Button.js'
 import Chart from 'chart.js/auto'
-import {useQuery} from '@apollo/client'
-import {QUERY_ME} from '../utils/queries.js'
+import { useQuery } from '@apollo/client'
+import { QUERY_ME } from '../utils/queries.js'
 import '../styles/Profile.css'
 import ChartDisplay from '../components/ChartDisplay.js';
 import MainChart from '../components/MainChart.js';
@@ -16,7 +15,7 @@ const Profile = () => {
     
     var userData = data?.me || {};
     console.log(`User Data ${userData}`)
-      
+
     const handleClick = () => {
         console.log('Impact Button Clicked')
         setModalOpen(true)
@@ -26,7 +25,7 @@ const Profile = () => {
     if (loading) {
         return <h2>LOADING...</h2>;
     }
-    
+
     return (
         <div className="profile-body">
             <div className = "impactScoreDisplay">
