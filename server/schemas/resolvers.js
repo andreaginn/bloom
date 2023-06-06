@@ -86,7 +86,7 @@ const resolvers = {
           };
 
           //push new Impact to dailyImpact array
-          me.dailyImpact.push(newImpact);
+          me.dailyImpact.unshift(newImpact);
           
           console.log(newImpact)
           console.log(me)

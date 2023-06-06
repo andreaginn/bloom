@@ -7,3 +7,8 @@
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
     margin: 20px;
   }
+
+.impactButton:hover {
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.8);
+  transform: scale(1.05);
+}  

@@ -17,6 +17,17 @@
      /* flex-wrap: wrap; */
 }
 
+.profile-body {
+    background-image: url("forest-background.jpg");
+    background-size: cover;
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+     /* flex-wrap: wrap; */
+}
+
 span {
     display: flex;
     align-items: center;
