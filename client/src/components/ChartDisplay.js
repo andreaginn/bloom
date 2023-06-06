@@ -1,6 +1,7 @@
 import React from 'react'
 import Chart from 'chart.js/auto'
 import { Doughnut } from "react-chartjs-2";
+import {Bar} from "react-chartjs-2"
 
 const ChartDisplay = (props) => {
     const {date, travelContribution, energyContribution, foodContribution} = props
@@ -34,8 +35,26 @@ const ChartDisplay = (props) => {
 
       let currentDate = new Date()
       currentDate = currentDate.toLocaleDateString('en-US',options);
-
+      let totalUserFootPrint = travelContribution + energyContribution + foodContribution;
+      let averageAmericanFootPrint = 40;
+      let averageGlobalFootPrint = 10;
    
+      let barData = {
+        labels: [
+          'Your Daily Impact',
+          'Average American',
+          'Global'
+        ],
+        datasets: [{
+          data: [totalUserFootPrint, averageAmericanFootPrint, averageGlobalFootPrint],
+          backgroundColor: [
+            '#395E66',
+            '#387D7A',
+            '#80C6C3'
+          ],
+          hoverOffset: 4
+        }]
+      };
 
       if(dateTitle === currentDate){
         dateTitle = "Today"
@@ -44,8 +63,11 @@ const ChartDisplay = (props) => {
   return (
     <div className = "chartDisplay">
         <h3>{dateTitle}</h3>
-       <Doughnut data = {data}/>
-
+        <div className = "graphContainer">
+          <div className = "chartWrapper">  <Doughnut data = {data} options = {{plugins: {title: {display:true, text: 'Where Is It Coming From? (kg)'}}}}/></div>
+          <div className = "chartWrapper">  <Bar data = {barData} options={{ plugins: { title: { display: true, text: 'How Do You Compare? (kg)' }, legend: {display: false} } }}/></div>
+     
+        </div>
         </div>
   )
 }

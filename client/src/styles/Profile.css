@@ -6,17 +6,18 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #fff;
+    background-color: #f3f3f3;
     border-radius: 10px;
     box-shadow: 5px 5px 10px #0000006d;
     margin: 20px;
+   
 }
 
 .chartDisplay{
-    min-width: 50%;
+    /* min-width: 80%; */
     margin: 20px;
-    max-width: 60%;
-    max-height: 60%;
+    /* max-width: 90%; */
+    /* min-height: 60%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,4 +26,18 @@
     border-radius: 10px;
     box-shadow: 5px 5px 10px #0000006d;
     padding: 30px;
+    flex-grow: 1;
+}
+
+.graphContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chartWrapper{
+    flex: 1;
+    padding: 15px;
+    box-sizing: border-box;
+    max-width: 100%;
 }
