@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Lottie from 'react-lottie';
 import { preLoaderAnim } from '../animations';
 import animationData from '../fjO3sek7ZT.json';
-import './preloader.css';
+import '../styles/preloader.css';
 
 const defaultOptions = {
     loop: false,
