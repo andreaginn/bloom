@@ -19,6 +19,13 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
+      <Link className="logo" as={Link} to='/' >
+        <h1 className="logo-text">B<span>
+          <div className="animation-container">
+            <Lottie options={defaultOptions} />
+          </div>
+        </span>oom</h1>
+      </Link>
       <ul className="nav-1">
         {Auth.loggedIn() ? (
           <>
@@ -34,13 +41,7 @@ const Navbar = () => {
           </>
         )}
       </ul>
-      <Link className="logo" as={Link} to='/' >
-        <h1 className="logo-text">B<span>
-          <div className="animation-container">
-            <Lottie options={defaultOptions} />
-          </div>
-        </span>oom</h1>
-      </Link>
+      
     </div>
   );
 }
