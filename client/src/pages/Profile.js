@@ -56,6 +56,7 @@ const Profile = () => {
                 <h2>Your Total Carbon Impact</h2>
                 <hr></hr>
                 {userData.impactScore} Kg
+                <p>Donate to one of our selected causes to offset your overall impact</p>
             </div>
         
             {/* <div>
@@ -66,10 +67,9 @@ const Profile = () => {
             {userData.dailyImpact[0] && 
             <MainChart data = {userData.dailyImpact}/>}
             
-
-            <div>
-                Your Weekly Goal
-            </div>
+             My Goal Is To Finish This Goal Section By Thursday
+            <Button content = {'Set New Goal'}/>
+           
             {userData.dailyImpact[0] &&
             userData.dailyImpact.map(dailyImpact => (  <ChartDisplay date = {dailyImpact.date} travelContribution = {dailyImpact.travelContribution} energyContribution = {dailyImpact.energyContribution} foodContribution = {dailyImpact.foodContribution}  />))
             // <ChartDisplay date = {userData.dailyImpact[0].date} travelContribution = {userData.dailyImpact[0].travelContribution} energyContribution = {userData.dailyImpact[0].energyContribution} foodContribution = {userData.dailyImpact[0].foodContribution}  />

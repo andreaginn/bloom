@@ -13,6 +13,7 @@
    
 }
 
+
 .chartDisplay{
     /* min-width: 80%; */
     margin: 20px;
@@ -33,6 +34,14 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.weeklyGoal{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
 }
 
 .chartWrapper{

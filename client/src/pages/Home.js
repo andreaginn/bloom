@@ -43,9 +43,6 @@ const Home = () => {
                     key="647958edf44db0493341d68b">
                 </div>
                 <Advice />
-                <div className="home-transition-btn">
-                    <FontAwesomeIcon id="chevron" icon={faChevronDown} beatFade style={{ color: "#e1e2e4", }} />
-                </div>
                 {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
                 {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
 
