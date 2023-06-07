@@ -8,7 +8,7 @@ return(
     <div className='newsArticle'>
         <h3>{title}</h3>
         <img className='newsimage' src={urlToImage} alt={urlToImage} />
-        <p>{description}</p>
+        <p className='description'>{description}</p>
         <a href={url} className='button-news'>
         <Button content={"Read more"} />
         </a>
