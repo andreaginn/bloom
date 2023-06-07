@@ -10,10 +10,15 @@ import ChartDisplay from '../components/ChartDisplay.js';
 import MainChart from '../components/MainChart.js';
 import loadingAnimation from '../16519-jejakin-logo-animation-loader-and-email.json'
 import Lottie from 'react-lottie';
+import {useMutation} from '@apollo/client'
+import {UPDATE_GOAL} from '../utils/mutations.js'
+
 
 
 const Profile = () => {
     const { data, loading } = useQuery(QUERY_ME);
+    
+    // const [updateGoal, {error}] = useMutation(UPDATE_GOAL)
     // const [modalOpen, setModalOpen] = useState(false);
     
     const loadingOptions = {

@@ -99,6 +99,17 @@ const resolvers = {
           impactScore: me.impactScore});
 
         return me;
+      },
+
+      updateGoal: async (_, goalText , context) => {
+        const weeklyGoal = {
+          dateCreated: Date.now(),
+          goalText: goalText
+        }
+       await User.findByIdAndUpdate(context.user._id,{
+        weeklyGoal: weeklyGoal
+       })
+
       }
     },
   };

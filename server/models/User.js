@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const impactSchema = require('./Impact');
-// const goalSchema = require('./Goal')
+const goalSchema = require('./Goal')
 
 const userSchema = new Schema({
   username: {
@@ -29,10 +29,10 @@ const userSchema = new Schema({
     type: [impactSchema],
     default: [],
   },
-  // weeklyGoal: {
-  //   type: goalSchema,
-  //   default: "Set a Weekly Goal"
-  // }
+  weeklyGoal: {
+    type: goalSchema,
+    default: "Set a Weekly Goal"
+  }
 });
 
 userSchema.pre('save', async function (next) {
