@@ -23,7 +23,7 @@ const Navbar = () => {
         {Auth.loggedIn() ? (
           <>
             <li><Link as={Link} to='/Profile' id="nav-font">Profile</Link></li>
-            {/* <li><Link as={Link} to='/Footprint' id="nav-font">Footprint</Link></li> */}
+            <li><Link as={Link} to='/Donate' id="nav-font">Donate</Link></li>
             <li><Link as={Link} to='/Learn' id="nav-font">Learn</Link></li>
             <Link id="nav-font" onClick={Auth.logout}>Logout</Link>
           </>
