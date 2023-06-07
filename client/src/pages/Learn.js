@@ -4,11 +4,13 @@ import NewsList from '../components/NewsList';
 const Learn = () => {
 
   return (
+    <div className="learn-body">
     <>
       <div>
         <NewsList />
       </div>
     </>
+    </div>
   )
 }
 
