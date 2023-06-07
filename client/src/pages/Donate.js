@@ -7,15 +7,15 @@ const Donate = () => {
 
     return (
         <>
-            <div class="grid grid-cols-3 gap-4">
-                <div class="">
+            <div className="grid grid-cols-3 gap-4">
+                <div className="cols-span-1">
                     <DonateForm />
                 </div>
-                <div class="cols-span-2">
+                <div className="cols-span-2">
                     <div>
-                        <img class="w-full aspect-square" src="http://placehold.it/" alt="" />
+                        <img className="w-full aspect-square" src="public/images/one-tree-planted.webp" alt="" />
                         <h4>One Tree Planted</h4>
-                        <p>This organization engages in reforestation efforts worldwide. They aim to combat deforestation, restore ecosystems, and create a sustainable future for the planet.</p>
+                        <p className="text-sm font-medium text-gray-900">This organization engages in reforestation efforts worldwide. They aim to combat deforestation, restore ecosystems, and create a sustainable future for the planet.</p>
                         <div>
                             <span>
                                 <p>
@@ -38,7 +38,7 @@ const Donate = () => {
                         <Link as={Link} to='https://onetreeplanted.org/'>Learn more</Link>
                     </div>
                     <div>
-                        <img class="w-full aspect-square" src="http://placehold.it/" alt="" />
+                        <img className="w-full aspect-square" src="./images/coming-clean.jpg" alt="" />
                         <h4>Coming Clean</h4>
                         <p>This organization is a nonprofit environmental health collaborative dedicated to transforming the chemical industry into a safe and sustainable source of energy. Their mission is to reduce sources of chemical exposure in people's lives, especially in disproportionately impacted populations, and advocate for corporate and marketplace changes to address toxic chemicals as a public health threat.</p>
                         <div>
