@@ -5,6 +5,9 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+
 
 
 const publicKey = 'pk_test_716da2842e8f4e69f9c1bbea45243a0bedec745ee9e4326e778ff8290723afba';
@@ -44,13 +47,13 @@ export default function DonateForm() {
                 },
                 body: requestBody,
             });
-         //   console.log(response);
+            //   console.log(response);
 
             // Check if the request was successful
             if (response.ok) {
                 const data = await response.json();
                 // Handle the response data
-               // console.log(data);
+                // console.log(data);
                 window.location.replace(data.checkout_url);
             } else {
                 // Handle the error response
@@ -64,34 +67,49 @@ export default function DonateForm() {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <FormControl fullWidth>
-                    <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
-                    <OutlinedInput
-                        id="outlined-adornment-amount"
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                        label="Amount" value={amount} onChange={handleAmountChange}
-                    />
-                </FormControl >
-                <br />
-                <FormControl fullWidth>
-                    <InputLabel>Choose a Nonprofit</InputLabel>
-                    <Select value={nonprofitId} onChange={handleNonprofitIdChange}>
-                        <MenuItem value={'n_MUjmT5yhdf4smx1ykRwO2ovt'}>One Tree Planted</MenuItem>
-                        <MenuItem value={'n_pfLl2qqlJlD3aptxtNU1uyRQ'}>Coming Clean</MenuItem>
-                        <MenuItem value={'n_vxSQOQ6Fs7Z3slI28qiwPbZA'}>Carbon180</MenuItem>
-                        <MenuItem value={'n_2FvWfScCxgEzOwLaqG7M24Ch'}>Clean Air Task Force</MenuItem>
-                        <MenuItem value={'n_WRyDSf0PwSFreaEPpJy5Gchj'}>Rainforest Foundation</MenuItem>
-                        <MenuItem value={'n_iDuzhP92BlkrKLJBUodnrqIs'}>Climate Ride</MenuItem>
-                    </Select>
-                    
-                    <button className = "impactButton" type="submit">Offset</button>
-                </FormControl >
-            </form>
-            <div>
-                {paymentStatus && <p>{paymentStatus}</p>}
-            </div>
+        <div className="mx-4">
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    '& > :not(style)': {
+                        m: 1,
+                        width: 350,
+                        height: 350,
+                    },
+                }}
+            >
+                <Paper elevation={3}>
+                    <div className="p-3 mb-2 text-2xl font-bold text-slate-700 leading-snug">Donate to Offset Your <br />CO₂ Footprint</div>
+                    <form onSubmit={handleSubmit}>
+                        <FormControl fullWidth className="px-3">
+                            <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-amount"
+                                startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                label="Amount" value={amount} onChange={handleAmountChange}
+                            />
+                        </FormControl >
+                        <br />
+                        <FormControl fullWidth className="px-3 mt-4">
+                            <InputLabel htmlFor="outlined-adornment-amount">Choose a Nonprofit</InputLabel>
+                            <Select value={nonprofitId} onChange={handleNonprofitIdChange}>
+                                <MenuItem value={'n_MUjmT5yhdf4smx1ykRwO2ovt'}>One Tree Planted</MenuItem>
+                                <MenuItem value={'n_pfLl2qqlJlD3aptxtNU1uyRQ'}>Coming Clean</MenuItem>
+                                <MenuItem value={'n_vxSQOQ6Fs7Z3slI28qiwPbZA'}>Carbon180</MenuItem>
+                                <MenuItem value={'n_2FvWfScCxgEzOwLaqG7M24Ch'}>Clean Air Task Force</MenuItem>
+                                <MenuItem value={'n_WRyDSf0PwSFreaEPpJy5Gchj'}>Rainforest Foundation</MenuItem>
+                                <MenuItem value={'n_iDuzhP92BlkrKLJBUodnrqIs'}>Climate Ride</MenuItem>
+                            </Select>
+
+                            <button className="btn-primary mt-4" type="submit">Offset</button>
+                        </FormControl >
+                    </form>
+                    <div>
+                        {paymentStatus && <p>{paymentStatus}</p>}
+                    </div>
+                </Paper>
+            </Box>
         </div>
     );
 };
