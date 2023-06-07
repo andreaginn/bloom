@@ -9,11 +9,12 @@ import Advice from '../components/AdviceDisplay';
 
 const Home = () => {
 
-    const [modalOpen, setModalOpen] = useState(false)
-    const handleClick = () => {
-        console.log('Impact Button Clicked')
-        setModalOpen(true)
-    };
+    // const [modalOpen, setModalOpen] = useState(false)
+    // const handleClick = () => {
+    //     console.log('Impact Button Clicked')
+    //     setModalOpen(true)
+    // };
+    
     // useEffect(() => {
     //     const script = document.createElement('script');
     //     script.src = 'https://widget.iqair.com/script/widget_v3.0.js';
@@ -45,8 +46,8 @@ const Home = () => {
                 <div className="home-transition-btn">
                     <FontAwesomeIcon id="chevron" icon={faChevronDown} beatFade style={{ color: "#e1e2e4", }} />
                 </div>
-                <Button content={"Log Your Impact"} onClick={() => handleClick()} />
-                {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
+                {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
+                {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
 
             </div>
             <div className="lower-homepage">

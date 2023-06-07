@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
+import Donate from './pages/Donate.js';
 import Preloader from './components/Preloader.js';
 import Navbar from './components/Navbar.js';
-import Donate from './pages/Donate.js';
 import Learn from './pages/Learn.js';
 import './App.css';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
@@ -47,7 +47,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Learn" element={<Learn />} />
-          <Route path="/Donate" element = {<Donate />} />
+          <Route path="/Donate" element={<Donate />} />
         </Routes>
         </>
       </Router>

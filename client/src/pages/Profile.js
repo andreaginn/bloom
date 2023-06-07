@@ -14,7 +14,7 @@ import Lottie from 'react-lottie';
 
 const Profile = () => {
     const { data, loading } = useQuery(QUERY_ME);
-    const [modalOpen, setModalOpen] = useState(false);
+    // const [modalOpen, setModalOpen] = useState(false);
     
     const loadingOptions = {
         loop: false,
@@ -33,10 +33,10 @@ const Profile = () => {
     var userData = data?.me || {};
     console.log(`User Data ${userData}`)
 
-    const handleClick = () => {
-        console.log('Impact Button Clicked')
-        setModalOpen(true)
-    }
+    // const handleClick = () => {
+    //     console.log('Impact Button Clicked')
+    //     setModalOpen(true)
+    // }
     console.log(userData.dailyImpact)
     // const reversedDailyImpact = [...userData.dailyImpact].reverse();
     if (loading) {
@@ -48,16 +48,23 @@ const Profile = () => {
     return (
         <div className="profile-body">
             <div className = "impactScoreDisplay">
-                <h2>Your Total Impact:</h2>
+                <h2>Your Total Carbon Impact</h2>
+                <hr></hr>
                 {userData.impactScore} Kg
             </div>
+        
             {/* <div>
                 <DonateForm />
             </div> */}
-             <Button content={"Log Your Impact"} onClick={() => handleClick()} />
-            {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
+             {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
+            {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
+            {userData.dailyImpact[0] && 
+            <MainChart data = {userData.dailyImpact}/>}
+            
 
-            <MainChart data = {userData.dailyImpact}/>
+            <div>
+                Your Weekly Goal
+            </div>
             {userData.dailyImpact[0] &&
             userData.dailyImpact.map(dailyImpact => (  <ChartDisplay date = {dailyImpact.date} travelContribution = {dailyImpact.travelContribution} energyContribution = {dailyImpact.energyContribution} foodContribution = {dailyImpact.foodContribution}  />))
             // <ChartDisplay date = {userData.dailyImpact[0].date} travelContribution = {userData.dailyImpact[0].travelContribution} energyContribution = {userData.dailyImpact[0].energyContribution} foodContribution = {userData.dailyImpact[0].foodContribution}  />
