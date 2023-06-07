@@ -53,8 +53,24 @@ const ChartDisplay = (props) => {
             '#80C6C3'
           ],
           hoverOffset: 4
-        }]
-      };
+        }],
+    };
+    const barOptions = {
+  scales: {
+    y: {
+      suggestedMax: 50,
+    },
+  },
+  plugins: {
+    title: {
+      display: true,
+      text: 'How Do You Compare? (kg)',
+    },
+    legend: {
+      display: false,
+    },
+  },
+};
 
       if(dateTitle === currentDate){
         dateTitle = "Today"
@@ -64,12 +80,13 @@ const ChartDisplay = (props) => {
     <div className = "chartDisplay">
         <h3>{dateTitle}</h3>
         <div className = "graphContainer">
-          <div className = "chartWrapper">  <Doughnut data = {data} options = {{plugins: {title: {display:true, text: 'Where Is It Coming From? (kg)'}}}}/></div>
-          <div className = "chartWrapper">  <Bar data = {barData} options={{ plugins: { title: { display: true, text: 'How Do You Compare? (kg)' }, legend: {display: false} } }}/></div>
+          <div className = "chartWrapper">  <Doughnut data = {data} height = "400px" width = "400px" options = {{plugins: {title: {display:true, text: 'Where Is It Coming From? (kg)'}}}}/></div>
+          <div className = "chartWrapper">  <Bar data = {barData} height = "400px" width = "400px" options={barOptions}/></div>
      
         </div>
         </div>
   )
+  
 }
 
 export default ChartDisplay

@@ -8,11 +8,28 @@ import { QUERY_ME } from '../utils/queries.js'
 import '../styles/Profile.css'
 import ChartDisplay from '../components/ChartDisplay.js';
 import MainChart from '../components/MainChart.js';
+import loadingAnimation from '../16519-jejakin-logo-animation-loader-and-email.json'
+import Lottie from 'react-lottie';
+
 
 const Profile = () => {
     const { data, loading } = useQuery(QUERY_ME);
     const [modalOpen, setModalOpen] = useState(false);
     
+    const loadingOptions = {
+        loop: false,
+        autoplay: true,
+        animationData: loadingAnimation,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      };
+
+      const style = {
+        height: 110,
+        width: 110,
+      }
+
     var userData = data?.me || {};
     console.log(`User Data ${userData}`)
 
@@ -23,7 +40,9 @@ const Profile = () => {
     console.log(userData.dailyImpact)
     // const reversedDailyImpact = [...userData.dailyImpact].reverse();
     if (loading) {
-        return <h2>LOADING...</h2>;
+        return <div>
+            <Lottie options = {loadingOptions} style = {style}/>
+            </div>;
     }
 
     return (
