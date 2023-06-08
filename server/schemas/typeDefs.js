@@ -13,7 +13,6 @@ const typeDefs = gql`
   }
 
   type Goal {
-    _id: ID
     dateCreated: Date!
     goalText: String!
   }

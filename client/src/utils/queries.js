@@ -13,6 +13,11 @@ export const QUERY_ME = gql`
               energyContribution
               foodContribution
             }
+            weeklyGoal{
+              dateCreated
+              goalText
+
+            }
         }
     }
 `;

@@ -31,7 +31,10 @@ const userSchema = new Schema({
   },
   weeklyGoal: {
     type: goalSchema,
-    default: "Set a Weekly Goal"
+    default: {
+      dateCreated: new Date(),
+      goalText: "You don't currently have a weekly goal.  Click the button below to set one."
+    }
   }
 });
 

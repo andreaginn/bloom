@@ -101,7 +101,7 @@ const resolvers = {
         return me;
       },
 
-      updateGoal: async (_, goalText , context) => {
+      updateGoal: async (_, {goalText} , context) => {
         const weeklyGoal = {
           dateCreated: Date.now(),
           goalText: goalText

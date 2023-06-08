@@ -12,11 +12,15 @@ import loadingAnimation from '../16519-jejakin-logo-animation-loader-and-email.j
 import Lottie from 'react-lottie';
 import {useMutation} from '@apollo/client'
 import {UPDATE_GOAL} from '../utils/mutations.js'
+import WeeklyGoal from '../components/WeeklyGoal.js';
 
 
 
 const Profile = () => {
-    const { data, loading } = useQuery(QUERY_ME);
+    const [weeklyGoalForm, setWeeklyGoalForm] = useState(false)
+    const [weeklyGoal, setWeeklyGoal] = useState("My weekly goal is to finish this by Thursday")
+    const { data, loading, refetch } = useQuery(QUERY_ME);
+
     
     // const [updateGoal, {error}] = useMutation(UPDATE_GOAL)
     // const [modalOpen, setModalOpen] = useState(false);
@@ -37,38 +41,55 @@ const Profile = () => {
 
     var userData = data?.me || {};
     console.log(`User Data ${userData}`)
-
+      console.log(userData)
     // const handleClick = () => {
     //     console.log('Impact Button Clicked')
     //     setModalOpen(true)
     // }
+
+    const triggerGoalForm = async () => {
+      if(weeklyGoalForm === false){
+        setWeeklyGoalForm(true)
+      }
+      else{
+        setWeeklyGoalForm(false)
+        await refetch()
+      }
+    }
     console.log(userData.dailyImpact)
-    // const reversedDailyImpact = [...userData.dailyImpact].reverse();
     if (loading) {
         return <div>
             <Lottie options = {loadingOptions} style = {style}/>
             </div>;
     }
+    
 
     return (
         <div className="profile-body">
             <div className = "impactScoreDisplay">
                 <h2>Your Total Carbon Impact</h2>
                 <hr></hr>
-                {userData.impactScore} Kg
+                <h3>{userData.impactScore} Kg</h3>
                 <p>Donate to one of our selected causes to offset your overall impact</p>
             </div>
         
-            {/* <div>
-                <DonateForm />
-            </div> */}
-             {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
-            {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
+            {!weeklyGoalForm && 
+            <div className = "weeklyGoal">
+            {userData.weeklyGoal.goalText}
+            <Button content = {'Set New Goal'} onClick = {triggerGoalForm}/>
+            </div> }
+
+              {weeklyGoalForm && 
+              <WeeklyGoal onClick = {triggerGoalForm}/>
+              }
+
+            {!userData.dailyImpact[0] && 
+            <h2>Start logging your daily actions to see a detailed breakdown of your impact</h2>}
+
             {userData.dailyImpact[0] && 
             <MainChart data = {userData.dailyImpact}/>}
             
-             My Goal Is To Finish This Goal Section By Thursday
-            <Button content = {'Set New Goal'}/>
+           
            
             {userData.dailyImpact[0] &&
             userData.dailyImpact.map(dailyImpact => (  <ChartDisplay date = {dailyImpact.date} travelContribution = {dailyImpact.travelContribution} energyContribution = {dailyImpact.energyContribution} foodContribution = {dailyImpact.foodContribution}  />))

@@ -39,6 +39,8 @@ export const UPDATE_IMPACT = gql`
 export const UPDATE_GOAL = gql`
     mutation updateGoal($goalText: String!){
         updateGoal(goalText: $goalText){
-            goalText
+            weeklyGoal{
+                goalText
+            }
         }
     }`
