@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import DonateForm from '../components/DonateForm';
 import { Link } from 'react-router-dom';
 import FilterVintageRoundedIcon from '@mui/icons-material/FilterVintageRounded';
