@@ -32,6 +32,9 @@ const Profile = () => {
                 <h2>Your Total Impact:</h2>
                 {userData.impactScore} Kg
             </div>
+            {/* <div>
+                <DonateForm />
+            </div> */}
              <Button content={"Log Your Impact"} onClick={() => handleClick()} />
             {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
 
@@ -44,4 +47,4 @@ const Profile = () => {
     )
 }
 
-export default Profile;
+export default Profile
