@@ -16,15 +16,21 @@ import WeeklyGoal from '../components/WeeklyGoal.js';
 
 
 
-const Profile = () => {
+const Profile = (refresh) => {
     const [weeklyGoalForm, setWeeklyGoalForm] = useState(false)
-    const [weeklyGoal, setWeeklyGoal] = useState("My weekly goal is to finish this by Thursday")
+    const [weeklyGoal, setWeeklyGoal] = useState("")
     const { data, loading, refetch } = useQuery(QUERY_ME);
 
     
     // const [updateGoal, {error}] = useMutation(UPDATE_GOAL)
     // const [modalOpen, setModalOpen] = useState(false);
     
+    useEffect(() => {
+      if (refresh) {
+        refetch(); // Perform necessary actions to refresh profile data
+      }
+    }, [refresh, refetch]);
+
     const loadingOptions = {
         loop: false,
         autoplay: true,
@@ -42,10 +48,14 @@ const Profile = () => {
     var userData = data?.me || {};
     console.log(`User Data ${userData}`)
       console.log(userData)
-    // const handleClick = () => {
-    //     console.log('Impact Button Clicked')
-    //     setModalOpen(true)
-    // }
+
+    useEffect(()=> {
+      if(userData && userData.weeklyGoal){
+      setWeeklyGoal(userData.weeklyGoal.goalText)
+      }
+    },[loading]); 
+    
+   
 
     const triggerGoalForm = async () => {
       if(weeklyGoalForm === false){
@@ -53,10 +63,16 @@ const Profile = () => {
       }
       else{
         setWeeklyGoalForm(false)
-        await refetch()
+        // await refetch()
+        // setWeeklyGoal(userData.weeklyGoal.goalText)
       }
     }
+    const updateGoalValue = (goal) => {
+      setWeeklyGoal(goal)
+    }
     console.log(userData.dailyImpact)
+
+
     if (loading) {
         return <div>
             <Lottie options = {loadingOptions} style = {style}/>
@@ -75,12 +91,12 @@ const Profile = () => {
         
             {!weeklyGoalForm && 
             <div className = "weeklyGoal">
-            {userData.weeklyGoal.goalText}
-            <Button content = {'Set New Goal'} onClick = {triggerGoalForm}/>
+            {weeklyGoal}
+            <Button content = {'Set New Goal'} onClick = {triggerGoalForm} />
             </div> }
 
               {weeklyGoalForm && 
-              <WeeklyGoal onClick = {triggerGoalForm}/>
+              <WeeklyGoal onClick = {triggerGoalForm} onUpdateGoal = {updateGoalValue}/>
               }
 
             {!userData.dailyImpact[0] && 

@@ -42,6 +42,7 @@ const triggerUpdateGoal = async (goal) => {
             throw new Error('Something Went Wrong')
         }
         setGoal('')
+        props.onUpdateGoal(goal)
     } catch(err){
         console.log(err)
     }
