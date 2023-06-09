@@ -49,8 +49,6 @@ const Navbar = ({openModal}) => {
           </>
         ) : (
           <>
-            <Signup />
-            <Login />
           </>
         )}
       </ul>
