@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
 import Donate from './pages/Donate.js';
+import Success from './pages/DonateSuccess.js';
+import Cancel from './pages/DonateCancel.js';
 import Preloader from './components/Preloader.js';
 import Navbar from './components/Navbar.js';
 import Learn from './pages/Learn.js';
@@ -48,6 +50,8 @@ function App() {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Learn" element={<Learn />} />
           <Route path="/Donate" element={<Donate />} />
+          <Route path='/Success' element={<Success />} />
+          <Route path='/Cancel' element={<Cancel />} />
         </Routes>
         </>
       </Router>
