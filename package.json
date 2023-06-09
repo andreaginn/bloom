@@ -18,7 +18,6 @@
     },
     "dependencies": {
         "force": "^0.0.3",
-        "openai": "^3.2.1",
         "react-lottie": "^1.2.3"
     }
 }
