@@ -9,11 +9,12 @@ import Advice from '../components/AdviceDisplay';
 
 const Home = () => {
 
-    const [modalOpen, setModalOpen] = useState(false)
-    const handleClick = () => {
-        console.log('Impact Button Clicked')
-        setModalOpen(true)
-    };
+    // const [modalOpen, setModalOpen] = useState(false)
+    // const handleClick = () => {
+    //     console.log('Impact Button Clicked')
+    //     setModalOpen(true)
+    // };
+    
     // useEffect(() => {
     //     const script = document.createElement('script');
     //     script.src = 'https://widget.iqair.com/script/widget_v3.0.js';
@@ -42,8 +43,8 @@ const Home = () => {
                     key="647958edf44db0493341d68b">
                 </div>
                 <Advice />
-                <Button content={"Log Your Impact"} onClick={() => handleClick()} />
-                {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
+                {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
+                {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
 
             </div>
             <div className="lower-homepage">

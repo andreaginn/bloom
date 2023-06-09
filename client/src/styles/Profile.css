@@ -1,7 +1,7 @@
 .impactScoreDisplay{
     min-width: 50%;
-    max-width: 70%;
-    height: 100px;
+    max-width: 90%;
+    /* height: 100px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,25 @@
     border-radius: 10px;
     box-shadow: 5px 5px 10px #0000006d;
     margin: 20px;
+    padding: 10px;
    
+}
+/* .weeklyGoal {
+    color: #fff
+} */
+.impactScoreDisplay h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.impactScoreDisplay h3 {
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(35, 78, 35);
+    padding: 10px;
+    /* border: solid 2px rgba(35, 78, 35, 0.4);
+    border-radius: 30px; */
+    text-shadow: 2px 2px 5px rgba(35, 78, 35, 0.481);
 }
 
 .chartDisplay{
@@ -33,6 +51,15 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.weeklyGoal{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .chartWrapper{

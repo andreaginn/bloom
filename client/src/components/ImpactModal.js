@@ -129,7 +129,7 @@ const ImpactModal = (props) => {
                     (
 
                     selectedCategory && (
-                        <div>
+                        <div className = "actionSelection">
                         <label>Action</label>
                         <select value = {selectedAction} onChange = {handleActionChange}>
                         <option value = "">Select</option>

@@ -12,6 +12,11 @@ const typeDefs = gql`
     foodContribution: Float
   }
 
+  type Goal {
+    dateCreated: Date!
+    goalText: String!
+  }
+
   input ActionInput {
     date: Date!
     category: String!
@@ -25,6 +30,7 @@ const typeDefs = gql`
     password: String
     impactScore: Float
     dailyImpact: [Impact]
+    weeklyGoal: Goal
   }
 
   type Action {
@@ -49,6 +55,7 @@ const typeDefs = gql`
 
   type Mutation {
     updateImpact(input: ActionInput): User
+    updateGoal(goalText: String!): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
   }
