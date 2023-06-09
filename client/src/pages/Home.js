@@ -5,7 +5,9 @@ import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Advice from '../components/AdviceDisplay';
-
+import Auth from '../utils/auth.js'
+import Login from '../components/Login.js';
+import Signup from '../components/Signup.js';
 
 const Home = () => {
 
@@ -31,7 +33,10 @@ const Home = () => {
 
     return (
         <div className="homepage">
+
             <div className="home-body">
+                {Auth.loggedIn() ? (
+                <>
                 <Helmet>
                     <script
                         type="text/javascript"
@@ -43,9 +48,14 @@ const Home = () => {
                     key="647958edf44db0493341d68b">
                 </div>
                 <Advice />
-                {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
-                {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
 
+                </>
+                ) : (
+                 <div className = "credentials">
+                    <Signup/>
+                    <Login/>
+                </div>
+                ) }
             </div>
             <div className="lower-homepage">
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
@@ -8,6 +8,8 @@ import Cancel from './pages/DonateCancel.js';
 import Preloader from './components/Preloader.js';
 import Navbar from './components/Navbar.js';
 import Learn from './pages/Learn.js';
+import ImpactModal from './components/ImpactModal.js';
+import Credentials from './pages/Credentials.js';
 import './App.css';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -39,15 +41,35 @@ const client = new ApolloClient({
 
 
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [refreshProfile, setRefreshProfile] = useState(false);
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setRefreshProfile(true); // Trigger profile refresh
+  };
+
+  useEffect(() => {
+    if (refreshProfile) {
+      // Reset the refresh flag
+      setRefreshProfile(false);
+    }
+  }, [refreshProfile]);
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
         <Preloader />
-        <Navbar />
+        {/* <Navbar /> */}
+        <Navbar openModal={() => setModalOpen(true)} />
+        {modalOpen && 
+        <ImpactModal onClose={handleModalClose} />
+        }
+       
         <Routes>
+          <Route path="/login" element = {<Credentials />} />
           <Route path="/" element={<Home />} />
-          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Profile" element={<Profile refresh = {refreshProfile} />} />
           <Route path="/Learn" element={<Learn />} />
           <Route path="/Donate" element={<Donate />} />
           <Route path='/Success' element={<Success />} />

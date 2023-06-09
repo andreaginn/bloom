@@ -5,6 +5,15 @@
     background-image: "forest-background.jpg";
 }
 
+.credentials {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
 .home-body {
     background-image: url("./images/forest-background.jpg");
     background-size: cover;
