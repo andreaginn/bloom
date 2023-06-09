@@ -5,14 +5,12 @@ import OAI from '../components/Openai';
 const Learn = () => {
 
   return (
-    <div className="learn-body">
     <>
       <div>
         <NewsList />
         <OAI />
       </div>
     </>
-    </div>
   )
 }
 

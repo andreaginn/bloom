@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import animationData from '../fjO3sek7ZT.json';
