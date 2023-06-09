@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
 
+.home-body {
+    background-image: "forest-background.jpg";
+}
 
 .home-body {
     background-image: url("forest-background.jpg");
@@ -11,7 +14,6 @@
     align-items: center;
     flex-direction: column;
     /* flex-wrap: wrap; */
-    margin-top: 115px;
 }
 
 .profile-body {
@@ -23,11 +25,6 @@
     align-items: center;
     flex-direction: column;
     /* flex-wrap: wrap; */
-    margin-top: 115px;
-}
-
-.learn-body {
-    margin-top: 115px;
 }
 
 span {
@@ -73,22 +70,15 @@ span {
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
     font-size: x-large;
-    padding-right: 30px;
-    padding-left: 30px;
-    background-color: #b2bcb9;
-    margin-bottom: 100px;
-  }
+    padding: 0;
+    background-color: #849c8c85;
+}
 
 .nav-1 {
     list-style: none;
@@ -121,10 +111,6 @@ span {
 
 
 #airiq-widget {
-    background-color: blue;
-    height: 50px;
-    position: absolute;
-  top: 0;
-  right: 0;
+    background-color: white;
 }
 
