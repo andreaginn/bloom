@@ -4,20 +4,52 @@
 .home-body {
     background-image: "forest-background.jpg";
 }
-
-.credentials {
-    width: 80%;
+.credentials-homepage{
+    margin: 20px;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
+    
+}
+.missionStatement{
+    width: 50%;
+    /* margin: 20px; */
+}
+.missionStatement h1{
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.credentials {
+    width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+}
+.credentials p {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.credentials h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 
 .home-body {
     background-image: url("./images/forest-background.jpg");
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
