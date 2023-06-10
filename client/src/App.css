@@ -110,8 +110,41 @@ span {
     margin-right: 70vh;
 }
 
+.footer {
+    display: flex;
+    height: 8vh;
+    justify-content: space-around;
+    align-items: flex-end;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: x-large;
+    padding: 0;
+    background-color: #113b2e;
+    color: #b2bcb9;
+}
 
-#airiq-widget {
-    background-color: white;
+
+
+
+.github-links {
+    display: flex;
+}
+
+#andrea-github,
+#jorgen-github,
+#melissa-github,
+#brandon-github {
+    padding-left: 5px;
+}
+
+.up-btn {
+    margin-left: -15vh
+}
+    
+
+
+.up-btn:hover {
+    cursor: pointer;
+    color: #8ea574;
 }
 

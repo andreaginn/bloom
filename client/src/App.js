@@ -7,6 +7,7 @@ import Success from './pages/DonateSuccess.js';
 import Cancel from './pages/DonateCancel.js';
 import Preloader from './components/Preloader.js';
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
 import Learn from './pages/Learn.js';
 import './App.css';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
@@ -53,6 +54,7 @@ function App() {
           <Route path='/Success' element={<Success />} />
           <Route path='/Cancel' element={<Cancel />} />
         </Routes>
+        <Footer />
         </>
       </Router>
     </ApolloProvider>
