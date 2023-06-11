@@ -140,7 +140,7 @@ span {
 .up-btn {
     margin-left: -15vh
 }
-    
+
 
 
 .up-btn:hover {
@@ -148,3 +148,22 @@ span {
     color: #8ea574;
 }
 
+
+
+.advice-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.advice-item.show {
+    opacity: 1;
+}
+
+.advice-description {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.advice-item:hover .advice-description {
+    display: block;
+}

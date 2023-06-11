@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Advice from '../components/AdviceDisplay';
+import AirQuality from '../components/AirQuality.js';
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
     //     console.log('Impact Button Clicked')
     //     setModalOpen(true)
     // };
-    
+
     // useEffect(() => {
     //     const script = document.createElement('script');
     //     script.src = 'https://widget.iqair.com/script/widget_v3.0.js';
@@ -42,13 +43,11 @@ const Home = () => {
                 <div id="airiq-widget"
                     key="647958edf44db0493341d68b">
                 </div>
-                <Advice />
+
                 {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
                 {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
-
-            </div>
-            <div className="lower-homepage">
-
+                <AirQuality />
+                <Advice />
             </div>
         </div>
     );
