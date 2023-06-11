@@ -58,10 +58,8 @@
 }
 
 .profile-body {
-    background-color: rgb(35, 78, 35);
-    background-image: url("./images/forest-background.jpg");
-    background-size: cover;
-    min-height: 100vh;
+    /* background-size: cover;
+    min-height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
