@@ -9,7 +9,6 @@ import Preloader from './components/Preloader.js';
 import Navbar from './components/Navbar.js';
 import Learn from './pages/Learn.js';
 import ImpactModal from './components/ImpactModal.js';
-import Credentials from './pages/Credentials.js';
 import './App.css';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -67,7 +66,6 @@ function App() {
         }
        
         <Routes>
-          <Route path="/login" element = {<Credentials />} />
           <Route path="/" element={<Home />} />
           <Route path="/Profile" element={<Profile refresh = {refreshProfile} />} />
           <Route path="/Learn" element={<Learn />} />
