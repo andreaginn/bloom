@@ -16,7 +16,7 @@ function Openai() {
   ]);
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = async (message) => {
+  const handleSendReq = async (message) => {
     const newMessage = {
       message,
       direction: 'outgoing',
@@ -85,7 +85,7 @@ function Openai() {
                 return <Message key={i} model={message} />
               })}
             </MessageList>
-            <MessageInput placeholder="Type message here" onSend={handleSend} />        
+            <MessageInput placeholder="Type message here" onSend={handleSendReq} />        
           </ChatContainer>
         </MainContainer>
       </div>
