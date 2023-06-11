@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewsList from '../components/NewsList';
-import OAI from '../components/Openai';
+import Openai from '../components/Openai';
 
 const Learn = () => {
 
@@ -8,7 +8,7 @@ const Learn = () => {
     <>
       <div>
         <NewsList />
-        <OAI />
+        <Openai />
       </div>
     </>
   )

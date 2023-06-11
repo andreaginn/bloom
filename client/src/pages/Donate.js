@@ -61,7 +61,7 @@ const Donate = () => {
                     <img className="w-full" src="./images/carbon180.jpeg" alt="" />
                 </div>
                 <div className="col-start-2 col-end-6">
-                    <div className="mb-3 text-5xl font-bold text-slate-700 leading-snug">Carbon180</div>
+                    <div className="mb-3 text-5xl font-bold text-slate-700 1">Carbon180</div>
                     <div className="text-xl text-slate-600 pb-3">
                         <p>This organization helps improve the transparency and scientific integrity of carbon removal and climate solutions through open data, tools, and leadership.</p>
                     </div>

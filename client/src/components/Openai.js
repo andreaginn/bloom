@@ -1,89 +1,96 @@
-import { useState } from "react";
-import "../styles/Openai.css";
-import { Configuration, OpenAIApi } from "openai";
+import { useState } from 'react'
+import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const configuration = new Configuration({
-  organization: "org-SOOnu4d4d2AhrdNDJnRvWzeA",
-  apiKey: "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",
-});
-const openai = new OpenAIApi(configuration);
-
-function OAI() {
-  const [message, setMessage] = useState("");
-  const [chats, setChats] = useState([]);
-  const [isTyping, setIsTyping] = useState(false);
-
-  const chat = async (e, message) => {
-    e.preventDefault();
-
-    if (!message) return;
-    setIsTyping(true);
-    // scrollTo(0,1e10)
-
-    let messages = chats;
-    messages.push({ role: "user", content: message });
-    setChats(messages);
-
-    setMessage("");
-
-    await openai
-      .createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are a Bloom GPT. You can help with any question regarding climate change",
-          },
-          ...chats,
-        ],
-      })
-      .then((res) => {
-        messages.push(res.data.choices[0].message);
-        setChats(messages);
-        setIsTyping(false);
-        // scrollTo(0,1e10)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  return (
-    <main>
-      <h1 className="Bloom-GPT">Bloom GPT</h1>
-
-      <section>
-        {chats && chats.length
-          ? chats.map((chat, index) => (
-              <p key={index} className={chat.role === "user" ? "user_msg" : ""}>
-                <span>
-                  <b>{chat.role.toUpperCase()}</b>
-                </span>
-                <span>:</span>
-                <span>{chat.content}</span>
-              </p>
-            ))
-          : ""}
-      </section>
-
-      <div className={isTyping ? "" : "hidden"}>
-        <p className="assist-gpt">
-          <i>{isTyping ? "Typing" : ""}</i>
-        </p>
-      </div>
-
-      <form action="" onSubmit={(e) => chat(e, message)}>
-        <input
-          type="text"
-          name="message"
-          value={message}
-          placeholder="Ask anything, then press the Enter key."
-          onChange={(e) => setMessage(e.target.value)}
-        />
-      </form>
-    </main>
-  );
+const systemMessage = {
+  "role": "system", "content": "Explain things like you're talking to someone with 2 years of climate change experience."
 }
 
-export default OAI;
+function Openai() {
+  const [messages, setMessages] = useState([
+    {
+      message: "I'm Bloom GPT! Ask anything to learn more about climate change or carbon emissions!",
+      sentTime: "just now",
+      sender: "BloomGPT"
+    }
+  ]);
+  const [isTyping, setIsTyping] = useState(false);
+
+  const handleSendReq = async (message) => {
+    const newMessage = {
+      message,
+      direction: 'outgoing',
+      sender: "user"
+    };
+
+    const newMessages = [...messages, newMessage];
+    
+    setMessages(newMessages);
+
+    setIsTyping(true);
+    await processMessageToChatGPT(newMessages);
+  };
+
+  async function processMessageToChatGPT(chatMessages) {
+
+    let apiMessages = chatMessages.map((messageObject) => {
+      let role = "";
+      if (messageObject.sender === "ChatGPT") {
+        role = "assistant";
+      } else {
+        role = "user";
+      }
+      return { role: role, content: messageObject.message}
+    });
+
+    const apiRequestBody = {
+      "model": "gpt-3.5-turbo",
+      "messages": [
+        systemMessage,
+        ...apiMessages
+      ]
+    }
+
+    await fetch("https://api.openai.com/v1/chat/completions", 
+    {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + process.env.REACT_APP_OPENAI_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(apiRequestBody)
+    }).then((data) => {
+      return data.json();
+    }).then((data) => {
+      console.log(data);
+      setMessages([...chatMessages, {
+        message: data.choices[0].message.content,
+        sender: "BloomGPT"
+      }]);
+      setIsTyping(false);
+    });
+  }
+
+  return (
+    <div className="App">
+      <div style={{ position:"relative", height: "800px", width: "700px"  }}>
+        <MainContainer>
+          <ChatContainer>       
+            <MessageList 
+              scrollBehavior="smooth" 
+              typingIndicator={isTyping ? <TypingIndicator content="Bloom GPT is typing" /> : null}
+            >
+              {messages.map((message, i) => {
+                console.log(message)
+                return <Message key={i} model={message} />
+              })}
+            </MessageList>
+            <MessageInput placeholder="Type message here" onSend={handleSendReq} />        
+          </ChatContainer>
+        </MainContainer>
+      </div>
+    </div>
+  )
+}
+
+export default Openai
