@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 // import '../styles/Openai.css';
 import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'; 
@@ -13,7 +12,7 @@ function Openai(){
     {
       message: "Hello, ask anything to learn more about climate change or carbon emission!",
       sentTime: "just now",
-      sender: "ChatGPT"
+      sender: "Bloom GPT"
     }
   ]);
 
@@ -85,7 +84,7 @@ function Openai(){
           <ChatContainer>       
             <MessageList 
               scrollBehavior="smooth" 
-              typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+              typingIndicator={isTyping ? <TypingIndicator content="Bloom GPT is typing" /> : null}
             >
               {messages.map((message, i) => {
                 console.log(message)
