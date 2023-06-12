@@ -149,8 +149,60 @@ span {
     margin-right: 70vh;
 }
 
-
-#airiq-widget {
-    background-color: white;
+.footer {
+    display: flex;
+    height: 8vh;
+    justify-content: space-around;
+    align-items: flex-end;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: x-large;
+    padding: 0;
+    background-color: #113b2e;
+    color: #b2bcb9;
 }
 
+
+
+
+.github-links {
+    display: flex;
+}
+
+#andrea-github,
+#jorgen-github,
+#melissa-github,
+#brandon-github {
+    padding-left: 5px;
+}
+
+.up-btn {
+    margin-left: -15vh
+}
+
+
+
+.up-btn:hover {
+    cursor: pointer;
+    color: #8ea574;
+}
+
+
+
+.advice-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.advice-item.show {
+    opacity: 1;
+}
+
+.advice-description {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.advice-item:hover .advice-description {
+    display: block;
+}

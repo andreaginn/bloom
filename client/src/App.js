@@ -7,6 +7,7 @@ import Success from './pages/DonateSuccess.js';
 import Cancel from './pages/DonateCancel.js';
 import Preloader from './components/Preloader.js';
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
 import Learn from './pages/Learn.js';
 import ImpactModal from './components/ImpactModal.js';
 import './App.css';
@@ -73,6 +74,7 @@ function App() {
           <Route path='/Success' element={<Success />} />
           <Route path='/Cancel' element={<Cancel />} />
         </Routes>
+        <Footer />
         </>
       </Router>
     </ApolloProvider>
