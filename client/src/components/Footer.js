@@ -6,10 +6,10 @@ const Footer = () => {
 
     const handleScrollToTop = () => {
         window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
+            top: 0,
+            behavior: 'smooth',
         });
-      };
+    };
 
     return (
         <div className="footer">
@@ -25,8 +25,8 @@ const Footer = () => {
                     <a href="https://github.com/bruano95" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} style={{ color: "#468247", }} /></a></div>
             </div>
             <div className="up-btn" onClick={handleScrollToTop}>
-        Return to top
-      </div>
+                Return to top
+            </div>
             <div className="bloom-2023">Bloom 2023</div>
         </div>
     );

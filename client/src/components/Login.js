@@ -58,12 +58,12 @@ const Login = () => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
-        <h3>Login</h3>
+        <div className="mb-3 text-2xl font-bold text-slate-700">Login</div>
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Label className="text-base text-slate-800" htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your email'
+            placeholder=''
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
@@ -73,10 +73,10 @@ const Login = () => {
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label className="text-base text-slate-800" htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Your password'
+            placeholder=''
             name='password'
             onChange={handleInputChange}
             value={userFormData.password}

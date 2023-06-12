@@ -15,6 +15,10 @@
 }
 .missionStatement{
     width: 50%;
+    background-color: #f3f3f3be;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
     /* margin: 20px; */
 }
 .missionStatement h1{
@@ -29,7 +33,7 @@
     justify-content: space-evenly;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: #f3f3f3;
+    background-color: #f3f3f3be;
     padding: 20px;
     border-radius: 20px;
     margin: 20px;

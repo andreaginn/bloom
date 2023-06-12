@@ -63,12 +63,12 @@ const Signup = () => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
         </Alert>
-        <h3>Sign up</h3>
+        <div className="mb-3 text-2xl font-bold text-slate-700">Sign up</div>
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label className="text-base text-slate-800" htmlFor='username'>Username</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your username'
+            placeholder=''
             name='username'
             onChange={handleInputChange}
             value={userFormData.username}
@@ -78,10 +78,10 @@ const Signup = () => {
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Label className="text-base text-slate-800" htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='email'
-            placeholder='Your email address'
+            placeholder=''
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
@@ -91,10 +91,10 @@ const Signup = () => {
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label className="text-base text-slate-800" htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Your password'
+            placeholder=''
             name='password'
             onChange={handleInputChange}
             value={userFormData.password}
