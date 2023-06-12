@@ -94,7 +94,7 @@ const Profile = (refresh) => {
           <Link as={Link} to='/Donate' className="text-slate-700 text-center">Donate to one of our selected causes to offset your overall impact</Link>
         </div>
         <div className="mt-5 electricityBill">
-          <ElectricityBill/>
+          <ElectricityBill cost = {userData.electricityBill}/>
           {/* <ElectricityInput/> */}
         </div>
       </div>

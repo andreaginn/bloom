@@ -112,7 +112,8 @@ const resolvers = {
 
       },
 
-      updateElectricityBill: async(_, {electricityBill}, context) => {
+      updateElectricityBill: async(_, electricityBill, context) => {
+        console.log('Update Electricity Mutation Called')
         await User.findByIdAndUpdate(context.user._id,{
           electricityBill: electricityBill
         })
