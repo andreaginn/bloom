@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const NewsListing = () => {
     const [value, setvalue] = useState([]);
@@ -12,17 +14,17 @@ const NewsListing = () => {
     }
     useEffect(() => {
         api();
-
+        Aos.init({ duration: 2500});
     }, []);
 
     return (
         <>
-            <div className="col-start-3 col-end-7 place-self-center text-7xl pl-8 py-10 font-bold text-slate-700 mt-3 mr-3" style={{ display: 'inline-block' }}>
+            <div className="col-start-3 col-end-7 place-self-center text-7xl pl-10 py-10 font-bold text-slate-700 mt-3 mr-3 justify-center" style={{ display: 'inline-block' }}>
                 <span className="text-orange-400">Learn</span> more about how carbon emissions and climate change has effect on the world.
             </div>
-            <div className="grid gap-2 pt-3 lg:grid-cols-3 rounded-md">
+            <div data-aos="fade-up" className="grid gap-4 md:pl-10 pt-3 lg:grid-cols-3 rounded-md">
                 {value.filter(urlToImage => urlToImage.urlToImage !== null).map(a => (
-                    <div className="h-full w-full rounded-lg shadow-md lg:max-w-sm">
+                    <div data-aos="fade-up" className="h-full w-full rounded-lg shadow-md lg:max-w-sm">
                         <img
                             className="object-cover w-full h-48 rounded-lg"
                             src={a.urlToImage}
