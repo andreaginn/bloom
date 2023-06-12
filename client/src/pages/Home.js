@@ -9,6 +9,7 @@ import Auth from '../utils/auth.js'
 import Login from '../components/Login.js';
 import Signup from '../components/Signup.js';
 
+
 const Home = () => {
 
     const [loginToggle, setLoginToggle] = useState(false)
@@ -18,7 +19,7 @@ const Home = () => {
     //     console.log('Impact Button Clicked')
     //     setModalOpen(true)
     // };
-    
+
     // useEffect(() => {
     //     const script = document.createElement('script');
     //     script.src = 'https://widget.iqair.com/script/widget_v3.0.js';
@@ -49,6 +50,11 @@ const Home = () => {
                 <div id="airiq-widget"
                     key="647958edf44db0493341d68b">
                 </div>
+
+                {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
+                {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
+           
+                   <AirQuality />
                 <Advice />
 
                 <div className = "missionStatement">
@@ -79,7 +85,6 @@ const Home = () => {
                 ) }
             </div>
             <div className="lower-homepage">
-
             </div>
         </div>
     );
