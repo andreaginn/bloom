@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import Button from './Button'
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -12,6 +12,7 @@ import { UPDATE_ELECTRICITY_BILL } from '../utils/mutations';
 const ElectricityBill = (props) => {
     const [electricityBillForm, setElectricityBillForm] = useState(true)
     const [electricityCost, setElectricityCost] = useState("")
+    const [electricityBillDisplay, setElectricityBillDisplay] = useState('0')
     const [updateElectricityBill, {error}] = useMutation(UPDATE_ELECTRICITY_BILL);
 
     const triggerElectricityForm = async () => {
@@ -25,10 +26,17 @@ const ElectricityBill = (props) => {
         }
       }
 
+      useEffect(() => {
+        if (props.cost) {
+          setElectricityBillDisplay(props.cost)
+        }
+        
+      }, []);
+
     const triggerUpdateElectricity = async(electricityCost) => {
         console.log("Trigger Update Electricity Cost")
         console.log(electricityCost)
-        if(electricityCost.length <= 0){
+        if(!electricityCost.trim()){
             console.log('Please enter an amount')
             return
         }
@@ -36,7 +44,9 @@ const ElectricityBill = (props) => {
         if(!isNumeric(electricityCost)){
             console.log('Please make sure the quantity is a valid number')
             return
-        }
+        }   
+
+        electricityCost = electricityCost * 1;
 
         try{
             await updateElectricityBill({
@@ -44,10 +54,12 @@ const ElectricityBill = (props) => {
                     electricityBill: electricityCost
                 }
             })
+            
             if (error) {
                 throw new Error('Something Went Wrong')
             }
-            setElectricityCost("")
+            setElectricityBillDisplay(electricityCost*1)
+            setElectricityCost(``)
         } catch(err){
             console.log(err)
         }
@@ -59,13 +71,13 @@ const ElectricityBill = (props) => {
   return (
 
     
-    <div className="mt-5 text-center electricityBill">
+    <div className="p-3 text-center electricityBill items-center">
         {!electricityBillForm &&
             <>
            
             
-            <p className = "text-3xl font-bold text-white text-center pb-3">Add Your Average Electricity Bill</p>
-             <FormControl>
+            <p className = " text-2xl md:text-3xl font-bold text-white text-center pt-2 pb-3">Add Your Average Electricity Bill</p>
+             <FormControl >
              <InputLabel htmlFor="my-input">Monthly Bill</InputLabel>
              <OutlinedInput
                          id="outlined-adornment-amount"
@@ -74,15 +86,14 @@ const ElectricityBill = (props) => {
                          value = {electricityCost}
                          onChange = {(event) => setElectricityCost(event.target.value)}
                      />
-                 <button className = "impactButton" type="submit" onClick = {() => {triggerElectricityForm(); triggerUpdateElectricity(electricityCost)}}>Save</button>
+                 <button className = "impactButton" type="submit" onClick = {() => {triggerUpdateElectricity(electricityCost); triggerElectricityForm();}}>Save</button>
              </FormControl>
              </>
             }
             {electricityBillForm &&
             <>
-            <p className = "text-3xl font-bold text-white text-center pb-3">Your Average Electricity Bill</p>
-            
-            <p className = "text-3xl font-bold text-orange-400 text-center pb-1">{props.cost}$ / Month</p>
+            <p className = " text-2xl md:text-3xl font-bold  text-white text-center pt-2 pb-3">Your Average Electricity Bill</p>
+            <p className = " text-3xl md:text-4xl font-bold text-slate-700 text-center pb-1">{electricityBillDisplay}$ / Month</p>
             <Button content = {'Update'} onClick = {triggerElectricityForm}/>
             </>
             }

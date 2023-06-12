@@ -23,6 +23,15 @@ export const QUERY_ME = gql`
     }
 `;
 
+export const QUERY_BILL = gql`
+  query me {
+    me{
+      electricityBill
+    }
+  }
+`
+
+
 export const GET_ACTIONS = gql`
 query Action($category: String) {
   actions(category: $category) {
