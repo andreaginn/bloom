@@ -110,6 +110,12 @@ const resolvers = {
         weeklyGoal: weeklyGoal
        })
 
+      },
+
+      updateElectricityBill: async(_, {electricityBill}, context) => {
+        await User.findByIdAndUpdate(context.user._id,{
+          electricityBill: electricityBill
+        })
       }
     },
   };

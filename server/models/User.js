@@ -35,7 +35,11 @@ const userSchema = new Schema({
       dateCreated: new Date(),
       goalText: "You don't currently have a weekly goal.  Click the button below to set one."
     }
-  }
+  },
+  electricityBill: {
+    type: Number,
+    default: 0
+  },
 });
 
 userSchema.pre('save', async function (next) {

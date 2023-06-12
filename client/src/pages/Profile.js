@@ -16,6 +16,7 @@ import WeeklyGoal from '../components/WeeklyGoal.js';
 import orangeFlower from '../images/OrangeFlower.png'
 import lavendarPhoto from '../images/Lavendar.png'
 import { Link } from 'react-router-dom';
+import ElectricityBill from '../components/ElectricityBill.js';
 
 
 const Profile = (refresh) => {
@@ -92,8 +93,8 @@ const Profile = (refresh) => {
           <h2 className="text-4xl font-bold text-slate-700 pl-52 pb-3 text-center"> of carbon.</h2>
           <Link as={Link} to='/Donate' className="text-slate-700 text-center">Donate to one of our selected causes to offset your overall impact</Link>
         </div>
-        <div className="mt-5 text-center">
-          Place a form/box for adding your monthly electricity bill here
+        <div className="mt-5 electricityBill">
+          <ElectricityBill/>
           {/* <ElectricityInput/> */}
         </div>
       </div>
