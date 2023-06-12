@@ -74,7 +74,7 @@ const Home = () => {
                             </>}
                             {loginToggle && <>
                                 <Login />
-                                <div className="text-base text-slate-800">Need to create an account? <button onClick={() => setLoginToggle(false)}>Sign Up</button></div>
+                                <div className="text-base text-slate-800 mt-4">Need to create an account? <button onClick={() => setLoginToggle(false)}>Sign Up</button></div>
                             </>}
 
                         </div>
