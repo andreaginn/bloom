@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const systemMessage = {
   "role": "system", "content": "Explain things like you're talking to someone with 2 years of climate change experience."
@@ -24,7 +26,7 @@ function Openai() {
     };
 
     const newMessages = [...messages, newMessage];
-    
+
     setMessages(newMessages);
 
     setIsTyping(true);
@@ -35,12 +37,12 @@ function Openai() {
 
     let apiMessages = chatMessages.map((messageObject) => {
       let role = "";
-      if (messageObject.sender === "ChatGPT") {
+      if (messageObject.sender === "BloomGPT") {
         role = "assistant";
       } else {
         role = "user";
       }
-      return { role: role, content: messageObject.message}
+      return { role: role, content: messageObject.message }
     });
 
     const apiRequestBody = {
@@ -51,46 +53,52 @@ function Openai() {
       ]
     }
 
-    await fetch("https://api.openai.com/v1/chat/completions", 
-    {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer " + process.env.REACT_APP_OPENAI_KEY,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(apiRequestBody)
-    }).then((data) => {
-      return data.json();
-    }).then((data) => {
-      console.log(data);
-      setMessages([...chatMessages, {
-        message: data.choices[0].message.content,
-        sender: "BloomGPT"
-      }]);
-      setIsTyping(false);
-    });
+    await fetch("https://api.openai.com/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + process.env.REACT_APP_OPENAI_KEY,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(apiRequestBody)
+      }).then((data) => {
+        return data.json();
+      }).then((data) => {
+        console.log(data);
+        setMessages([...chatMessages, {
+          message: data.choices[0].message.content,
+          sender: "BloomGPT"
+        }]);
+        setIsTyping(false);
+      });
   }
+  useEffect(()=>{
+    Aos.init({ duration: 2000});
+}, []);
 
   return (
-    <div className="App">
-      <div style={{ position:"relative", height: "800px", width: "700px"  }}>
-        <MainContainer>
-          <ChatContainer>       
-            <MessageList 
-              scrollBehavior="smooth" 
-              typingIndicator={isTyping ? <TypingIndicator content="Bloom GPT is typing" /> : null}
-            >
-              {messages.map((message, i) => {
-                console.log(message)
-                return <Message key={i} model={message} />
-              })}
-            </MessageList>
-            <MessageInput placeholder="Type message here" onSend={handleSendReq} />        
-          </ChatContainer>
-        </MainContainer>
+    <div data-aos="fade-right" className="grid grid-cols-2 gap-4 w-full pl-10 md:w-550 pb-10 pt-4">
+        <div style={{ position: "sticky", height: "500px" }}>
+          <MainContainer>
+            <ChatContainer>
+              <MessageList
+                scrollBehavior="smooth"
+                typingIndicator={isTyping ? <TypingIndicator content="Bloom GPT is typing" /> : null}
+              >
+                {messages.map((message, i) => {
+                  console.log(message)
+                  return <Message key={i} model={message} />
+                })}
+              </MessageList>
+              <MessageInput placeholder="Type message here" onSend={handleSendReq} attachButton={false} />
+            </ChatContainer>
+          </MainContainer>
+        </div>
+        <div data-aos="fade-left" class="col-start-2 col-end-7 text-6xl pr-20 pt-20 font-bold text-slate-700 mt-3 mr-3 md:visible" style={{ display: 'inline-block' }}>
+        <span className="text-orange-400">Learn</span> more! Just ask Bloom GPT.
+        </div>
       </div>
-    </div>
   )
 }
 
-export default Openai
+export default Openai;
