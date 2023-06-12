@@ -8,7 +8,7 @@ import Advice from '../components/AdviceDisplay';
 import Auth from '../utils/auth.js'
 import Login from '../components/Login.js';
 import Signup from '../components/Signup.js';
-
+import AirQuality from '../components/AirQuality.js';
 
 const Home = () => {
 
@@ -39,50 +39,51 @@ const Home = () => {
 
             <div className="home-body">
                 {Auth.loggedIn() ? (
-                <>
-                <Helmet>
-                    <script
-                        type="text/javascript"
-                        src="https://widget.iqair.com/script/widget_v3.0.js"
-                    ></script>
-                </Helmet>
+                    <>
+                        <Helmet>
+                            <script
+                                type="text/javascript"
+                                src="https://widget.iqair.com/script/widget_v3.0.js"
+                            ></script>
+                        </Helmet>
 
-                <div id="airiq-widget"
-                    key="647958edf44db0493341d68b">
-                </div>
+                        <div id="airiq-widget"
+                            key="647958edf44db0493341d68b">
+                        </div>
 
-                {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
+                        {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
                 {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
-           
-                   <AirQuality />
-                <Advice />
 
-                <div className = "missionStatement">
-                <h1>At Bloom our mission is to help you help the world.</h1>
-                <p>The continued destabilization of the global climate has rapidly become the greatest  threat humanity currently faces.  As average temperatures continue to rise we are predicted to experience the hottest 5 year period in recorded history between 2023-2028.  This has caused devastating wildfires, threat of extinction for countless species, and the acidification of the oceans.  A majority of experts agree that we have 10 years to make a drastic change before this trend become irreversible, and while a majority of the impact comes down to political policy and corporate accountability we want to help you do your part.  Changing our culture from a consumption based model to one that acts sustainably is going to be an essential shift for pushing humanity in the right direction.  With bloom you can get daily tips on how you can live a more sustainable lifestyle and  can track your daily actions to see a detailed breakdown of your carbon impact each day.</p>
-                </div>
+                        <AirQuality />
+                        <Advice />
 
-                </>
+                        <div className="missionStatement ">
+                            <div className="text-4xl sm:text-7xl font-bold text-slate-700 mt-3 mr-3">At Bloom our mission is to help you help the world.</div>
+                            <p>The continued destabilization of the global climate has rapidly become the greatest threat humanity currently faces. As average temperatures continue to rise we are predicted to experience the hottest 5 year period in recorded history between 2023-2028. This has caused devastating wildfires, threat of extinction for countless species, and the acidification of the oceans.</p>
+                            <p>A majority of experts agree that we have 10 years to make a drastic change before this trend becomes irreversible. While a majority of the impact comes down to political policy and corporate accountability, we want to help you do your part. Changing our culture from a consumption based model to one that acts sustainably is going to be an essential shift for pushing humanity in the right direction.  With bloom you can get daily tips on how you can live a more sustainable lifestyle and  can track your daily actions to see a detailed breakdown of your carbon impact each day.</p>
+                        </div>
+
+                    </>
                 ) : (
-                <div className = "credentials-homepage">
-    
-                 <div className = "credentials">
-                    {!loginToggle && <>
-                        <Signup/>
-                        <p>Already have an account? <button onClick = {() =>setLoginToggle(true)}>Sign In</button></p>
-                    </>}
-                   {loginToggle && <>
-                    <Login/>
-                    <p>Need to create an account? <button onClick = {() =>setLoginToggle(false)}>Sign Up</button></p>
-                   </>}
-                    
-                </div>
-                <div className = "missionStatement">
-                <h1>At Bloom our mission is to help you help the world.</h1>
-                <p>The continued destabilization of the global climate has rapidly become the greatest  threat humanity currently faces.  As average temperatures continue to rise we are predicted to experience the hottest 5 year period in recorded history between 2023-2028.  This has caused devastating wildfires, threat of extinction for countless species, and the acidification of the oceans.  A majority of experts agree that we have 10 years to make a drastic change before this trend become irreversible, and while a majority of the impact comes down to political policy and corporate accountability we want to help you do your part.  Changing our culture from a consumption based model to one that acts sustainably is going to be an essential shift for pushing humanity in the right direction.  With bloom you can get daily tips on how you can live a more sustainable lifestyle and  can track your daily actions to see a detailed breakdown of your carbon impact each day.</p>
-                </div>
-                </div>
-                ) }
+                    <div className="credentials-homepage">
+
+                        <div className="credentials">
+                            {!loginToggle && <>
+                                <Signup />
+                                <div className="text-base text-slate-800 mt-4">Already have an account? <button onClick={() => setLoginToggle(true)}>Sign In</button></div>
+                            </>}
+                            {loginToggle && <>
+                                <Login />
+                                <div className="text-base text-slate-800">Need to create an account? <button onClick={() => setLoginToggle(false)}>Sign Up</button></div>
+                            </>}
+
+                        </div>
+                        <div className="missionStatement ">
+                            <div className="text-4xl sm:text-7xl font-bold text-slate-800 mt-3 mr-3">At Bloom our mission is to help you help the world.</div>
+                            <div className="mt-5 mb-3 text-base sm:text-2xl text-slate-800">Bloom provides daily tips on how you can live a more sustainable lifestyle and track daily actions for a detailed breakdown of your carbon emission impact.</div>
+                        </div>
+                    </div>
+                )}
             </div>
             <div className="lower-homepage">
             </div>

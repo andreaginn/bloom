@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
@@ -59,22 +59,22 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-        <Preloader />
-        {/* <Navbar /> */}
-        <Navbar openModal={() => setModalOpen(true)} />
-        {modalOpen && 
-        <ImpactModal onClose={handleModalClose} />
-        }
-       
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Profile" element={<Profile refresh = {refreshProfile} />} />
-          <Route path="/Learn" element={<Learn />} />
-          <Route path="/Donate" element={<Donate />} />
-          <Route path='/Success' element={<Success />} />
-          <Route path='/Cancel' element={<Cancel />} />
-        </Routes>
-        <Footer />
+          <Preloader />
+          {/* <Navbar /> */}
+          <Navbar openModal={() => setModalOpen(true)} />
+          {modalOpen &&
+            <ImpactModal onClose={handleModalClose} />
+          }
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Profile" element={<Profile refresh={refreshProfile} />} />
+            <Route path="/Learn" element={<Learn />} />
+            <Route path="/Donate" element={<Donate />} />
+            <Route path='/Success' element={<Success />} />
+            <Route path='/Cancel' element={<Cancel />} />
+          </Routes>
+          <Footer />
         </>
       </Router>
     </ApolloProvider>
