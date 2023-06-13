@@ -1,7 +1,7 @@
 .impactButton  {
     border: none;
     border-radius: 20px; /* Makes the button round */
-    background-color: var(--green); /* Sets the background color to sage green */
+    background-color: rgba(246, 137, 3, 0.865); /* Sets the background color to sage green */
     color: white; /* Sets the text color to white */
     padding: 10px 20px; /* Optional: Adds some padding to the button */
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);

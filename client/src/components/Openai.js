@@ -11,7 +11,7 @@ const systemMessage = {
 function Openai() {
   const [messages, setMessages] = useState([
     {
-      message: "I'm Bloom GPT! Ask anything to learn more about climate change or carbon emissions!",
+      message: "I'm BloomChat! Ask anything to learn more about climate change or carbon emissions!",
       sentTime: "just now",
       sender: "BloomGPT"
     }
@@ -72,13 +72,19 @@ function Openai() {
         setIsTyping(false);
       });
   }
-  useEffect(()=>{
-    Aos.init({ duration: 2000});
-}, []);
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   return (
-    <div data-aos="fade-right" className="grid grid-cols-2 gap-4 w-full pl-10 md:w-550 pb-10 pt-4">
-        <div style={{ position: "sticky", height: "500px" }}>
+    <div data-aos="fade-right" className="grid grid-cols-4 gap-4 my-5">
+      <div className="col-start-2 col-end-4 md:col-start-2 md:col-end-3 ml-5">
+        <div data-aos="fade-left" class="text-2xl md:text-4xl font-bold text-slate-700 mr-2 md:visible" style={{ display: 'inline-block' }}>
+          Learn more!<br /> Just ask<span className="text-orange-400">BloomChat</span>
+        </div>
+      </div>
+      <div className="col-start-1 col-end-5 pl-4 md:col-start-3 md:col-end-5 mr-7">
+        <div style={{ position: "sticky", height: "400px" }}>
           <MainContainer>
             <ChatContainer>
               <MessageList
@@ -94,10 +100,8 @@ function Openai() {
             </ChatContainer>
           </MainContainer>
         </div>
-        <div data-aos="fade-left" class="col-start-2 col-end-7 text-6xl pr-20 pt-20 font-bold text-slate-700 mt-3 mr-3 md:visible" style={{ display: 'inline-block' }}>
-        <span className="text-orange-400">Learn</span> more! Just ask Bloom GPT.
-        </div>
       </div>
+    </div>
   )
 }
 
