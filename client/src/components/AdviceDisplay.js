@@ -26,9 +26,11 @@ const Advice = () => {
     }, []);
 
     return (
-        <div className="adviceDisplay">
-            <p className={fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].advice}</p>
-            <p className={fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].description}</p>
+        <div className = "adviceDisplay">
+                <p className = {`text-2xl text-slate-700 font-bold ${fadeIn ? 'fade-in' : 'fade-out'}`}>{reduceFootprints[displayedAdviceIndex].advice}</p>
+                <p className = {`text-1xl text-slate-700  ${fadeIn ? 'fade-in' : 'fade-out'}`}>{reduceFootprints[displayedAdviceIndex].description}</p>
+             
+            
         </div>
     );
 };

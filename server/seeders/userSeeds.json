@@ -7,6 +7,47 @@
     {
         "username": "RonTheGreat",
         "email": "ronswanson@gmail.com",
-        "password": "breakfast"
+        "password": "breakfast",
+        "impactScore": 198,
+        "dailyImpact":[
+            {"date": "2023-06-12T05:00:00.000+00:00",
+            "travelContribution": 22,
+            "energyContribution": 2.5,
+            "foodContribution": 8
+            },
+            {"date": "2023-06-11T05:00:00.000+00:00",
+            "travelContribution": 10,
+            "energyContribution": 2.5,
+            "foodContribution": 11
+            },
+            {"date": "2023-06-10T05:00:00.000+00:00",
+            "travelContribution": 14,
+            "energyContribution": 2.5,
+            "foodContribution": 2
+            },
+            {"date": "2023-06-09T05:00:00.000+00:00",
+            "travelContribution": 8,
+            "energyContribution": 2.5,
+            "foodContribution": 20
+            },
+            {"date": "2023-06-08T05:00:00.000+00:00",
+            "travelContribution": 80,
+            "energyContribution": 2.5,
+            "foodContribution": 10
+            },
+            {"date": "2023-06-07T05:00:00.000+00:00",
+            "travelContribution": 0,
+            "energyContribution": 2.5,
+            "foodContribution": 6
+            },
+            {"date": "2023-06-06T05:00:00.000+00:00",
+            "travelContribution": 25,
+            "energyContribution": 2.5,
+            "foodContribution": 8
+            }
+        ]
+
+        
+
     }
 ]

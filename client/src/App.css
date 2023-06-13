@@ -1,21 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
 
-.home-body {
-    background-image: "forest-background.jpg";
-}
-
-.credentials-homepage {
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.missionStatement {
-    width: 50%;
+.missionStatement{
     background-color: #f3f3f3be;
     padding: 20px;
     border-radius: 20px;
@@ -23,44 +9,17 @@
     /* margin: 20px; */
 }
 
-.missionStatement h1 {
-    font-size: 30px;
-    font-weight: 600;
-    padding-bottom: 10px;
-}
-
 .credentials {
-    width: 400px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    flex-wrap: wrap;
     background-color: #f3f3f3be;
     padding: 20px;
     border-radius: 20px;
     margin: 20px;
 }
 
-.credentials p {
-    margin-top: 20px;
-    width: 100%;
-}
-
-.credentials h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
 .home-body {
     background-image: url("./images/forest-background.jpg");
     background-size: cover;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
 }
 
 span {
@@ -68,12 +27,28 @@ span {
     align-items: center;
 }
 
+.logoText{
+    color: var(--green);
+    z-index: 1;
+    position: relative;
+    scale: 0.8;
+    margin-top: -64px;
+    margin-left: -20px;
+}
 .animation-container {
     position: relative;
-    z-index: 1;
-    width: 70px;
+    scale:1.4;
+    /* z-index: 1; */
+    width: 100px;
     height: 100px;
     margin-bottom: 0px;
+}
+
+.logo-text {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 15;
+    
 }
 
 .logo-text>span:first-child {
@@ -116,7 +91,7 @@ span {
 }
 
 .nav-1 li {
-    margin-right: 10vh;
+    margin-right: 40px;
 }
 
 #nav-font {
@@ -215,13 +190,16 @@ span {
 }
 
 .home-top {
-    width: 100vh;
-    height: 40vh;
+    /* width: 100vh; */
+    /* height: 40vh; */
     display: flex;
-    align-items: inline;
+    padding: 10px;
+    /* align-items: inline; */
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
-    margin-bottom: 15vh;
-    margin-top: 15vh;
+    margin-bottom: 50px;
+    margin-top: 2vh;
 }
 
 .advice-box {

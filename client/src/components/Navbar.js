@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie';
-import animationData from '../fjO3sek7ZT.json';
+import animationData from '../INOCddSheA.json';
 import Auth from '../utils/auth';
 import Button from '../components/Button'
 import {Menu, MenuItem, useMediaQuery} from '@mui/material';
@@ -42,8 +42,9 @@ const isMobile = useMediaQuery('(max-width: 768px)'); // Adjust the breakpoint a
     <div className="navbar">
       <Link className="logo" as={Link} to='/' >
         
-          <div className="animation-container">
+          <div className="animation-container pl-8">
             <Lottie options={defaultOptions} />
+            {/* <p className = "-mt-14 logoText">Bloom</p> */}
           </div>
       
       </Link>
@@ -96,20 +97,17 @@ const isMobile = useMediaQuery('(max-width: 768px)'); // Adjust the breakpoint a
           <>
             <li><Link as={Link} to='/Profile' id="nav-font">Profile</Link></li>
             <li><Link as={Link} to='/Donate' id="nav-font">Donate</Link></li>
-            <Link className="animation-container" as={Link} to='/' >
-              <Lottie options={defaultOptions} />
-            </Link>
             <li><Link as={Link} to='/Learn' id="nav-font">Learn</Link></li>
             <Link id="nav-font" onClick={Auth.logout}>Logout</Link>
             <Button content = {"Log Your Impact" } onClick={openModal}/>
           </>
         ): (
           <>
-            <button className='hamburger'>
+            {/* <button className='hamburger'>
               <span className='hamburgerLine'></span>
               <span className='hamburgerLine'></span>
               <span className='hamburgerLine'></span>
-            </button>
+            </button> */}
           </>
         )}
       </ul>
