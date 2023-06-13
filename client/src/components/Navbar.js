@@ -96,9 +96,6 @@ const isMobile = useMediaQuery('(max-width: 768px)'); // Adjust the breakpoint a
           <>
             <li><Link as={Link} to='/Profile' id="nav-font">Profile</Link></li>
             <li><Link as={Link} to='/Donate' id="nav-font">Donate</Link></li>
-            <Link className="animation-container" as={Link} to='/' >
-              <Lottie options={defaultOptions} />
-            </Link>
             <li><Link as={Link} to='/Learn' id="nav-font">Learn</Link></li>
             <Link id="nav-font" onClick={Auth.logout}>Logout</Link>
             <Button content = {"Log Your Impact" } onClick={openModal}/>

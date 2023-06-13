@@ -57,6 +57,11 @@ const Profile = (refresh) => {
   }, [loading]);
 
 
+  useEffect(() => {
+   
+    Aos.init({ duration: 2500});
+}, []);
+
 
   const triggerGoalForm = async () => {
     if (weeklyGoalForm === false) {
@@ -127,7 +132,7 @@ const Profile = (refresh) => {
           {userData.dailyImpact[0] && <MainChart data={userData.dailyImpact} />}
           <p className="text-slate-700 font-bold text-center">In an average U.S. household, eliminating the transport of food for one year could save the GHG equivalent of driving 1,000 miles, while shifting to a vegetarian meal one day a week could save the equivalent of driving 1,160 miles</p>
         </div>
-        <div className=" col-start-1 col-end-8 md:col-start-6 md:col-end-8 w-full items-bottom">
+        <div className=" col-start-1 col-end-8 md:col-start-6 md:col-end-9 w-full items-bottom">
           <img src={lavendarPhoto} alt="Lavender Flower" className="object-cover h-full" />
         </div>
       </div>

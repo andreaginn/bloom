@@ -3,6 +3,9 @@
 
 .home-body {
     background-image: "forest-background.jpg";
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .credentials-homepage {
@@ -13,9 +16,9 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-
-.missionStatement {
-    width: 50%;
+.missionStatement{
+    min-width: 50%;
+    max-width: 1000px;
     background-color: #f3f3f3be;
     padding: 20px;
     border-radius: 20px;
@@ -116,7 +119,7 @@ span {
 }
 
 .nav-1 li {
-    margin-right: 10vh;
+    margin-right: 40px;
 }
 
 #nav-font {
@@ -216,11 +219,11 @@ span {
 
 .home-top {
     width: 100vh;
-    height: 40vh;
+    /* height: 40vh; */
     display: flex;
     align-items: inline;
     justify-content: space-around;
-    margin-bottom: 15vh;
+    margin-bottom: 50px;
     margin-top: 15vh;
 }
 
