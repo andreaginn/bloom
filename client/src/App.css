@@ -106,14 +106,22 @@ span {
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: x-large;
+    color: #fff;
+    font-weight: 600;
     padding: 0;
+    padding-right: 10px;
     background-color: var(--green);
 }
 
+.modalMenuItem{
+    background-color: var(--green);
+    color: white;
+    padding: 8px;
+    border-radius: 3px;
+    width:100%;
+}
 .nav-1 {
     list-style: none;
     display: flex;
@@ -142,6 +150,20 @@ span {
     margin-left: 70vh;
     margin-right: 70vh;
 }
+
+.adviceDisplay{
+    text-align: center;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
 
 .footer {
     display: flex;

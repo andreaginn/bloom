@@ -80,7 +80,7 @@ const Home = () => {
                         </div>
                         <div className="missionStatement ">
                             <div className="text-4xl sm:text-7xl font-bold text-slate-800 mt-3 mr-3">At Bloom our mission is to help you help the world.</div>
-                            <div className="mt-5 mb-3 text-base sm:text-2xl text-slate-800">Bloom provides daily tips on how you can live a more sustainable lifestyle and track daily actions for a detailed breakdown of your carbon emission impact.</div>
+                            <div className="mt-5 mb-3 text-base sm:text-2xl text-slate-800">Bloom provides daily tips on how you can live a more sustainable lifestyle and lets you track daily actions for a detailed breakdown of your carbon emission impact.</div>
                         </div>
                     </div>
                 )}

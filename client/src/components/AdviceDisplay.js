@@ -2,52 +2,32 @@ import React, { useState, useEffect } from 'react';
 import reduceFootprints from '../data/reduceFootprints';
 import '../App.css';
 
-const AdviceDisplay = ({ advice, description, isActive }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
-
-    return (
-        <div
-            className={`advice-item ${isActive && 'show'}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-        >
-            <p>{isHovered ? description : advice}</p>
-        </div>
-    );
-};
 
 const Advice = () => {
     const [displayedAdviceIndex, setDisplayedAdviceIndex] = useState(0);
+    const [fadeIn, setFadeIn] = useState(true);
 
     const updateDisplayedAdvice = () => {
-        setDisplayedAdviceIndex((prevIndex) => (prevIndex + 1) % reduceFootprints.length);
+        setFadeIn(false);
+        setTimeout(() => {
+            setDisplayedAdviceIndex((prevIndex) => (prevIndex + 1) % reduceFootprints.length); 
+            setFadeIn(true)
+        }, 2000);
+        
     };
 
 
     useEffect(() => {
-        const intervalId = setInterval(updateDisplayedAdvice, 5000);
+        const intervalId = setInterval(updateDisplayedAdvice, 12000);
         return () => clearInterval(intervalId);
     }, []);
 
     return (
-        <div>
-            <h3>10 Ways to Reduce Your Carbon Footprint</h3>
-            {reduceFootprints.map((item, index) => (
-                <AdviceDisplay
-                    key={index}
-                    advice={item.advice}
-                    description={item.description}
-                    isActive={index === displayedAdviceIndex}
-                />
-            ))}
+        <div className = "adviceDisplay">
+                <p className = {fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].advice}</p>
+                <p className = {fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].description}</p>
+             
+            
         </div>
     );
 };
