@@ -61,16 +61,6 @@
     /* flex-wrap: wrap; */
 }
 
-.profile-body {
-    /* background-size: cover;
-    min-height: 100vh; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-}
-
 span {
     display: flex;
     align-items: center;
