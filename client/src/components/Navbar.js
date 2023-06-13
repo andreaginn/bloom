@@ -4,14 +4,9 @@ import Lottie from 'react-lottie';
 import animationData from '../fjO3sek7ZT.json';
 import Auth from '../utils/auth';
 import Button from '../components/Button'
-<<<<<<< HEAD
-import ImpactModal from './ImpactModal';
-import '../styles/Button.css';
-=======
 import {Menu, MenuItem, useMediaQuery} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import '../styles/Button.css'
->>>>>>> main
 
 
 const Navbar = ({ openModal }) => {
@@ -45,8 +40,6 @@ const isMobile = useMediaQuery('(max-width: 768px)'); // Adjust the breakpoint a
 
   return (
     <div className="navbar">
-<<<<<<< HEAD
-=======
       <Link className="logo" as={Link} to='/' >
         
           <div className="animation-container">
@@ -98,7 +91,6 @@ const isMobile = useMediaQuery('(max-width: 768px)'); // Adjust the breakpoint a
           </Menu>
         </>
       ) : (
->>>>>>> main
       <ul className="nav-1">
         {Auth.loggedIn() ? (
           <>
@@ -109,18 +101,7 @@ const isMobile = useMediaQuery('(max-width: 768px)'); // Adjust the breakpoint a
             </Link>
             <li><Link as={Link} to='/Learn' id="nav-font">Learn</Link></li>
             <Link id="nav-font" onClick={Auth.logout}>Logout</Link>
-<<<<<<< HEAD
-            <Button content={"Log Your Impact"} onClick={() => handleClick()} />
-            {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />}
-            <button className='hamburger'>
-              <span className='hamburgerLine'></span>
-              <span className='hamburgerLine'></span>
-              <span className='hamburgerLine'></span>
-            </button>
-
-=======
             <Button content = {"Log Your Impact" } onClick={openModal}/>
->>>>>>> main
           </>
         ): (
           <>
@@ -132,11 +113,7 @@ const isMobile = useMediaQuery('(max-width: 768px)'); // Adjust the breakpoint a
           </>
         )}
       </ul>
-<<<<<<< HEAD
-
-=======
       )}
->>>>>>> main
     </div>
   );
 }

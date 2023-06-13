@@ -12,7 +12,6 @@
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-
 }
 
 .missionStatement {
@@ -90,15 +89,6 @@ span {
 .navbar {
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
-    text-align: center;
-    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    font-size: x-large;
-    padding: 0;
-    background-color: #849c8c85;
-    color: #334154;
-=======
     align-items: center;
     text-align: center;
     color: #fff;
@@ -106,16 +96,16 @@ span {
     padding: 0;
     padding-right: 10px;
     background-color: var(--green);
->>>>>>> main
 }
 
-.modalMenuItem{
+.modalMenuItem {
     background-color: var(--green);
     color: white;
     padding: 8px;
     border-radius: 3px;
-    width:100%;
+    width: 100%;
 }
+
 .nav-1 {
     list-style: none;
     display: flex;
@@ -145,19 +135,19 @@ span {
     margin-right: 70vh;
 }
 
-.adviceDisplay{
+.adviceDisplay {
     text-align: center;
 }
 
 .fade-in {
     opacity: 1;
     transition: opacity 2s ease-in-out;
-  }
-  
-  .fade-out {
+}
+
+.fade-out {
     opacity: 0;
     transition: opacity 2s ease-in-out;
-  }
+}
 
 .footer {
     display: flex;
@@ -171,9 +161,6 @@ span {
     background-color: var(--green);
     color: #b2bcb9;
 }
-
-
-
 
 .github-links {
     display: flex;
@@ -190,14 +177,10 @@ span {
     margin-left: -15vh
 }
 
-
-
 .up-btn:hover {
     cursor: pointer;
     color: #8ea574;
 }
-
-
 
 .advice-item {
     opacity: 0;
@@ -216,7 +199,6 @@ span {
 .advice-item:hover .advice-description {
     display: block;
 }
-
 
 .aqi-box {
     background-color: #3963512f;
