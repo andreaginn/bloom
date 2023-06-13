@@ -13,7 +13,6 @@ const Learn = () => {
     }, 2000);
   }, []);
 
-
   return (
     <>
       <div className="grid grid-col-6 gap-4 px-5 pt-5">
@@ -22,7 +21,7 @@ const Learn = () => {
         </div>
       </div>
       <NewsList />
-      <div className="grid grid-col-6">
+      <div>
         {isLoading ? <OpenaiLoading /> : <Openai />}
       </div>
     </>
