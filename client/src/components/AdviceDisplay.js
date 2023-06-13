@@ -13,13 +13,19 @@ const AdviceDisplay = ({ advice, description, isActive }) => {
         setIsHovered(false);
     };
 
+    const currentadviceitem = document.getElementById("current-advice-item")
+    currentadviceitem.textContent = advice
+    // currentadviceitem.remove()
+
     return (
         <div
+        // get elemenent by id 
+    //set textcontent = reduceFootprints info
             className={`advice-item ${isActive && 'show'}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <p>{isHovered ? description : advice}</p>
+            <p id="current-advice-item">{isHovered ? description : advice}</p>
         </div>
     );
 };
@@ -30,24 +36,32 @@ const Advice = () => {
     const updateDisplayedAdvice = () => {
         setDisplayedAdviceIndex((prevIndex) => (prevIndex + 1) % reduceFootprints.length);
     };
-
+    //in for loop
+    // get elemenent by id 
+    //set textcontent = reduceFootprints info
+    //call to setInterval 
 
     useEffect(() => {
-        const intervalId = setInterval(updateDisplayedAdvice, 5000);
+        const intervalId = setInterval(updateDisplayedAdvice, 7000);
         return () => clearInterval(intervalId);
     }, []);
 
     return (
-        <div>
-            <h3>10 Ways to Reduce Your Carbon Footprint</h3>
+        <div className="advice-box">
+            <h3>Ways to Reduce Your Carbon Footprint</h3>
+            <h4>Hover over items to learn more</h4>
+            {/* create a <p> that is going to have an id */}
+            <div className="advice-item-list">
             {reduceFootprints.map((item, index) => (
                 <AdviceDisplay
                     key={index}
                     advice={item.advice}
                     description={item.description}
                     isActive={index === displayedAdviceIndex}
+        
                 />
-            ))}
+                
+            ))}</div>
         </div>
     );
 };

@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Bloom
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
+* [What is Bloom?](#what-is-bloom)
+* [Live Site](#live-site)
+* [API/Information Sources](#api-sources)
+* [Built With](#built-with)
+* [Screenshots](#screenshots)
+* [Team](#team)
 
-## Available Scripts
+## What is Bloom? <a name="what-is-bloom"></a>
+Bloom is a site dedicated to taking the guesswork out of reducing your individual carbon footprint. It acts as an all-in-one resource to: 
+* Calculating your carbon footprint based on individual or combined actions; 
+* Comparing your footprint to averages; making voluntary donations to environmental organizations based on balancing your carbon emissions; 
+* Having quick access to the current air quality and temperature in your area; 
+* Learning more about how you can lessen your own environmental impact via infographics and up-to-date news articles; 
+* And digging deeper into specific inqueries via our OpenAI-powered chatbot for all things climate change related, Bloom GPT. 
 
-In the project directory, you can run:
+## Live Site <a name="live-site"></a>
+Bloom is deployed and live at https://bloomv1.herokuapp.com/
 
-### `npm start`
+## API/Information Sources <a name="api-sources"></a>
+* Current air quality/temperature: AirVisual (https://www.iqair.com/)
+* Carbon emissions for calculator: Carbon Independent (https://carbonindependent.org/), Your Life In Data (https://www.yourlifeindata.com/)
+News articles: News API (https://newsapi.org/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Built With <a name="built-with"></a>
+* <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+* <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+* <img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white" />
+* <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
+* <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+* <img src="https://a11ybadges.com/badge?logo=openai" />
+* <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" />
+* <img src="https://img.shields.io/badge/Apollo%20GraphQL-311C87?&style=for-the-badge&logo=Apollo%20GraphQL&logoColor=white" />
+* <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots <a name="screenshots"></a>
+<img src="bloomsignup.jpg" alt="signup" height="100" />
+<img src="bloomhome2.jpg" alt="home" height="100" />
+<img src="bloomdonate.jpg" alt="donate" height="100" />
 
-### `npm run build`
+## Team <a name="team"></a>
+* Jorgen Paul ([@JpBaer](https://github.com/JpBaer))
+* Melissa Vaughn ([@Meljska-Fawn](https://github.com/Meljska-Fawn))
+* Brandon Ruano ([@bruano95](https://github.com/bruano95))
+* Andrea Ginn ([@andreaginn](https://github.com/andreaginn))
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

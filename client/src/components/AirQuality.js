@@ -35,8 +35,8 @@ const AirQuality = () => {
   }, []);
 
   return (
-    <div>
-      <h3>Air Quality Information</h3>
+    <div class="aqi-box">
+      <h3 id="aqi-header">Air Quality Information</h3>
       {aqiData && (
         <div>
           <p>Air Quality Index (AQI): {aqiData}</p>
