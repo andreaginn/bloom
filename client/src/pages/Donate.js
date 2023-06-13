@@ -1,6 +1,5 @@
 import React from 'react';
 import DonateForm from '../components/DonateForm';
-import { Link } from 'react-router-dom';
 import FilterVintageRoundedIcon from '@mui/icons-material/FilterVintageRounded';
 import { orange } from '@mui/material/colors';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -13,7 +12,7 @@ const Donate = () => {
     return (
         <>
             <div className="grid grid-cols-6 gap-4 mt-5">
-                <div className="lg:col-start-1 lg:col-end-3 mt-5 col-start-2 col-end-6">
+                <div className="lg:col-start-1 lg:col-end-3 mt-5 col-start-1 col-end-7">
                     <DonateForm />
                 </div>
                 <div className="donate-intro-text" style={{ display: 'inline-block' }}>
@@ -37,7 +36,7 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className="donate-button">
-                    <Link className="btn-primary" as={Link} to='https://onetreeplanted.org/'>Learn more<KeyboardArrowRightIcon /></Link>
+                    <a className="btn-primary" href='https://onetreeplanted.org/' target="_blank" rel="noopener noreferrer">Learn more<KeyboardArrowRightIcon /></a>
                 </div>
             </div>
             {/* Coming Clean */}
@@ -57,7 +56,7 @@ const Donate = () => {
                     <span><FilterVintageRoundedIcon sx={{ color: orange[500]}}/><div className="donate-points-text">Holding corporations accountable for pollution</div></span>
                 </div>
                 <div className="donate-button">
-                    <Link className="btn-primary" as={Link} to='https://www.comingcleaninc.org/'>Learn more<KeyboardArrowRightIcon /></Link>
+                    <a className="btn-primary" href='https://www.comingcleaninc.org/' target="_blank" rel="noopener noreferrer">Learn more<KeyboardArrowRightIcon /></a>
                 </div>
             </div>
             {/* Carbon180 */}
@@ -77,7 +76,7 @@ const Donate = () => {
                     <span className="pb-2"><FilterVintageRoundedIcon sx={{ color: orange[500]}}/><div className="donate-points-text">Promotes carbon-removal on U.S. farmland</div></span>
                 </div>
                 <div className="donate-button">
-                    <Link className="btn-primary" as={Link} to='https://carbon180.org/'>Learn more<KeyboardArrowRightIcon /></Link>
+                    <a className="btn-primary" href='https://carbon180.org/' target="_blank" rel="noopener noreferrer">Learn more<KeyboardArrowRightIcon /></a>
                 </div>
             </div>
             {/* Clean Air Task Force */}
@@ -99,7 +98,7 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className="donate-button">
-                    <Link className="btn-primary" as={Link} to='https://www.catf.us/'>Learn more<KeyboardArrowRightIcon /></Link>
+                    <a className="btn-primary" href='https://www.catf.us/' target="_blank" rel="noopener noreferrer">Learn more<KeyboardArrowRightIcon /></a>
                 </div>
             </div>
             {/* Rainforest Foundation */}
@@ -119,7 +118,7 @@ const Donate = () => {
                     <span className="pb-2"><FilterVintageRoundedIcon sx={{ color: orange[500]}}/><div className="donate-points-text">Prevents deforestation</div></span>
                 </div>
                 <div className="donate-button">
-                    <Link className="btn-primary" as={Link} to='https://rainforestfoundation.org/'>Learn more<KeyboardArrowRightIcon /></Link>
+                    <a className="btn-primary" href='https://rainforestfoundation.org/' target="_blank" rel="noopener noreferrer">Learn more<KeyboardArrowRightIcon /></a>
                 </div>
             </div>
             {/* Climate Ride */}
@@ -138,8 +137,8 @@ const Donate = () => {
                     <span className="pb-2"><FilterVintageRoundedIcon sx={{ color: orange[500]}}/><div className="donate-points-text">Promotes active transporation solutions</div></span>
                     <span className="pb-2"><FilterVintageRoundedIcon sx={{ color: orange[500]}}/><div className="donate-points-text">Supports sustainability through empowering others</div></span>
                 </div>
-                <div className="donate-button">
-                    <Link className="btn-primary" as={Link} to='https://www.climateride.org/'>Learn more<KeyboardArrowRightIcon /></Link>
+                <div className="donate-button mb-5">
+                    <a className="btn-primary" href='https://www.climateride.org/' target="_blank" rel="noopener noreferrer">Learn more<KeyboardArrowRightIcon /></a>
                 </div>
             </div>
         </>

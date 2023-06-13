@@ -25,6 +25,9 @@
   .donate-button{
     @apply lg:col-start-4 lg:col-end-5 place-self-start col-start-2 col-end-6
   }
+  .bg-image{
+    @apply h-screen bg-cover bg-fixed
+  }
 }
 :root{
   --green: #7ea877
