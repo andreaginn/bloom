@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import NewsList from '../components/NewsList';
 import Openai from '../components/Openai';
 
