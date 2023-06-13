@@ -127,9 +127,9 @@ const ImpactModal = (props) => {
             <div className = "impactModal">
                 <div className = "impactOverlay" onClick = {handleClose}></div>
                     <div className = "impactModalContent">
-                    <h2>Log Todays Impact</h2>
+                    <h2 className = "text-3xl font-bold text-slate-700">Log Todays Impact</h2>
                     <form>
-                    <label>Pick a Category</label>
+                    <label className = "text-1xl font-bold text-slate-700">Pick a Category</label>
                     <select onChange = {handleCategoryChange}>
                         <option value = "">Select</option>
                         <option value = "Travel">Transportation</option>
@@ -137,12 +137,12 @@ const ImpactModal = (props) => {
                         <option value = "Food">Food</option>
                     </select>
                     
-                    {actionsLoading ? ( <p>Loading...</p>) :
+                    {actionsLoading ? ( <p className = "text-1xl font-bold text-slate-700">Loading...</p>) :
                     (
 
                     selectedCategory && (
                         <div className = "actionSelection">
-                        <label>Action</label>
+                        <label className = "text-1xl font-bold text-slate-700">Action</label>
                         <select value = {selectedAction} onChange = {handleActionChange}>
                         <option value = "">Select</option>
                         {actionList.map((action) => (
@@ -151,7 +151,7 @@ const ImpactModal = (props) => {
                             </option>
                         ))}
                         </select>
-                        <label>Quantity</label>
+                        <label className = "text-1xl font-bold text-slate-700">Quantity</label>
                         <div className = "quantityInput">
                         <input type = "text" value = {quantity} onChange = {handleQuantityInput}></input>
                         </div>
