@@ -35,15 +35,17 @@ const AirQuality = () => {
   }, []);
 
   return (
+<<<<<<< HEAD
     <div class="aqi-box">
       <h3 id="aqi-header">Air Quality Information</h3>
+=======
+    <div>
+>>>>>>> main
       {aqiData && (
-        <div>
-          <p>Air Quality Index (AQI): {aqiData}</p>
-          <p>
-            Temperature: {temperature}°C ({convertToFahrenheit(temperature)}°F)
-          </p>
-
+        <div className="sm:my-4 text-lg sm:text-2xl  leading-snug text-center">
+          <div className="text-slate-700 font-light">Air Quality Index</div><div className="text-orange-400 font-bold">{aqiData} AQI</div>
+          <div className="text-slate-700 font-light">
+            Temperature</div><div className="text-orange-400 font-bold"> {temperature}°C ({convertToFahrenheit(temperature)}°F)</div>
         </div>
       )}
     </div>

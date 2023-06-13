@@ -52,6 +52,7 @@ const resolvers = {
         const me = await User.findOne({ _id: context.user._id });
         // const me = context.user;
         console.log(me)
+        const electricityCost = me.electricityBill / 30
         const parsedDate = new Date(date);
         // const formattedDate = parsedDate.toISOString(); 
         //console.log(`The date in ISO is ${formattedDate}`)
@@ -75,13 +76,14 @@ const resolvers = {
               default:
               throw new Error('Invalid Category')
           }
+          me.impactScore += Math.floor(carbonContribution);
         }
         else{
           //create new impact and set carbon to correct category
           const newImpact = {
             date: date,
             travelContribution: category === 'Travel' ? carbonContribution : 0,
-            energyContribution: category === 'Energy' ? carbonContribution : 0,
+            energyContribution: category === 'Energy' ? carbonContribution : electricityCost,
             foodContribution: category === 'Food' ? carbonContribution : 0,
           };
 
@@ -90,9 +92,10 @@ const resolvers = {
           
           console.log(newImpact)
           console.log(me)
+          me.impactScore += Math.floor(carbonContribution + electricityCost);
         }
         console.log(`Impact Score ${me.impactScore}`)
-        me.impactScore += Math.floor(carbonContribution);
+        
           //Update logged in user in database
         await User.findByIdAndUpdate(me._id, {
           dailyImpact: me.dailyImpact,
@@ -110,6 +113,13 @@ const resolvers = {
         weeklyGoal: weeklyGoal
        })
 
+      },
+
+      updateElectricityBill: async(_, {electricityBill}, context) => {
+        console.log('Update Electricity Mutation Called')
+        await User.findByIdAndUpdate(context.user._id,{
+          electricityBill: electricityBill
+        })
       }
     },
   };

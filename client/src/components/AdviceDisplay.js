@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import reduceFootprints from '../data/reduceFootprints';
 import '../App.css';
 
+<<<<<<< HEAD
 const AdviceDisplay = ({ advice, description, isActive }) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -29,12 +30,20 @@ const AdviceDisplay = ({ advice, description, isActive }) => {
         </div>
     );
 };
+=======
+>>>>>>> main
 
 const Advice = () => {
     const [displayedAdviceIndex, setDisplayedAdviceIndex] = useState(0);
+    const [fadeIn, setFadeIn] = useState(true);
 
     const updateDisplayedAdvice = () => {
-        setDisplayedAdviceIndex((prevIndex) => (prevIndex + 1) % reduceFootprints.length);
+        setFadeIn(false);
+        setTimeout(() => {
+            setDisplayedAdviceIndex((prevIndex) => (prevIndex + 1) % reduceFootprints.length); 
+            setFadeIn(true)
+        }, 2000);
+        
     };
     //in for loop
     // get elemenent by id 
@@ -42,11 +51,16 @@ const Advice = () => {
     //call to setInterval 
 
     useEffect(() => {
+<<<<<<< HEAD
         const intervalId = setInterval(updateDisplayedAdvice, 7000);
+=======
+        const intervalId = setInterval(updateDisplayedAdvice, 12000);
+>>>>>>> main
         return () => clearInterval(intervalId);
     }, []);
 
     return (
+<<<<<<< HEAD
         <div className="advice-box">
             <h3>Ways to Reduce Your Carbon Footprint</h3>
             <h4>Hover over items to learn more</h4>
@@ -62,6 +76,13 @@ const Advice = () => {
                 />
                 
             ))}</div>
+=======
+        <div className = "adviceDisplay">
+                <p className = {fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].advice}</p>
+                <p className = {fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].description}</p>
+             
+            
+>>>>>>> main
         </div>
     );
 };

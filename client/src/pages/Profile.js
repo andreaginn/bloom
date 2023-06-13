@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
-import ImpactModal from '../components/ImpactModal.js'
 import Button from '../components/Button.js'
-import Chart from 'chart.js/auto'
 import { useQuery } from '@apollo/client'
 import { QUERY_ME } from '../utils/queries.js'
 import '../styles/Profile.css'
@@ -10,12 +7,13 @@ import ChartDisplay from '../components/ChartDisplay.js';
 import MainChart from '../components/MainChart.js';
 import loadingAnimation from '../16519-jejakin-logo-animation-loader-and-email.json'
 import Lottie from 'react-lottie';
-import { useMutation } from '@apollo/client'
-import { UPDATE_GOAL } from '../utils/mutations.js'
 import WeeklyGoal from '../components/WeeklyGoal.js';
 import orangeFlower from '../images/OrangeFlower.png'
-import lavendarPhoto from '../images/Lavendar.png'
+import lavendarPhoto from '../images/Lavendar2.png'
 import { Link } from 'react-router-dom';
+import ElectricityBill from '../components/ElectricityBill.js';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 
 const Profile = (refresh) => {
@@ -55,6 +53,7 @@ const Profile = (refresh) => {
     if (userData && userData.weeklyGoal) {
       setWeeklyGoal(userData.weeklyGoal.goalText)
     }
+
   }, [loading]);
 
 
@@ -83,32 +82,33 @@ const Profile = (refresh) => {
 
 
   return (
-    <div className="profile-body">
+    <>
       {/* Top Row - Total Comp and Electricity Bill */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-5">
-        <div className="mt-5">
-          <h2 className="text-4xl font-bold text-slate-700 text-center">You have contributed</h2>
-          <h3 className="text-5xl font-bold text-orange-400 pl-10 text-center">{userData.impactScore} Kg</h3>
-          <h2 className="text-4xl font-bold text-slate-700 pl-52 pb-3 text-center"> of carbon.</h2>
+      <div className="grid grid-cols-6 gap-4 mt-5 text-center">
+        <div data-aos="fade-up" className="col-start-1 col-end-7 place-self-center lg:col-start-1 lg:col-end-4 m-5">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-700 text-center">You have contributed</h2>
+          <h3 className="text-3xl md:text-6xl font-bold text-orange-400 pl-10 text-center">{userData.impactScore} Kg</h3>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-700 pl-40 md:pl-52 pb-3 text-center"> of carbon.</h2>
           <Link as={Link} to='/Donate' className="text-slate-700 text-center">Donate to one of our selected causes to offset your overall impact</Link>
         </div>
-        <div className="mt-5 text-center">
-          Place a form/box for adding your monthly electricity bill here
+        <div data-aos="fade-up" className="col-start-1 col-end-7 lg:col-start-4 lg:col-end-7 m-5 text-center">
+          <ElectricityBill cost={userData.electricityBill} />
           {/* <ElectricityInput/> */}
         </div>
       </div>
 
       {/* Second Row - Flower and weekly Goal */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="mt-5">
+      <div className="grid grid-cols-6 gap-4 items-center ml-5 mr-5">
+        <div className="col-start-1 col-end-7 lg:col-start-1 lg:col-end-4">
           <img src={orangeFlower} alt="Orange Flower" className="w-full"></img>
         </div>
-        <div className="mt-5">
+        <div data-aos="fade-up" className="col-start-1 col-end-7 lg:col-start-4 lg:col-end-7 text-center -mt-5">
+          <hr className="mb-3"></hr>
           {!weeklyGoalForm && (
-            <div className="weeklyGoal">
-              <h1 className="text-3xl font-bold text-slate-700">Your Weekly Goal</h1>
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold text-slate-700">Your Weekly Goal</h1>
 
-              <div className="text-1xl text-slate-700 mt-3">
+              <div className="text-1xl md:text-2xl text-slate-700 mt-3">
                 {weeklyGoal}
               </div>
               <Button content={'Set New Goal'} onClick={triggerGoalForm} />
@@ -120,14 +120,15 @@ const Profile = (refresh) => {
       </div>
 
       {/* Row 3 - Daily Impact Graph and Lavendar */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="mt-5 md:col-start-0 md:col-end-2">
+      <div className="grid grid-cols-8 gap-4 text-center">
+        <div data-aos="fade-up" className="pb-5 col-start-1 col-end-8 md:col-start-1 md:col-end-6 items-top m-5">
           {!userData.dailyImpact[0] && <h2>Start logging your daily actions to see a detailed breakdown of your impact</h2>}
 
           {userData.dailyImpact[0] && <MainChart data={userData.dailyImpact} />}
+          <p className="text-slate-700 font-bold text-center">In an average U.S. household, eliminating the transport of food for one year could save the GHG equivalent of driving 1,000 miles, while shifting to a vegetarian meal one day a week could save the equivalent of driving 1,160 miles</p>
         </div>
-        <div className="mt-5 md:col-end-3 ">
-          <img src={lavendarPhoto} alt="Lavender Flower" className="object-cover" />
+        <div className=" col-start-1 col-end-8 md:col-start-6 md:col-end-8 w-full items-bottom">
+          <img src={lavendarPhoto} alt="Lavender Flower" className="object-cover h-full" />
         </div>
       </div>
 
@@ -142,7 +143,7 @@ const Profile = (refresh) => {
             />
           ))}
       </div>
-    </div>
+    </>
   );
 }
 

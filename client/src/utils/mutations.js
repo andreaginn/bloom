@@ -44,3 +44,11 @@ export const UPDATE_GOAL = gql`
             }
         }
     }`
+
+export const UPDATE_ELECTRICITY_BILL = gql`
+    mutation updateElectricityBill($electricityBill: Float!){
+        updateElectricityBill(electricityBill: $electricityBill){
+            electricityBill
+        }
+    }
+    `

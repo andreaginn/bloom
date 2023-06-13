@@ -64,16 +64,6 @@
     /* flex-wrap: wrap; */
 }
 
-.profile-body {
-    /* background-size: cover;
-    min-height: 100vh; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-}
-
 span {
     display: flex;
     align-items: center;
@@ -100,6 +90,7 @@ span {
 .navbar {
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
     text-align: center;
     font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
@@ -107,8 +98,24 @@ span {
     padding: 0;
     background-color: #849c8c85;
     color: #334154;
+=======
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    padding: 0;
+    padding-right: 10px;
+    background-color: var(--green);
+>>>>>>> main
 }
 
+.modalMenuItem{
+    background-color: var(--green);
+    color: white;
+    padding: 8px;
+    border-radius: 3px;
+    width:100%;
+}
 .nav-1 {
     list-style: none;
     display: flex;
@@ -138,6 +145,20 @@ span {
     margin-right: 70vh;
 }
 
+.adviceDisplay{
+    text-align: center;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
+
 .footer {
     display: flex;
     height: 8vh;
@@ -147,7 +168,7 @@ span {
     font-family: 'Josefin Sans', sans-serif;
     font-size: x-large;
     padding: 0;
-    background-color: #113b2e;
+    background-color: var(--green);
     color: #b2bcb9;
 }
 

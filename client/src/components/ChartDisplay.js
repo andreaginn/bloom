@@ -77,7 +77,7 @@ const ChartDisplay = (props) => {
       }
 
   return (
-    <div className = "chartDisplay">
+    <div data-aos = "fade-up" className = "chartDisplay">
         <h3 className = "text-slate-700 font-bold text-2xl">{dateTitle}</h3>
         <div className = "graphContainer">
           <div className = "chartWrapper">  <Doughnut data = {data} height = "350px" width = "350px" options = {{plugins: {title: {display:true, text: 'Where Is It Coming From? (kg)'}}}}/></div>
