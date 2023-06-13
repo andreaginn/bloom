@@ -20,6 +20,7 @@ const NewsListing = () => {
 
                 const randomizedArticles = shuffleArray(response.data.articles);
                 setArticles(randomizedArticles);
+                console.log(randomizedArticles)
             } catch (error) {
                 console.error(error);
             }
