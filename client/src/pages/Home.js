@@ -75,8 +75,6 @@ const Home = () => {
                     </div>
                 )}
             </div>
-            <div className="lower-homepage">
-            </div>
         </div>
     );
 };
