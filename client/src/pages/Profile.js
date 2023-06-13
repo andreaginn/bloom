@@ -126,18 +126,18 @@ const Profile = (refresh) => {
 
       {/* Row 3 - Daily Impact Graph and Lavendar */}
       <div className="grid grid-cols-8 gap-4 text-center">
-        <div data-aos="fade-up" className="pb-5 col-start-1 col-end-8 md:col-start-1 md:col-end-6 items-top m-5">
+        <div data-aos="fade-up" className="pb-5 col-start-1 col-end-9 md:col-start-1 md:col-end-6 items-top m-5">
           {!userData.dailyImpact[0] && <h2>Start logging your daily actions to see a detailed breakdown of your impact</h2>}
 
           {userData.dailyImpact[0] && <MainChart data={userData.dailyImpact} />}
           <p className="text-slate-700 font-bold text-center">In an average U.S. household, eliminating the transport of food for one year could save the GHG equivalent of driving 1,000 miles, while shifting to a vegetarian meal one day a week could save the equivalent of driving 1,160 miles</p>
         </div>
-        <div className=" col-start-1 col-end-8 md:col-start-6 md:col-end-9 w-full items-bottom">
+        <div className=" col-start-1 col-end-9 md:col-start-6 md:col-end-9 w-full items-bottom">
           <img src={lavendarPhoto} alt="Lavender Flower" className="object-cover h-full" />
         </div>
       </div>
 
-      <div className="bg-slate-700 w-100">
+      <div className="bg-slate-700 w-100 p-10">
         {userData.dailyImpact[0] &&
           userData.dailyImpact.map((dailyImpact) => (
             <ChartDisplay
