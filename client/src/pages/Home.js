@@ -40,24 +40,13 @@ const Home = () => {
             <div className="home-body">
                 {Auth.loggedIn() ? (
                     <>
-                        <Helmet>
-                            <script
-                                type="text/javascript"
-                                src="https://widget.iqair.com/script/widget_v3.0.js"
-                            ></script>
-                        </Helmet>
-
-                        <div id="airiq-widget"
-                            key="647958edf44db0493341d68b">
-                        </div>
 
                         {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
                 {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
-                        <div className = "grid grid-cols-6 gap-4 mt-5 align-center">
-                        <AirQuality className = "col-start-2 col-end-6"/>
-                        <Advice className = "col-start-3 col-end-6"/>
+                    <div className="home-top">
+                        <AirQuality />
+                        <Advice />
                         </div>
-
                         <div className="missionStatement ">
                             <div className="text-4xl sm:text-7xl font-bold text-slate-700 m-3">At Bloom our mission is to help you help the world.</div>
                             <p className = "text-1xl text-slate-700 m-3">The continued destabilization of the global climate has rapidly become the greatest threat humanity currently faces. As average temperatures continue to rise we are predicted to experience the hottest 5 year period in recorded history between 2023-2028. This has caused devastating wildfires, threat of extinction for countless species, and the acidification of the oceans.</p>

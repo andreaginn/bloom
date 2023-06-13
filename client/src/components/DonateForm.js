@@ -30,9 +30,9 @@ export default function DonateForm() {
 
         const requestBody = JSON.stringify({
             amount: parseInt(amount * 100),
-            cancel_url: 'http://localhost:3000/Cancel',
+            cancel_url: 'https://bloomv1.herokuapp.com/Cancel',
             nonprofit_id: nonprofitId,
-            success_url: 'http://localhost:3000/Success',
+            success_url: 'https://bloomv1.herokuapp.com/Success',
         });
         //console.log(requestBody);
 
