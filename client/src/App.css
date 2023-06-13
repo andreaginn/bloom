@@ -121,7 +121,7 @@ span {
     font-family: 'Josefin Sans', sans-serif;
     font-size: x-large;
     padding: 0;
-    background-color: #849c8c85;
+    background-color: var(--green);
 }
 
 .nav-1 {
@@ -162,7 +162,7 @@ span {
     font-family: 'Josefin Sans', sans-serif;
     font-size: x-large;
     padding: 0;
-    background-color: #113b2e;
+    background-color: var(--green);
     color: #b2bcb9;
 }
 

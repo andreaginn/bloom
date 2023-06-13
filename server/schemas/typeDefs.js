@@ -31,6 +31,7 @@ const typeDefs = gql`
     impactScore: Float
     dailyImpact: [Impact]
     weeklyGoal: Goal
+    electricityBill: Float
   }
 
   type Action {
@@ -55,6 +56,7 @@ const typeDefs = gql`
 
   type Mutation {
     updateImpact(input: ActionInput): User
+    updateElectricityBill(electricityBill: Float!): User
     updateGoal(goalText: String!): User
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth

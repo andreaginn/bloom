@@ -18,9 +18,19 @@ export const QUERY_ME = gql`
               goalText
 
             }
+            electricityBill
         }
     }
 `;
+
+export const QUERY_BILL = gql`
+  query me {
+    me{
+      electricityBill
+    }
+  }
+`
+
 
 export const GET_ACTIONS = gql`
 query Action($category: String) {

@@ -60,7 +60,6 @@ useEffect(() => {
             <InputLabel htmlFor="my-input">Set New Goal</InputLabel>
             <OutlinedInput
                         id="outlined-adornment-amount"
-                        
                         label="Weekly Goal" 
                         value = {goal}
                         onChange = {(event) => setGoal(event.target.value)}

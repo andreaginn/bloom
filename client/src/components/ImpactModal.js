@@ -4,6 +4,7 @@ import '../styles/ImpactModal.css'
 
 import isNumeric from '../utils/isNumeric'
 import {GET_ACTIONS} from '../utils/queries'
+import { QUERY_BILL } from '../utils/queries';
 import {useMutation} from '@apollo/client'
 import {UPDATE_IMPACT} from '../utils/mutations'
 
@@ -16,15 +17,26 @@ const ImpactModal = (props) => {
     
     const [updateImpact, {error}] = useMutation(UPDATE_IMPACT)
 
-    const { loading, data } = useQuery(GET_ACTIONS,{
+    const { loading: actionsLoading, data: actionsData } = useQuery(GET_ACTIONS,{
         variables: {category: selectedCategory}
     });
 
+    // const {loading: billLoading, data: billData} = useQuery(QUERY_BILL)
+
+    // useEffect(() => {
+    //     if(!billLoading){
+    //         const energyCost = billData.me.electricityBill
+    //         console.log('Energy Cost')
+    //         console.log(energyCost)
+    //         }
+    // }, [billLoading, billData])
+   
+
     useEffect(() => {
-        if (!loading) {
-          setActionList(data?.actions || []);
+        if (!actionsLoading) {
+          setActionList(actionsData?.actions || []);
         }
-      }, [loading, data]);
+      }, [actionsLoading, actionsData]);
 
     // Place holder category options for testing, eventually these will be pulled from DB
 
@@ -79,7 +91,7 @@ const ImpactModal = (props) => {
         //Call external function that takes these inputs, calculates total contribution, and updates user
     }
 
-    const calcDailyImpact = async (category, carbonPerUnit, quantity) => {
+    const calcDailyImpact = async (category, carbonPerUnit, quantity, energyCost) => {
         console.log('calcDailyImpact Called')
         const date = new Date().toLocaleDateString();
         const totalCarbon = carbonPerUnit * quantity;
@@ -121,11 +133,11 @@ const ImpactModal = (props) => {
                     <select onChange = {handleCategoryChange}>
                         <option value = "">Select</option>
                         <option value = "Travel">Transportation</option>
-                        <option value = "Energy">Energy</option>
+                        {/* <option value = "Energy">Energy</option> */}
                         <option value = "Food">Food</option>
                     </select>
                     
-                    {loading ? ( <p>Loading...</p>) :
+                    {actionsLoading ? ( <p>Loading...</p>) :
                     (
 
                     selectedCategory && (
