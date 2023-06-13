@@ -53,9 +53,10 @@ const Home = () => {
 
                         {/* <Button content={"Log Your Impact"} onClick={() => handleClick()} />
                 {modalOpen && <ImpactModal onClose={() => setModalOpen(false)} />} */}
-
-                        <AirQuality />
-                        <Advice />
+                        <div className = "grid grid-cols-6 gap-4 mt-5 align-center">
+                        <AirQuality className = "col-start-2 col-end-6"/>
+                        <Advice className = "col-start-3 col-end-6"/>
+                        </div>
 
                         <div className="missionStatement ">
                             <div className="text-4xl sm:text-7xl font-bold text-slate-700 m-3">At Bloom our mission is to help you help the world.</div>

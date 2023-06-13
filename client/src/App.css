@@ -3,6 +3,9 @@
 
 .home-body {
     background-image: "forest-background.jpg";
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .credentials-homepage{
     margin: 20px;
