@@ -32,7 +32,7 @@ const MainChart = (props) => {
       };
 
   return (
-    <div className='chartDisplay'>
+    <div className='mainChartDisplay'>
         {/* <p>Your Daily Contributions (kg)</p> */}
         <Bar data = {barData} options={{ plugins: { legend: { display: false }, title: { display: true, text: 'Your Daily Contributions (kg)'} } }}/>
     </div>

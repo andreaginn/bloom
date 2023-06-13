@@ -33,7 +33,7 @@
 
 .chartDisplay{
     /* min-width: 80%; */
-    margin: 20px;
+    margin: 50px;
     /* max-width: 90%; */
     /* min-height: 60%; */
     display: flex;
@@ -43,9 +43,27 @@
     background-color: #f3f3f3;
     border-radius: 10px;
     box-shadow: 5px 5px 10px #0000006d;
-    padding: 30px;
+    padding: 40px;
     flex-grow: 1;
 }
+
+
+.mainChartDisplay{
+    /* min-width: 80%; */
+    margin: 5px;
+    /* max-width: 90%; */
+    min-height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #0000006d;
+    padding: 10px;
+    flex-grow: 1;
+}
+
 
 .electricityBill{
     background-color: var(--green);
@@ -85,4 +103,13 @@ hr{
     padding: 15px;
     box-sizing: border-box;
     max-width: 100%;
+}
+
+@media (max-width:700px) {
+    .chartDisplay{
+        margin: 0px;
+        margin-top: 20px;
+        width: 100%;
+       
+    }
 }

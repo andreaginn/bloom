@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import FilterVintageRoundedIcon from '@mui/icons-material/FilterVintageRounded';
 import { orange } from '@mui/material/colors';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Donate = () => {
+
 
     return (
         <>
