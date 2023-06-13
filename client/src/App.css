@@ -4,16 +4,18 @@
 .home-body {
     background-image: "forest-background.jpg";
 }
-.credentials-homepage{
+
+.credentials-homepage {
     margin: 20px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    
+
 }
-.missionStatement{
+
+.missionStatement {
     width: 50%;
     background-color: #f3f3f3be;
     padding: 20px;
@@ -21,7 +23,8 @@
     margin: 20px;
     /* margin: 20px; */
 }
-.missionStatement h1{
+
+.missionStatement h1 {
     font-size: 30px;
     font-weight: 600;
     padding-bottom: 10px;
@@ -38,6 +41,7 @@
     border-radius: 20px;
     margin: 20px;
 }
+
 .credentials p {
     margin-top: 20px;
     width: 100%;
@@ -48,7 +52,6 @@
     font-weight: 600;
     margin-bottom: 10px;
 }
-
 
 .home-body {
     background-image: url("./images/forest-background.jpg");
@@ -64,25 +67,6 @@
 span {
     display: flex;
     align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 35px;
-    font-family: 'Tsukimi Rounded', sans-serif;
-    color: #487652b3;
-
-}
-
-.logo-text {
-    display: flex;
-    align-items: flex-end;
-    font-weight: 15;
-}
-
-.logo-text>span {
-    position: relative;
 }
 
 .animation-container {
@@ -106,6 +90,15 @@ span {
 .navbar {
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
+    text-align: center;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 0;
+    background-color: #849c8c85;
+    color: #334154;
+=======
     align-items: center;
     text-align: center;
     color: #fff;
@@ -113,6 +106,7 @@ span {
     padding: 0;
     padding-right: 10px;
     background-color: var(--green);
+>>>>>>> main
 }
 
 .modalMenuItem{
@@ -132,7 +126,7 @@ span {
 }
 
 .nav-1 li {
-    margin-right: 40px;
+    margin-right: 10vh;
 }
 
 #nav-font {
@@ -221,4 +215,48 @@ span {
 
 .advice-item:hover .advice-description {
     display: block;
+}
+
+
+.aqi-box {
+    background-color: #3963512f;
+    border-radius: 20px;
+    height: 20vh;
+    width: 40vh;
+    padding: 20px
+}
+
+#aqi-header {
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: larger;
+    padding-bottom: 20%;
+}
+
+.home-top {
+    width: 100vh;
+    height: 40vh;
+    display: flex;
+    align-items: inline;
+    justify-content: space-around;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
+}
+
+.advice-box {
+    background-color: #3963512f;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 30px;
+}
+
+.hamburgerLine {
+    width: 25px;
+    height: 2px;
+    background-color: red;
 }
