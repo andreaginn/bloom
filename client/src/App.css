@@ -14,7 +14,9 @@
     
 }
 .missionStatement{
-    width: 50%;
+    min-width: 50%;
+    max-width: 1000px;
+
     background-color: #f3f3f3be;
     padding: 20px;
     border-radius: 20px;
