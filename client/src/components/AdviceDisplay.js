@@ -10,12 +10,15 @@ const Advice = () => {
     const updateDisplayedAdvice = () => {
         setFadeIn(false);
         setTimeout(() => {
-            setDisplayedAdviceIndex((prevIndex) => (prevIndex + 1) % reduceFootprints.length); 
+            setDisplayedAdviceIndex((prevIndex) => (prevIndex + 1) % reduceFootprints.length);
             setFadeIn(true)
         }, 2000);
-        
-    };
 
+    };
+    //in for loop
+    // get elemenent by id 
+    //set textcontent = reduceFootprints info
+    //call to setInterval 
 
     useEffect(() => {
         const intervalId = setInterval(updateDisplayedAdvice, 12000);
@@ -23,11 +26,9 @@ const Advice = () => {
     }, []);
 
     return (
-        <div className = "adviceDisplay">
-                <p className = {fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].advice}</p>
-                <p className = {fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].description}</p>
-             
-            
+        <div className="adviceDisplay">
+            <p className={fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].advice}</p>
+            <p className={fadeIn ? 'fade-in' : 'fade-out'}>{reduceFootprints[displayedAdviceIndex].description}</p>
         </div>
     );
 };
