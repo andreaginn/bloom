@@ -34,10 +34,10 @@ const NewsListing = () => {
                             <h4 className="text-xl font-semibold text-gray-600">
                                 {a.title}
                             </h4>
-                            <p className="mb-2 leading-normal">
+                            <p className="mb-8 leading-normal">
                                 {a.description}
                             </p>
-                        <div>
+                        <div className = "pt-5 absolute bottom-4">
                             <Link className="btn-primary" as={Link} to={a.url}>Read more</Link>
                         </div>
                         </div>
