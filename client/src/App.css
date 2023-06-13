@@ -62,6 +62,10 @@ span {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,6 +75,8 @@ span {
     padding: 0;
     padding-right: 10px;
     background-color: var(--green);
+    z-index: 999;
+    margin-bottom: 30px;
 }
 
 .modalMenuItem {
@@ -128,13 +134,15 @@ span {
     display: flex;
     height: 8vh;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
     text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: x-large;
+    font-weight: 600;
+    /* font-family: 'Josefin Sans', sans-serif;
+    font-size: x-large; */
     padding: 0;
+   
     background-color: var(--green);
-    color: #b2bcb9;
+    color: #fff;
 }
 
 .github-links {
