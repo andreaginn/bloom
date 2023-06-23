@@ -37,7 +37,9 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
+
 
 .impactModalContent h2{
     font-size: 25px;
@@ -52,9 +54,11 @@
     flex-direction: column;
     align-items: center;
 }
+
 .impactModalContent option {
     text-align: center;
 }
+
 .impactModalContent select{
     display: block;
     box-sizing: border-box;
@@ -63,7 +67,20 @@
     margin-bottom: 20px;
     border: solid 1px rgba(0, 0, 0, 0.501);
 }
-.impactModalContent button{
+
+.modalCloseButton {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    padding: 5px;
+    background: none;
+    background-color: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+.modalButton{
 
     border: none;
     border-radius: 20px; /* Makes the button round */
@@ -73,6 +90,7 @@
     box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.4);
     margin-top: 20px;
     margin-bottom: 20px;
+    
 }
 
 .impactModalContent input{

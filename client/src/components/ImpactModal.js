@@ -7,6 +7,7 @@ import {GET_ACTIONS} from '../utils/queries'
 import { QUERY_BILL } from '../utils/queries';
 import {useMutation} from '@apollo/client'
 import {UPDATE_IMPACT} from '../utils/mutations'
+import { Alert } from 'react-bootstrap';
 
 
 const ImpactModal = (props) => {
@@ -14,6 +15,7 @@ const ImpactModal = (props) => {
     const [selectedAction, setSelectedAction] = useState('')
     const [actionList, setActionList] = useState('')
     const [quantity, setQuantity] = useState('')
+    const [logged, setLogged] = useState(false)
     
     const [updateImpact, {error}] = useMutation(UPDATE_IMPACT)
 
@@ -66,12 +68,12 @@ const ImpactModal = (props) => {
     const logImpactItem = (event) => {
         event.preventDefault(); 
         if(!selectedAction || !quantity){
-            console.log('Please select an action or enter a quantity')
+            alert('Please select an action or enter a quantity')
             return
         }
 
         if(!isNumeric(quantity)){
-            console.log('Please make sure the quantity is a valid number')
+            alert('Please make sure the quantity is a valid number')
             return
         }
 
@@ -87,8 +89,13 @@ const ImpactModal = (props) => {
         const actionCategory = selectedActionObj.category;
 
         calcDailyImpact(actionCategory,carbonPerUnit,quantity);
-        
+        // alert("Your impact has been logged")
+        setLogged(true)
         //Call external function that takes these inputs, calculates total contribution, and updates user
+    }
+
+    const resetLogged = () => {
+        setLogged(false)
     }
 
     const calcDailyImpact = async (category, carbonPerUnit, quantity, energyCost) => {
@@ -124,9 +131,14 @@ const ImpactModal = (props) => {
     return (
     
         <div>
+         
             <div className = "impactModal">
                 <div className = "impactOverlay" onClick = {handleClose}></div>
+                {!logged ? (
                     <div className = "impactModalContent">
+                        <button className="modalCloseButton text-3xl font-bold text-slate-700" onClick={handleClose}>
+                          X
+                        </button>
                     <h2 className = "text-3xl font-bold text-slate-700">Log Todays Impact</h2>
                     <form>
                     <label className = "text-1xl font-bold text-slate-700">Pick a Category</label>
@@ -157,14 +169,23 @@ const ImpactModal = (props) => {
                         </div>
                      </div>
                     ))}
-                    <button onClick = {logImpactItem} >Log Item</button>
+                    <button className = "modalButton" onClick = {logImpactItem} >Log Item</button>
                     </form>
                     
                  
 
                 </div>  
+                  ):(
+                    <div className = "impactModalContent">
+                         <button className="modalCloseButton text-3xl font-bold text-slate-700" onClick={handleClose}>
+                          X
+                        </button>
+                    <p className = "text-2xl font-bold text-slate-700">Your action has been logged!</p>
+                    <button className = "modalButton" onClick = {resetLogged} >Add Another Item</button>
+                    </div>
+                )}
             </div>
-      
+          
         </div>
         
       )
