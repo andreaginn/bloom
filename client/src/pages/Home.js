@@ -10,7 +10,7 @@ const Home = () => {
     const [loginToggle, setLoginToggle] = useState(false)
 
     return (
-        <div className="h-screen bg-cover bg-scroll bg-[url('./images/forest-background.jpg')]">
+        <div className="home-body">
 
             <div>
                 {Auth.loggedIn() ? (
