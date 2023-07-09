@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import NewsList from '../components/NewsList';
 import Openai from '../components/Openai';
 import OpenaiLoading from '../components/Loading';
+import loadingAnimation from '../16519-jejakin-logo-animation-loader-and-email.json'
+import Lottie from 'react-lottie';
 
 const Learn = () => {
   const [isLoading, setIsLoading] = useState(true);

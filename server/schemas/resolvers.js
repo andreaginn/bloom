@@ -7,7 +7,7 @@ const resolvers = {
     Query: {
       me: async (parent, args, context) => {
         console.log('QUERY_ME called')
-        console.log(context)
+        // console.log(context)
         if (context.user) {
             return User.findOne({ _id: context.user._id });
         }
@@ -47,11 +47,11 @@ const resolvers = {
       updateImpact: async (_, {input}, context) => {
         console.log('update Impact resolver called')
   
-        console.log(input)
+        // console.log(input)
         const {date, category, carbonContribution} = input;
         const me = await User.findOne({ _id: context.user._id });
         // const me = context.user;
-        console.log(me)
+        // console.log(me)
         const electricityCost = me.electricityBill / 30
         const parsedDate = new Date(date);
         // const formattedDate = parsedDate.toISOString(); 
@@ -104,11 +104,26 @@ const resolvers = {
         return me;
       },
 
+      offsetTotalImpact: async(_, {input} , context) => {
+        console.log('Offset Total Impact Mutation Called')
+        const {donationAmount} = input
+        const carbonOffsetFromDonation = (donationAmount / 12.50) * 1000
+        const me = await User.findOne({ _id: context.user._id });
+        console.log(me.impactScore)
+        console.log(`carbonOffsetFromDonation`)
+        me.impactScore -= carbonOffsetFromDonation;
+
+        console.log(`Impact Score ${me.impactScore}`)
+
+        await User.findByIdAndUpdate(me._id,{
+          impactScore: me.impactScore
+        });
+
+        return me
+      },
+
       updateGoal: async (_, {goalText} , context) => {
-        const weeklyGoal = {
-          dateCreated: Date.now(),
-          goalText: goalText
-        }
+        
        await User.findByIdAndUpdate(context.user._id,{
         weeklyGoal: weeklyGoal
        })

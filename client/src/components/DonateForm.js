@@ -7,15 +7,21 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import { useMutation } from '@apollo/client'
+import { OFFSET_TOTAL_IMPACT } from '../utils/mutations.js'
+
 
 const publicKey = 'pk_test_716da2842e8f4e69f9c1bbea45243a0bedec745ee9e4326e778ff8290723afba';
 const secretKey = 'sk_test_c1e85dbb34c2bd384e238cefd30d5cbf69183e5a2f5c302832c367d9a6daaf07';
 const apiUrl = 'https://api.getchange.io/api/v1/payments/checkout_link';
 
 export default function DonateForm() {
+    
     const [amount, setAmount] = useState('');
     const [nonprofitId, setNonprofitId] = useState('');
     const [paymentStatus, setPaymentStatus] = useState('');
+
+    const [offsetTotalImpact, {error}] = useMutation(OFFSET_TOTAL_IMPACT);
 
     const handleAmountChange = (event) => {
         setAmount(event.target.value);
@@ -30,9 +36,11 @@ export default function DonateForm() {
 
         const requestBody = JSON.stringify({
             amount: parseInt(amount * 100),
-            cancel_url: 'https://bloomv1.herokuapp.com/Cancel',
+            // cancel_url: 'https://bloom1.herokuapp.com/Cancel',
+            cancel_url: 'http://localhost:3000/Cancel',
             nonprofit_id: nonprofitId,
-            success_url: 'https://bloomv1.herokuapp.com/Success',
+            // success_url: 'https://bloom1.herokuapp.com/Success',
+            success_url: `http://localhost:3000/Success?amount=${amount}`,
         });
         //console.log(requestBody);
 
@@ -49,8 +57,31 @@ export default function DonateForm() {
 
             // Check if the request was successful
             if (response.ok) {
-                const data = await response.json();
+
                 // Handle the response data
+                const data = await response.json();
+                
+                //If successfule call offset mutation
+                console.log(amount)
+                let offsetAmount = Number(amount)
+                const offsetInput = {
+                    donationAmount: offsetAmount
+                }
+                try{
+                    await offsetTotalImpact({
+                        variables: {
+                            input: offsetInput}
+                    })
+                    if (error) {
+                        throw new Error('Something went wrong with the carbon offset!');
+                      }
+                      console.log('Total impact has been offset')
+
+                } catch(err){
+                    console.error(err)
+                    
+                }
+                
                 // console.log(data);
                 window.location.replace(data.checkout_url);
             } else {

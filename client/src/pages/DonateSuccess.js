@@ -1,12 +1,49 @@
 import React, { useEffect } from 'react';
+import { useMutation } from '@apollo/client'
+import { OFFSET_TOTAL_IMPACT } from '../utils/mutations.js'
 
 const Success = () => {
+    const [offsetTotalImpact, {error}] = useMutation(OFFSET_TOTAL_IMPACT);
 
     useEffect(() => {
         setTimeout(() => {
-            window.location.assign('/Donate');
+            window.location.assign('/Profile');
         }, 5000);
     });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = urlParams.get('amount');
+    console.log(`amount is ${amount}`)
+
+    const handleOffset = async (amount) => {
+    let offsetAmount = Number(amount)
+    const offsetInput = {
+        donationAmount: offsetAmount
+    }
+    try{
+        await offsetTotalImpact({
+            variables: {
+                input: offsetInput}
+        })
+        if (error) {
+            throw new Error('Something went wrong with the carbon offset!');
+          }
+          console.log('Total impact has been offset')
+
+    } catch(err){
+        console.error(err)
+        
+    }
+    }
+
+
+    useEffect(() => {
+        if(amount){
+            handleOffset(amount)
+            }
+    },[]);
+    
+ 
 
     return (
         <>
