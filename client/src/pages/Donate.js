@@ -8,9 +8,15 @@ import "aos/dist/aos.css";
 
 const Donate = () => {
 
+    useEffect(() => {       
+        window.scrollTo(0, 0);
+    }, []);
+
     useEffect(() => {
         Aos.init({ duration: 2500});
     }, []);
+    
+    
 
     return (
         <>
