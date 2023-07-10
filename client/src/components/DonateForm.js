@@ -7,8 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { useMutation } from '@apollo/client'
-import { OFFSET_TOTAL_IMPACT } from '../utils/mutations.js'
+
 
 
 const publicKey = 'pk_test_716da2842e8f4e69f9c1bbea45243a0bedec745ee9e4326e778ff8290723afba';
@@ -21,7 +20,6 @@ export default function DonateForm() {
     const [nonprofitId, setNonprofitId] = useState('');
     const [paymentStatus, setPaymentStatus] = useState('');
 
-    const [offsetTotalImpact, {error}] = useMutation(OFFSET_TOTAL_IMPACT);
 
     const handleAmountChange = (event) => {
         setAmount(event.target.value);
@@ -62,25 +60,8 @@ export default function DonateForm() {
                 const data = await response.json();
                 
                 //If successfule call offset mutation
-                console.log(amount)
-                let offsetAmount = Number(amount)
-                const offsetInput = {
-                    donationAmount: offsetAmount
-                }
-                try{
-                    await offsetTotalImpact({
-                        variables: {
-                            input: offsetInput}
-                    })
-                    if (error) {
-                        throw new Error('Something went wrong with the carbon offset!');
-                      }
-                      console.log('Total impact has been offset')
-
-                } catch(err){
-                    console.error(err)
-                    
-                }
+               
+               
                 
                 // console.log(data);
                 window.location.replace(data.checkout_url);
