@@ -34,7 +34,15 @@ const AirQuality = () => {
     <div>
       {aqiData && (
         <div className="grid grid-cols-1 sm:my-4 text-lg sm:text-xl leading-snug text-center credentials mt-5">
-          <div className=" text-slate-700 font-light">Air Quality Index</div><div className="text-orange-400 font-bold">{aqiData} AQI</div>
+          <div className=" text-slate-700 font-light">Air Quality Index</div>
+          {aqiData < 50 ? (
+            <div className="text-green-400 font-bold">{aqiData} AQI</div>
+          ): aqiData > 50 && aqiData < 100 ? (
+            <div className="text-orange-400 font-bold">{aqiData} AQI</div>
+          ): (
+            <div className="text-red-400 font-bold">{aqiData} AQI</div>
+          )}
+          
           <div className=" text-slate-700 font-light">
             Temperature</div><div className="text-orange-400 font-bold"> {temperature}°C ({convertToFahrenheit(temperature)}°F)</div>
         </div>

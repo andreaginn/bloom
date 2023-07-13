@@ -8,6 +8,10 @@ const Cancel = () => {
         }, 5000);
     });
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             <div className="grid grid-cols-1 text-center place-items-center mt-5">

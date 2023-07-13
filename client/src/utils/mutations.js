@@ -36,6 +36,14 @@ export const UPDATE_IMPACT = gql`
 
 `;
 
+export const OFFSET_TOTAL_IMPACT = gql`
+    mutation offsetTotalImpact($input: OffsetInput) {
+        offsetTotalImpact(input: $input) {
+            impactScore
+        }
+}
+`;
+
 export const UPDATE_GOAL = gql`
     mutation updateGoal($goalText: String!){
         updateGoal(goalText: $goalText){
@@ -43,7 +51,7 @@ export const UPDATE_GOAL = gql`
                 goalText
             }
         }
-    }`
+    }`;
 
 export const UPDATE_ELECTRICITY_BILL = gql`
     mutation updateElectricityBill($electricityBill: Float!){

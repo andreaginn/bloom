@@ -43,6 +43,7 @@ const client = new ApolloClient({
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [refreshProfile, setRefreshProfile] = useState(false);
+  const [preloaderCount, setPreLoaderCount] = useState(0);
 
   const handleModalClose = () => {
     setModalOpen(false);
@@ -55,11 +56,19 @@ function App() {
       setRefreshProfile(false);
     }
   }, [refreshProfile]);
+
+  useEffect(() => {
+    setPreLoaderCount(preloaderCount+1)
+  }, [])
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
+          {preloaderCount <= 1 && 
           <Preloader />
+          }
+          
           {/* <Navbar /> */}
           <Navbar openModal={() => setModalOpen(true)} />
           {modalOpen &&

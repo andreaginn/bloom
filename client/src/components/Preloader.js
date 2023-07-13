@@ -23,7 +23,7 @@ const Preloader = () => {
     <div className="preloader">
         <h1 className="logo-text">B<span>
         <div className="animation-container">
-        <Lottie  options={defaultOptions} />
+        <Lottie  className = "preloader" options={defaultOptions} />
     </div>
         </span>oom</h1>
     </div>

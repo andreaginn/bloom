@@ -23,6 +23,10 @@ const typeDefs = gql`
     carbonContribution: Float!
   }
 
+  input OffsetInput{
+    donationAmount: Float!
+  }
+
   type User {
     _id: ID
     username: String
@@ -56,6 +60,7 @@ const typeDefs = gql`
 
   type Mutation {
     updateImpact(input: ActionInput): User
+    offsetTotalImpact(input: OffsetInput): User
     updateElectricityBill(electricityBill: Float!): User
     updateGoal(goalText: String!): User
     addUser(username: String!, email: String!, password: String!): Auth

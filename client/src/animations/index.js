@@ -61,42 +61,42 @@ export const preLoaderAnim = () => {
       },
       "-=2"
     )
-    .from(".landing__main .text", {
-      duration: 2,
-      // scale: 0,
-      y: 10,
-      opacity: 0,
-      stagger: {
-        amount: 2,
-      },
-      ease: "power3.easeInOut",
-    })
-    .from(".links .item", {
-      duration: 0.5,
-      opacity: 0,
-      delay: window.innerWidth < 763 ? -3 : -0.6,
-      // y: 80,
-      stagger: {
-        amount: 0.5,
-      },
-      ease: "expo.easeOut",
-      onComplete: animateMainShape(),
-    })
-    .from(".main-circle", {
-      duration: 1,
-      opacity: 0,
-      ease: "power3.easeInOut",
-      onComplete: animateShapes(),
-    })
-    .from(".shapes .shape", {
-      duration: 1,
-      opacity: 0,
-      delay: -1,
-      ease: "power3.easeInOut",
-      stagger: 1,
-    })
+    // .from(".landing__main .text", {
+    //   duration: 2,
+    //   // scale: 0,
+    //   y: 10,
+    //   opacity: 0,
+    //   stagger: {
+    //     amount: 2,
+    //   },
+    //   ease: "power3.easeInOut",
+    // })
+    // .from(".links .item", {
+    //   duration: 0.5,
+    //   opacity: 0,
+    //   delay: window.innerWidth < 763 ? -3 : -0.6,
+    //   // y: 80,
+    //   stagger: {
+    //     amount: 0.5,
+    //   },
+    //   ease: "expo.easeOut",
+    //   onComplete: animateMainShape(),
+    // })
+    // .from(".main-circle", {
+    //   duration: 1,
+    //   opacity: 0,
+    //   ease: "power3.easeInOut",
+    //   onComplete: animateShapes(),
+    // })
+    // .from(".shapes .shape", {
+    //   duration: 1,
+    //   opacity: 0,
+    //   delay: -1,
+    //   ease: "power3.easeInOut",
+    //   stagger: 1,
+    // })
     .to(".preloader", {
-      duration: 0,
+      duration: 0.0,
       css: { display: "none" },
     });
 };
@@ -204,7 +204,7 @@ export const fadeUp = (el, delay = 0) => {
 export const mobileLanding = () => {
   window.innerWidth < 763 &&
     tl.from(".landing__main2", {
-      duration: 1,
+      duration: 2,
       delay: 0,
       opacity: 0,
       y: 80,
