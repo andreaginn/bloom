@@ -11,10 +11,16 @@ const Success = () => {
         }, 5000);
     });
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    //Success page will have donation amount in url parameters
     const urlParams = new URLSearchParams(window.location.search);
     const amount = urlParams.get('amount');
     console.log(`amount is ${amount}`)
 
+    //Call offset mutation to reduce users total impact
     const handleOffset = async (amount) => {
     let offsetAmount = Number(amount)
     const offsetInput = {

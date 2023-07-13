@@ -47,17 +47,14 @@ const resolvers = {
       updateImpact: async (_, {input}, context) => {
         console.log('update Impact resolver called')
   
-        // console.log(input)
         const {date, category, carbonContribution} = input;
         const me = await User.findOne({ _id: context.user._id });
-        // const me = context.user;
-        // console.log(me)
+       
         const electricityCost = me.electricityBill / 30
         const parsedDate = new Date(date);
-        // const formattedDate = parsedDate.toISOString(); 
-        //console.log(`The date in ISO is ${formattedDate}`)
+     
         const impactIndex = me.dailyImpact.findIndex((impact) => impact.date.toLocaleDateString() === parsedDate.toLocaleDateString());
-        // const impactIndex = 0;
+        
         //If index exists add carbonContribution to existing dailyImpact, otherwise create a new one.
 
         //Use switch instead of if statements for more streamlined code

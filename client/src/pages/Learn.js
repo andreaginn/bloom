@@ -15,6 +15,10 @@ const Learn = () => {
     }, 2000);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+
 
   return (
     <>
