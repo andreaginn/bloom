@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Advice from '../components/AdviceDisplay';
 import Auth from '../utils/auth.js'
 import Login from '../components/Login.js';
@@ -8,6 +8,10 @@ import AirQuality from '../components/AirQuality.js';
 const Home = () => {
 
     const [loginToggle, setLoginToggle] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className="home-body">

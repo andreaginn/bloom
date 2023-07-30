@@ -32,6 +32,10 @@ const Profile = (refresh) => {
     }
   }, [refresh, refetch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+
   const loadingOptions = {
     loop: false,
     autoplay: true,
